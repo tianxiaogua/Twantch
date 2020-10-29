@@ -1,0 +1,8 @@
+Added Component: Designator=A0(Micro usb AB)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=5V Pin=A0-1
+Added Pin To Net: NetName=NetA0_2 Pin=A0-2
+Added Pin To Net: NetName=NetA0_3 Pin=A0-3
+Added Pin To Net: NetName=GND Pin=A0-5
+Added Member To Class: ClassName=Sheet-watch Member=Component A0 Micro USB
+Added Room: Name=Sheet-watch
