@@ -13,3 +13,5 @@
 蜂鸣器：5020贴片
 
 开关，按键，端口，usb等
+
+https://i1.hdslb.com/bfs/archive/2a736797bfb417b32eb54bc5a4ee55552f306376.jpg@160w_100h_100Q_1c.webp
