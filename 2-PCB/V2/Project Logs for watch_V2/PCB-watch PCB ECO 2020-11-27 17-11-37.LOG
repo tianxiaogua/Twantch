@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=UBL_INT2 Pin=P1-1
+Removed Pin From Net: NetName=PB15 Pin=P1-2
+Removed Pin From Net: NetName=PB13 Pin=P1-3
+Removed Pin From Net: NetName=PB14 Pin=P1-4
+Added Pin To Net: NetName=PB15 Pin=P1-1
+Added Pin To Net: NetName=PB13 Pin=P1-2
+Added Pin To Net: NetName=PB14 Pin=P1-3
+Added Pin To Net: NetName=UBL_INT2 Pin=P1-4
+Added Room: Name=Sheet-watch

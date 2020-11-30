@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GND Pin=R2-1
+Removed Pin From Net: NetName=BOOT0 Pin=R2-2
+Added Pin To Net: NetName=5V Pin=J1-A4
+Added Pin To Net: NetName=5V Pin=J1-A9
+Added Pin To Net: NetName=5V Pin=J1-B4
+Added Pin To Net: NetName=5V Pin=J1-B9
+Added Pin To Net: NetName=BOOT0 Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-2
+Added Room: Name=Sheet-watch

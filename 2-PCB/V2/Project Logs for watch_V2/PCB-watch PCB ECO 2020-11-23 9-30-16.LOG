@@ -1,0 +1,42 @@
+Added Component: Designator=J?(Type_C-6P)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J?(Type_C-UJ31-CH-G2-SMT-TR(Primary))
+Add component. Clean all parameters for all variants
+Added Component: Designator=R?(0402resistor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R?(0402resistor)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=J?-A1
+Added Pin To Net: NetName=GND Pin=J?-A12
+Added Pin To Net: NetName=GND Pin=J?-B1
+Added Pin To Net: NetName=GND Pin=J?-B12
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=CBUS Pin=J?-A4
+Added Pin To Net: NetName=CBUS Pin=J?-A9
+Added Pin To Net: NetName=CBUS Pin=J?-B4
+Added Pin To Net: NetName=CBUS Pin=J?-B9
+Added Net: Name=CBUS
+Added Pin To Net: NetName=DP_USB+ Pin=J?-A6
+Added Pin To Net: NetName=DP_USB+ Pin=J?-B6
+Added Net: Name=DP_USB+
+Added Pin To Net: NetName=DP_USB- Pin=J?-A7
+Added Pin To Net: NetName=DP_USB- Pin=J?-B7
+Added Net: Name=DP_USB-
+Added Pin To Net: NetName=NetJ?_A5 Pin=J?-A5
+Added Pin To Net: NetName=NetJ?_A5 Pin=R?-2
+Added Net: Name=NetJ?_A5
+Added Pin To Net: NetName=NetJ?_B5 Pin=J?-B5
+Added Pin To Net: NetName=NetJ?_B5 Pin=R?-2
+Added Net: Name=NetJ?_B5
+Added Member To Class: ClassName=Sheet-watch Member=Component J? Type_C-6P
+Added Member To Class: ClassName=Sheet-watch Member=Component J? Type_C-6P
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 STM32F401CCU6
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TPS709
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 XC6206
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 BS812A-1
+Added Room: Name=Sheet-watch

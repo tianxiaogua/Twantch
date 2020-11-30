@@ -1,0 +1,77 @@
+Removed Pin From Net: NetName=GND Pin=C13-1
+Removed Pin From Net: NetName=bat-3.7V Pin=C13-2
+Removed Pin From Net: NetName=GND Pin=C14-1
+Removed Pin From Net: NetName=PA11 Pin=CR17-1
+Removed Pin From Net: NetName=NetA0_2 Pin=CR17-2
+Removed Pin From Net: NetName=PA12 Pin=CR18-1
+Removed Pin From Net: NetName=NetA0_3 Pin=CR18-2
+Removed Pin From Net: NetName=3.3V Pin=R19-1
+Removed Pin From Net: NetName=NetA0_3 Pin=R19-2
+Removed Pin From Net: NetName=bat-3.7V Pin=U6-1
+Removed Pin From Net: NetName=GND Pin=U6-2
+Removed Pin From Net: NetName=bat-3.7V Pin=U6-3
+Removed Pin From Net: NetName=VBAT Pin=U6-5
+Removed Member From Class: ClassName=Sheet-watch Member=CR17
+Removed Member From Class: ClassName=Sheet-watch Member=CR18
+Removed Member From Class: ClassName=Sheet-watch Member=R19
+Removed Member From Class: ClassName=Sheet-watch Member=U6
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R0(CR2012-0805)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Added Component: Designator=R?(0402resistor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R?(0402resistor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R?(0402resistor)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=5V Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=5V Pin=C?-2
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=5V Pin=R0-2
+Added Pin To Net: NetName=PA11 Pin=R?-1
+Added Pin To Net: NetName=PA12 Pin=R?-1
+Added Pin To Net: NetName=NetA0_2 Pin=R?-2
+Added Pin To Net: NetName=NetA0_3 Pin=R?-2
+Added Pin To Net: NetName=GND Pin=U0-2
+Added Pin To Net: NetName=5V Pin=U0-7
+Added Pin To Net: NetName=BAT Pin=U0-3
+Added Net: Name=BAT
+Added Pin To Net: NetName=NetC13_1 Pin=C13-1
+Added Pin To Net: NetName=NetC13_1 Pin=C14-1
+Added Net: Name=NetC13_1
+Added Pin To Net: NetName=NetC?_2 Pin=C?-2
+Added Pin To Net: NetName=NetC?_2 Pin=U0-10
+Added Net: Name=NetC?_2
+Added Pin To Net: NetName=NetR0_1 Pin=R0-1
+Added Pin To Net: NetName=NetR0_1 Pin=U0-4
+Added Net: Name=NetR0_1
+Added Pin To Net: NetName=NetR?_2 Pin=R?-2
+Added Pin To Net: NetName=NetR?_2 Pin=U0-5
+Added Net: Name=NetR?_2
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 100NF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 1uF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 1UF
+Added Member To Class: ClassName=Sheet-watch Member=Component R0 10K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.25K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 22R
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 CH340E
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 BS812A-1
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 XC6206
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TPS709
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 STM32F401CCU6
+Added Room: Name=Sheet-watch

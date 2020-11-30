@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=NetCR18_2 Pin=CR18-2
+Removed Pin From Net: NetName=NetCR18_2 Pin=R19-2
+Added Component: Designator=A0(Micro usb AB)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=5V Pin=A0-1
+Added Pin To Net: NetName=NetCR18_2 Pin=A0-2
+Added Pin To Net: NetName=GND Pin=A0-5
+Added Pin To Net: NetName=NetCR18_2 Pin=CR17-2
+Change Net Name : Old Net Name=NetCR18_2 New Net Name=NetA0_2
+Added Pin To Net: NetName=NetA0_3 Pin=A0-3
+Added Pin To Net: NetName=NetA0_3 Pin=CR18-2
+Added Pin To Net: NetName=NetA0_3 Pin=R19-2
+Added Net: Name=NetA0_3
+Added Member To Class: ClassName=Sheet-watch Member=Component A0 Micro USB
+Added Member To Class: ClassName=Sheet-watch Member=Component J? Type_C-24P-UJ31-CH-G2-SMT-TR
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TPS709
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 STM32F401CCU6
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 XC6206
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 BS812A-1
+Added Room: Name=Sheet-watch

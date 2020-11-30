@@ -1,0 +1,4 @@
+Added Component: Designator=SETR0(remote_sensing_6)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sheet-watch Member=Component SETR0 remote_sensing_6
+Added Room: Name=Sheet-watch

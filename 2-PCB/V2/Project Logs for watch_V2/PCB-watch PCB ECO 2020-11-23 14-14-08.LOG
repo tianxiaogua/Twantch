@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=GND Pin=C10-1
+Removed Pin From Net: NetName=bat-3.7V Pin=C10-2
+Removed Pin From Net: NetName=GND Pin=C15-1
+Removed Pin From Net: NetName=5V Pin=CR20-2
+Removed Pin From Net: NetName=GND Pin=R7-2
+Removed Member From Class: ClassName=Sheet-watch Member=C10
+Removed Member From Class: ClassName=Sheet-watch Member=C15
+Removed Member From Class: ClassName=Sheet-watch Member=CR20
+Removed Member From Class: ClassName=Sheet-watch Member=R6
+Removed Member From Class: ClassName=Sheet-watch Member=R7
+Added Component: Designator=U0(SOT-23 SI2302)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U0(SOT-23 SI2302)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=PA12 Pin=U0-1
+Added Pin To Net: NetName=PA11 Pin=U0-2
+Added Pin To Net: NetName=GND Pin=U0-3
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 XC6206
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 BS812A-1
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TPS709
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 STM32F401CCU6
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 S8050
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TP4054
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 CH340E
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 S8050
+Added Room: Name=Sheet-watch

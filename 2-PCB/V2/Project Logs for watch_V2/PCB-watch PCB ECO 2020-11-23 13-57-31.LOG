@@ -1,0 +1,13 @@
+Added Component: Designator=U0(MSOP-10)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sheet-watch Member=Component J? Type_C-24P-UJ31-CH-G2-SMT-TR
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 STM32F401CCU6
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TPS709
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 XC6206
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 BS812A-1
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 CH340E
+Added Room: Name=Sheet-watch

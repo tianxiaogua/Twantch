@@ -1,0 +1,278 @@
+Removed Pin From Net: NetName=GND Pin=C11-1
+Removed Pin From Net: NetName=VBAT Pin=C11-2
+Removed Pin From Net: NetName=VBAT Pin=C12-2
+Removed Pin From Net: NetName=NetC13_1 Pin=C13-1
+Removed Pin From Net: NetName=NetC13_1 Pin=C14-1
+Removed Pin From Net: NetName=bat-3.7V Pin=C14-2
+Removed Pin From Net: NetName=NetC16_1 Pin=C16-1
+Removed Pin From Net: NetName=GND Pin=C16-2
+Removed Pin From Net: NetName=GND Pin=C17-1
+Removed Pin From Net: NetName=NetC17_2 Pin=C17-2
+Removed Pin From Net: NetName=GND Pin=C?-1
+Removed Pin From Net: NetName=3.3V Pin=C?-2
+Removed Pin From Net: NetName=3.3V Pin=F0-1
+Removed Pin From Net: NetName=LEDK Pin=F0-2
+Removed Pin From Net: NetName=GND Pin=F0-3
+Removed Pin From Net: NetName=3.3V Pin=F0-4
+Removed Pin From Net: NetName=3.3V Pin=F0-5
+Removed Pin From Net: NetName=NetF0_6 Pin=F0-6
+Removed Pin From Net: NetName=DB0 Pin=F0-13
+Removed Pin From Net: NetName=DB1 Pin=F0-14
+Removed Pin From Net: NetName=DB2 Pin=F0-15
+Removed Pin From Net: NetName=DB3 Pin=F0-16
+Removed Pin From Net: NetName=DB4 Pin=F0-17
+Removed Pin From Net: NetName=DB6 Pin=F0-19
+Removed Pin From Net: NetName=GND Pin=F0-23
+Removed Pin From Net: NetName=GND Pin=F0-24
+Removed Pin From Net: NetName=MPU_INT Pin=R9-1
+Removed Pin From Net: NetName=3.3V Pin=R9-2
+Removed Pin From Net: NetName=MPU_SDA Pin=R10-1
+Removed Pin From Net: NetName=3.3V Pin=R10-2
+Removed Pin From Net: NetName=MPU_SCL Pin=R11-1
+Removed Pin From Net: NetName=3.3V Pin=R11-2
+Removed Pin From Net: NetName=GND Pin=R?-1
+Removed Pin From Net: NetName=GND Pin=R?-1
+Removed Pin From Net: NetName=PA11 Pin=R?-1
+Removed Pin From Net: NetName=PA12 Pin=R?-1
+Removed Pin From Net: NetName=NetF0_6 Pin=R?-2
+Removed Pin From Net: NetName=PA12 Pin=U0-1
+Removed Pin From Net: NetName=PA11 Pin=U0-2
+Removed Pin From Net: NetName=LCD_BLK Pin=U0-13
+Removed Pin From Net: NetName=PB1 Pin=U0-19
+Removed Pin From Net: NetName=PA15 Pin=U0-38
+Removed Pin From Net: NetName=GND Pin=U4-1
+Removed Pin From Net: NetName=GND Pin=U4-1
+Removed Pin From Net: NetName=GND Pin=U4-6
+Removed Pin From Net: NetName=GND Pin=U4-7
+Removed Pin From Net: NetName=3.3V Pin=U4-8
+Removed Pin From Net: NetName=GND Pin=U4-9
+Removed Pin From Net: NetName=NetC16_1 Pin=U4-10
+Removed Pin From Net: NetName=GND Pin=U4-11
+Removed Pin From Net: NetName=MPU_INT Pin=U4-12
+Removed Pin From Net: NetName=3.3V Pin=U4-13
+Removed Pin From Net: NetName=GND Pin=U4-18
+Removed Pin From Net: NetName=NetC17_2 Pin=U4-20
+Removed Pin From Net: NetName=MPU_SCL Pin=U4-23
+Removed Pin From Net: NetName=MPU_SDA Pin=U4-24
+Removed Member From Class: ClassName=Sheet-watch Member=C11
+Removed Member From Class: ClassName=Sheet-watch Member=C14
+Removed Member From Class: ClassName=Sheet-watch Member=C16
+Removed Member From Class: ClassName=Sheet-watch Member=C17
+Removed Member From Class: ClassName=Sheet-watch Member=F0
+Removed Member From Class: ClassName=Sheet-watch Member=R9
+Removed Member From Class: ClassName=Sheet-watch Member=R10
+Removed Member From Class: ClassName=Sheet-watch Member=R11
+Removed Member From Class: ClassName=Sheet-watch Member=U4
+Change Component Footprint: Designator=C? Old Footprint=0402Capacitor New Footprint=CC1608-0603
+Change Component Footprint: Designator=R? Old Footprint=0402resistor New Footprint=CR1608-0603
+Change Component Comment : Designator=C13 Old Comment=10UF New Comment=1UF
+Change Component Comment : Designator=C12 Old Comment=100NF New Comment=1uF
+Change component parameters: Designator = "C?"; Footprint = "CC1608-0603"; UniqueID = "\JLWCUHLH"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters: Designator = "R?"; Footprint = "CR1608-0603"; UniqueID = "\QEUIRASZ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C?(0402Capacitor)
+Add component. Clean all parameters for all variants
+Added Component: Designator=K?(KEY 3*4)
+Add component. Clean all parameters for all variants
+Added Component: Designator=L0(LCD-1.14IPS-(2))
+Add component. Clean all parameters for all variants
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P?(HDR1X8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=U0(JDY-19)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=DB2 Pin=C12-2
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=bat-3.7V Pin=C13-2
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=key-1 Pin=C?-1
+Added Pin To Net: NetName=key-2 Pin=C?-1
+Added Pin To Net: NetName=NRST Pin=C?-1
+Added Pin To Net: NetName=DB1 Pin=C?-2
+Added Pin To Net: NetName=DB1 Pin=C?-2
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=NetC16_1 Pin=C?-2
+Added Pin To Net: NetName=NetC17_2 Pin=C?-2
+Added Pin To Net: NetName=NRST Pin=K?-1
+Added Pin To Net: NetName=GND Pin=K?-2
+Added Pin To Net: NetName=GND Pin=L0-1
+Added Pin To Net: NetName=LEDK Pin=L0-2
+Added Pin To Net: NetName=LEDK Pin=L0-3
+Added Pin To Net: NetName=3.3V Pin=L0-4
+Added Pin To Net: NetName=GND Pin=L0-5
+Added Pin To Net: NetName=GND Pin=L0-6
+Added Pin To Net: NetName=LCD_DC Pin=L0-7
+Added Pin To Net: NetName=LCD_CS Pin=L0-8
+Added Pin To Net: NetName=LCD_SCL Pin=L0-9
+Added Pin To Net: NetName=LCD_SDA Pin=L0-10
+Added Pin To Net: NetName=LCD_RES Pin=L0-11
+Added Pin To Net: NetName=GND Pin=L0-12
+Added Pin To Net: NetName=DB2 Pin=P?-1
+Added Pin To Net: NetName=DB3 Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-1
+Added Pin To Net: NetName=key-1 Pin=P?-1
+Added Pin To Net: NetName=key-2 Pin=P?-1
+Added Pin To Net: NetName=LCD_DC Pin=P?-1
+Added Pin To Net: NetName=PA15 Pin=P?-1
+Added Pin To Net: NetName=beep Pin=P?-2
+Added Pin To Net: NetName=DB2 Pin=P?-2
+Added Pin To Net: NetName=DB4 Pin=P?-2
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Pin To Net: NetName=NetF0_6 Pin=P?-2
+Added Pin To Net: NetName=PA1 Pin=P?-2
+Added Pin To Net: NetName=PA9 Pin=P?-2
+Added Pin To Net: NetName=GND Pin=P?-3
+Added Pin To Net: NetName=GND Pin=P?-3
+Added Pin To Net: NetName=PA2 Pin=P?-3
+Added Pin To Net: NetName=PA10 Pin=P?-3
+Added Pin To Net: NetName=PB2 Pin=P?-3
+Added Pin To Net: NetName=PB10 Pin=P?-3
+Added Pin To Net: NetName=GND Pin=P?-4
+Added Pin To Net: NetName=MPU_SCL Pin=P?-4
+Added Pin To Net: NetName=NetC13_1 Pin=P?-4
+Added Pin To Net: NetName=PA11 Pin=P?-4
+Added Pin To Net: NetName=PB3 Pin=P?-4
+Added Pin To Net: NetName=PB12 Pin=P?-4
+Added Pin To Net: NetName=DB2 Pin=P?-5
+Added Pin To Net: NetName=LCD_CS Pin=P?-5
+Added Pin To Net: NetName=MPU_SDA Pin=P?-5
+Added Pin To Net: NetName=PA12 Pin=P?-5
+Added Pin To Net: NetName=PB4 Pin=P?-5
+Added Pin To Net: NetName=PB13 Pin=P?-5
+Added Pin To Net: NetName=DB2 Pin=P?-6
+Added Pin To Net: NetName=LCD_SCL Pin=P?-6
+Added Pin To Net: NetName=MPU_INT Pin=P?-6
+Added Pin To Net: NetName=NetF0_6 Pin=P?-6
+Added Pin To Net: NetName=PA13 Pin=P?-6
+Added Pin To Net: NetName=PB14 Pin=P?-6
+Added Pin To Net: NetName=DB2 Pin=P?-7
+Added Pin To Net: NetName=key-3 Pin=P?-7
+Added Pin To Net: NetName=LCD_RES Pin=P?-7
+Added Pin To Net: NetName=MPU_INT Pin=P?-7
+Added Pin To Net: NetName=MPU_SCL Pin=P?-7
+Added Pin To Net: NetName=PA14 Pin=P?-7
+Added Pin To Net: NetName=DB2 Pin=P?-8
+Added Pin To Net: NetName=LCD_BLK Pin=P?-8
+Added Pin To Net: NetName=LCD_SDA Pin=P?-8
+Added Pin To Net: NetName=MPU_SDA Pin=P?-8
+Added Pin To Net: NetName=PA15 Pin=P?-8
+Added Pin To Net: NetName=DP_USB+ Pin=R?-1
+Added Pin To Net: NetName=DP_USB- Pin=R?-1
+Added Pin To Net: NetName=NRST Pin=R?-1
+Added Pin To Net: NetName=DB0 Pin=R?-2
+Added Pin To Net: NetName=DB1 Pin=U0-1
+Added Pin To Net: NetName=DB2 Pin=U0-1
+Added Pin To Net: NetName=DB6 Pin=U0-1
+Added Pin To Net: NetName=DP_USB+ Pin=U0-1
+Added Pin To Net: NetName=GND Pin=U0-1
+Added Pin To Net: NetName=VBAT Pin=U0-1
+Added Pin To Net: NetName=DB2 Pin=U0-2
+Added Pin To Net: NetName=DP_USB- Pin=U0-2
+Added Pin To Net: NetName=GND Pin=U0-2
+Added Pin To Net: NetName=GND Pin=U0-2
+Added Pin To Net: NetName=bat-3.7V Pin=U0-3
+Added Pin To Net: NetName=MPU_SDA Pin=U0-3
+Added Pin To Net: NetName=PB1 Pin=U0-3
+Added Pin To Net: NetName=MPU_SCL Pin=U0-4
+Added Pin To Net: NetName=DB1 Pin=U0-5
+Added Pin To Net: NetName=NetC16_1 Pin=U0-5
+Added Pin To Net: NetName=NetC17_2 Pin=U0-6
+Added Pin To Net: NetName=PB4 Pin=U0-6
+Added Pin To Net: NetName=NetC13_1 Pin=U0-13
+Added Pin To Net: NetName=DB4 Pin=U0-18
+Added Pin To Net: NetName=NetC13_1 Pin=U0-19
+Added Pin To Net: NetName=NetF0_6 Pin=U0-19
+Added Pin To Net: NetName=PA2 Pin=U0-20
+Added Pin To Net: NetName=DB3 Pin=U0-21
+Added Pin To Net: NetName=PB14 Pin=U0-22
+Added Pin To Net: NetName=PB13 Pin=U0-23
+Added Pin To Net: NetName=GND Pin=U0-24
+Added Pin To Net: NetName=LCD_BLK Pin=U0-38
+Added Pin To Net: NetName=PA15 Pin=U0-45
+Change Net Name : Old Net Name=DB0 New Net Name=VDD
+Change Net Name : Old Net Name=DB1 New Net Name=V3.3
+Change Net Name : Old Net Name=DB2 New Net Name=V2.5
+Change Net Name : Old Net Name=DB3 New Net Name=UBL_INT2
+Change Net Name : Old Net Name=DB4 New Net Name=UBL_INT1
+Change Net Name : Old Net Name=DB6 New Net Name=POR
+Change Net Name : Old Net Name=NetC13_1 New Net Name=PA3
+Change Net Name : Old Net Name=NetC16_1 New Net Name=NetC?_2
+Change Net Name : Old Net Name=NetC17_2 New Net Name=NetC?_2
+Change Net Name : Old Net Name=NetF0_6 New Net Name=MPU_FSYC
+Change Net Name : Old Net Name=PA15 New Net Name=MPU_DRDY
+Change Net Name : Old Net Name=PB1 New Net Name=EN-3.3
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 100NF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 100NF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 15pF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 1uF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 1uF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 1uF
+Added Member To Class: ClassName=Sheet-watch Member=Component C? 100nF
+Added Member To Class: ClassName=Sheet-watch Member=Component K? KEY 3*4
+Added Member To Class: ClassName=Sheet-watch Member=Component L0 TFT LED
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component P? Header 8
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.5K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 22R
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 1.25K
+Added Member To Class: ClassName=Sheet-watch Member=Component R? 4.7K
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 STM32F401CCU6
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TPS709
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 XC6206
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 BS812A-1
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 CH340E
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 TP4054
+Added Member To Class: ClassName=Sheet-watch Member=Component U0 JDY-19
+Added Room: Name=Sheet-watch
