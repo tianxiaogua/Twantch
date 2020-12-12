@@ -761,13 +761,14 @@ ARM Macro Assembler    Page 12
   391 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=watch\startup_stm32f411xe.d -owatch\startup_stm32f411xe.o -I"A:
-\Code base\Project\1-my-watch\1-stm32-project\V10.2\watch\MDK-ARM\RTE" -IA:\PRO
-GRAM\MDK5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -IA:\PROGRAM\MDK5\ARM\PACK\Kei
-l\STM32F4xx_DFP\2.13.0 --predefine="__MICROLIB SETA 1" --predefine="__UVISION_V
-ERSION SETA 514" --predefine="_RTE_ SETA 1" --predefine="STM32F411xE SETA 1" --
-list=startup_stm32f411xe.lst startup_stm32f411xe.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=watch\startup_stm32f411xe.d -owatch\startup_stm32f411xe.o -I
+.\RTE\_watch -I"D:\Program Files\KEIL5\package\ARM\CMSIS\5.7.0\CMSIS\Core\Inclu
+de" -I"D:\Program Files\KEIL5\package\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\D
+evice\ST\STM32F4xx\Include" --predefine="__MICROLIB SETA 1" --predefine="__UVIS
+ION_VERSION SETA 532" --predefine="_RTE_ SETA 1" --predefine="STM32F411xE SETA 
+1" --predefine="_RTE_ SETA 1" --list=startup_stm32f411xe.lst startup_stm32f411x
+e.s
 
 
 

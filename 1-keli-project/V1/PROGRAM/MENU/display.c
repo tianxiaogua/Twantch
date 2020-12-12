@@ -732,59 +732,60 @@ void MENU_APP(unsigned char switch_value)
 //}
 
 //void fun0()
-//{
-//	/**************功能的具体实现****************/
-//	
-//	//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0); //设置PWM的占空比，调节背光
-//	
-//	/*****************按键和显示处理***********************/
-//	
-//	/****************进入低功耗模式，关闭大部分外设来节约电流*************************/	
-//	
-//	LCD_RES_Clr();//显示屏幕复位
-//	
-//	/****************关闭GPIO*********************/
-//	__HAL_RCC_DMA2_CLK_DISABLE(); //关闭PWM控制输出
-//	__HAL_RCC_ADC1_CLK_DISABLE();	//关闭ADC
-//	__HAL_RCC_I2C1_CLK_DISABLE();  //关闭IIC通讯
-//	__HAL_RCC_SPI1_CLK_DISABLE(); 	//关闭屏幕的SPI通讯
-//	__HAL_RCC_TIM2_CLK_DISABLE();	//关闭PWM输出
-//	__HAL_RCC_TIM4_CLK_DISABLE();	//关闭PWM输出
-//	__HAL_RCC_USART1_CLK_DISABLE();//关闭串口通讯
-//	
-////	SystemClock_Config();
-//	
-//	//进入到死循环中，并且降低系统时钟频率进一步降工作电流
-//	while(1)
-//	{
-//		if(!HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin)) break;
-//	}	
-//	
+{
+	/**************功能的具体实现****************/
+	
+	//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0); //设置PWM的占空比，调节背光
+	
+	/*****************按键和显示处理***********************/
+	
+	/****************进入低功耗模式，关闭大部分外设来节约电流*************************/	
+	
+	LCD_RES_Clr();//显示屏幕复位
+	
+	 LOW_SystemClock_Config();
+	/****************关闭GPIO*********************/
+	__HAL_RCC_DMA2_CLK_DISABLE(); //关闭PWM控制输出
+	__HAL_RCC_ADC1_CLK_DISABLE();	//关闭ADC
+	__HAL_RCC_I2C1_CLK_DISABLE();  //关闭IIC通讯
+	__HAL_RCC_SPI1_CLK_DISABLE(); 	//关闭屏幕的SPI通讯
+	__HAL_RCC_TIM2_CLK_DISABLE();	//关闭PWM输出
+	__HAL_RCC_TIM4_CLK_DISABLE();	//关闭PWM输出
+	__HAL_RCC_USART1_CLK_DISABLE();//关闭串口通讯
+	
 //	SystemClock_Config();
-//	
-//	__HAL_RCC_DMA2_CLK_ENABLE(); //关闭PWM控制输出
-//	__HAL_RCC_ADC1_CLK_ENABLE();	//关闭ADC
-//	__HAL_RCC_I2C1_CLK_ENABLE();  //关闭IIC通讯
-//	__HAL_RCC_SPI1_CLK_ENABLE(); 	//关闭屏幕的SPI通讯
-//	__HAL_RCC_TIM2_CLK_ENABLE();	//关闭PWM输出
-//	__HAL_RCC_TIM4_CLK_ENABLE();	//关闭PWM输出
-//	__HAL_RCC_USART1_CLK_ENABLE();//关闭串口通讯
-//	
-//	LCD_Init();//LCD初始化
+	
+	//进入到死循环中，并且降低系统时钟频率进一步降工作电流
+	while(1)
+	{
+		if(!HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin)) break;
+	}	
+	
+	SystemClock_Config();
+	
+	__HAL_RCC_DMA2_CLK_ENABLE(); //关闭PWM控制输出
+	__HAL_RCC_ADC1_CLK_ENABLE();	//关闭ADC
+	__HAL_RCC_I2C1_CLK_ENABLE();  //关闭IIC通讯
+	__HAL_RCC_SPI1_CLK_ENABLE(); 	//关闭屏幕的SPI通讯
+	__HAL_RCC_TIM2_CLK_ENABLE();	//关闭PWM输出
+	__HAL_RCC_TIM4_CLK_ENABLE();	//关闭PWM输出
+	__HAL_RCC_USART1_CLK_ENABLE();//关闭串口通讯
+	
+	LCD_Init();//LCD初始化
 
-////	LCD_ShowPicture(0,0,134,103,gImage_0);
+//	LCD_ShowPicture(0,0,134,103,gImage_0);
 
-////	key_choose = 0; //把按键选择归回原位
-////	
-////	function = -1; //把功能重新回到主界面
-////	
-////	key_confirm = 0; //把确认按键归零
+//	key_choose = 0; //把按键选择归回原位
 //	
-//	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 80); //设置PWM的占空比，调节背光
+//	function = -1; //把功能重新回到主界面
 //	
-//	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-//			
-//}
+//	key_confirm = 0; //把确认按键归零
+	
+	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 80); //设置PWM的占空比，调节背光
+	
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+			
+}
 
 
 
