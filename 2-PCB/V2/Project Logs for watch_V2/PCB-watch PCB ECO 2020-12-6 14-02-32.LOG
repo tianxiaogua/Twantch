@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=R? NewDesignator=R111
+Change Component Designator: OldDesignator=R? NewDesignator=R222
+Change Net Name : Old Net Name=NetR?_2 New Net Name=NetR111_2
+Added Pin To Net: NetName=NetR222_2 Pin=R222-2
+Added Pin To Net: NetName=NetR222_2 Pin=USB0-B5
+Added Net: Name=NetR222_2
+Added Member To Class: ClassName=Sheet-watch Member=Component R222 1.5K
+Added Room: Name=Sheet-watch

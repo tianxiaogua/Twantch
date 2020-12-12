@@ -1,0 +1,16 @@
+Added Component: Designator=L0(LCD-1.3-(2))
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=L0-1
+Added Pin To Net: NetName=LEDK Pin=L0-2
+Added Pin To Net: NetName=LEDK Pin=L0-3
+Added Pin To Net: NetName=VDD-LED Pin=L0-4
+Added Pin To Net: NetName=GND Pin=L0-5
+Added Pin To Net: NetName=GND Pin=L0-6
+Added Pin To Net: NetName=LCD_DC Pin=L0-7
+Added Pin To Net: NetName=LCD_CS Pin=L0-8
+Added Pin To Net: NetName=LCD_SCL Pin=L0-9
+Added Pin To Net: NetName=LCD_SDA Pin=L0-10
+Added Pin To Net: NetName=LCD_RES Pin=L0-11
+Added Pin To Net: NetName=GND Pin=L0-12
+Added Member To Class: ClassName=Sheet-watch Member=Component L0 TFT LED
+Added Room: Name=Sheet-watch

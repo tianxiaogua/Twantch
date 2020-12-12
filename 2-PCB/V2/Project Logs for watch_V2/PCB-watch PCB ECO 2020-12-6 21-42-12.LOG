@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=VDD-BEEP Pin=B0-1
+Added Component: Designator=P10(HDR1X3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P11(POWER-3.7V)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=VDD-BEEP Pin=P10-2
+Added Pin To Net: NetName=NetB0_2 Pin=P11-2
+Added Pin To Net: NetName=NetB0_1 Pin=B0-1
+Added Pin To Net: NetName=NetB0_1 Pin=P10-1
+Added Net: Name=NetB0_1
+Added Pin To Net: NetName=NetP10_3 Pin=P10-3
+Added Pin To Net: NetName=NetP10_3 Pin=P11-1
+Added Net: Name=NetP10_3
+Added Member To Class: ClassName=Sheet-watch Member=Component P10 Header 3
+Added Member To Class: ClassName=Sheet-watch Member=Component P11 power
+Added Room: Name=Sheet-watch
