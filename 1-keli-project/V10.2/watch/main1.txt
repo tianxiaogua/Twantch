@@ -1,0 +1,934 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * All rights reserved.</center></h2>
+  *
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "adc.h"
+#include "dma.h"
+#include "i2c.h"
+#include "rtc.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "usb_device.h"
+#include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "lcd.h"
+#include "lcd_init.h"
+#include "pic.h"
+#include "stdio.h"
+
+
+#include "mpu6050.h" 
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h" 
+
+#include "stdlib.h"
+#include <stdlib.h>
+#include <string.h>
+
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+PUTCHAR_PROTOTYPE
+{
+    //具体哪个串口可以更改huart1为其它串口
+    HAL_UART_Transmit(&huart1 , (uint8_t *)&ch, 1 , 0xffff);
+    return ch;
+}
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+uint8_t aRxBuffer;   //接收中断缓冲
+uint8_t Uart1_RxBuff[256];  //接收缓冲
+uint8_t Uart1_Rx_Cnt = 0;  //接收缓冲计数
+uint8_t cAlmStr[] = "数据溢出(大于256)\r\n";
+uint8_t Reve_Data[256];    //串口接收的数据缓存
+
+uint8_t sign;
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+//*****按键消抖函数******//
+uint8_t Get_Key_value(void)
+{	 
+	if(!HAL_GPIO_ReadPin(KEY_1_GPIO_Port, KEY_1_Pin))
+	{
+		__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 50); 
+		while(!HAL_GPIO_ReadPin(KEY_1_GPIO_Port, KEY_1_Pin))
+		{
+			HAL_Delay(10);//去抖动 
+			if(HAL_GPIO_ReadPin(KEY_1_GPIO_Port, KEY_1_Pin))
+				return 1;	
+		}
+	}
+	
+	if(!HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin))
+	{
+		while(!HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin))
+		{
+			__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 50);
+			HAL_Delay(10);//去抖动 
+			if(HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin))
+				return 2;
+		}
+	}
+	
+	if(!HAL_GPIO_ReadPin(KEY_3_GPIO_Port, KEY_3_Pin))
+	{
+		while(!HAL_GPIO_ReadPin(KEY_3_GPIO_Port, KEY_3_Pin))
+		{
+			__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 50);
+			HAL_Delay(10);//去抖动 
+			if(HAL_GPIO_ReadPin(KEY_3_GPIO_Port, KEY_3_Pin))
+				return 3;
+		}
+	}
+	
+	return 0;// 无按键按下
+	
+}
+
+char *fun(int a)
+{
+	switch(a)
+		{
+			case 1:return("1");
+			case 2:return("2");
+			case 3:return("3");
+			case 4:return("4");
+			case 5:return("5");
+			case 6:return("6");
+			case 7:return("7");
+			case 8:return("8");
+			case 9:return("9");
+			case 0:return("0");
+		}
+}
+
+void LOW_SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage 
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  /** Initializes the CPU, AHB and APB busses clocks 
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 15;
+  RCC_OscInitStruct.PLL.PLLN = 144;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLQ = 5;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Initializes the CPU, AHB and APB busses clocks 
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV4;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+
+	RTC_DateTypeDef sDate;
+	RTC_TimeTypeDef sTime;
+	uint16_t ADC1_Value;       //读取到的电池电压的ADC输入值
+	int Number_of_cycles = 0; //定义循环次数变量
+	
+//	uint8_t report=1;			//默认开启上报
+//	float pitch,roll,yaw; 		//欧拉角
+//	short aacx,aacy,aacz;		//加速度传感器原始数据
+//	short gyrox,gyroy,gyroz;	//陀螺仪原始数据
+//	short temp;					//温度
+	
+	float time = 0;
+	int set_time_hour = 0;
+	int set_time_min = 0;
+	
+	int set_data_data = 0;
+	int set_data_month = 0;
+	int set_data_year = 0;
+
+	char *power[10];
+	float Battery_voltage = 0; //电池电压 
+	int Battery_voltage_ = 0; //电池电压 
+	char *Battery_Percentage;		//电池电量百分比字符串，最高百分之99
+	char *Second;		//秒钟数字符串
+	char *data;		//秒钟数字符串
+	
+	uint8_t i=0,j=0,k=0;
+	uint8_t an[11] = {1,6,12,18,24,30,18,21,24,27,30};
+	uint8_t flag[11] = {1,1,1,1,1,1,1,1,1,1,1};
+	uint8_t *strings[10] = {
+		"set clock:00.00",
+		"play a game",
+		"sleep",
+		">",
+		"#",
+		":abcdefghijklmnop",
+		};
+	uint8_t key_choose = 0,	key_confirm = 0	,key_choose_history = 0;
+	int function = -1;
+	int	line_color[21];
+	
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	
+	
+	Battery_Percentage	= (char *) malloc(13);
+	Second	= (char *) malloc(13);
+	data	= (char *) malloc(16);
+  /* USER CODE END 1 */
+  
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+	
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_ADC1_Init();
+  MX_I2C1_Init();
+  MX_SPI1_Init();
+  MX_TIM2_Init();
+  MX_TIM4_Init();
+  MX_USART1_UART_Init();
+  MX_USB_DEVICE_Init();
+  MX_RTC_Init();
+  /* USER CODE BEGIN 2 */
+	
+	MPU_Init();							//初始化MPU6050
+	
+	HAL_UART_Receive_IT(&huart1, (uint8_t *)&aRxBuffer, 1);	
+	LCD_Init();//LCD初始化
+	LCD_Fill(0,0,LCD_W,LCD_H,BLACK);
+	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4); //开启定时器PWM通道 定时器2 通道3
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0); //设置PWM的占空比，这里初始化占空比为0
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4); //开启定时器PWM通道 定时器2 通道3
+	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0); //设置PWM的占空比，这里初始化占空比为0
+	
+	
+	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 70); //设置PWM的占空比，调节背光
+	LCD_ShowPicture(0,0,134,103,gImage_111);
+//	while(mpu_dmp_init())
+// 	{
+//		printf("MPU6050 is error. wrong:%d\r\n",mpu_dmp_init());
+// 		HAL_Delay(1000);
+//	}
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+	while (1)
+  {
+    /* USER CODE END WHILE */
+		
+		if(Number_of_cycles > 201) Number_of_cycles = 0;
+		else Number_of_cycles++;
+
+		
+		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN); //获取日期
+		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN); //获取时间
+		time = sTime.Hours+sTime.Minutes*0.01; //获取时间小数
+		
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);	
+	
+		/***********改变线条的颜色**************/
+		switch(Number_of_cycles)
+		{
+			case	0	: line_color[0] = WHITE;	break;
+			case	10	: line_color[1] = BLUE;	break;
+			case	20	: line_color[2] = BRED;	break;
+			case	30	: line_color[3] = GRED;	break;
+			case	40	: line_color[4] = GBLUE;	break;
+			case	50	: line_color[5] = RED;	break;
+			case	60	: line_color[6] = MAGENTA;	break;
+			case	70	: line_color[7] = GREEN;	break;
+			case	80	: line_color[8] = CYAN;	break;
+			case	90	: line_color[9] = LIGHTBLUE;	break;
+			case	100	: line_color[10] = LIGHTGREEN;	break;
+			case	110	: line_color[11] = WHITE;	break;
+			case	120	: line_color[12] = LGRAY;	break;
+			case	130	: line_color[13] = WHITE;	break;
+			case	140	: line_color[14] = YELLOW;	break;
+			case	150	: line_color[15] = GRAYBLUE;	break;
+			case	160	: line_color[16] = LBBLUE;	break;
+			case	170	: line_color[17] = BROWN;	break;
+			case	180	: line_color[18] = BRRED;	break;
+			case	190	: line_color[19] = GRAY;	break;
+			case	200	: line_color[20] = DARKBLUE;	break;
+			default	:	line_color[20] = DARKBLUE;	break;
+		}
+		
+		
+		/**************控制在上端的线的长度和颜色的变化***************/
+		for(i=0;i<5;i++)
+		{
+			if(flag[i] == 0) //线长减少
+			{
+				if(an[i] >= 40)	flag[i] = 1;
+				LCD_Fill(10,				19+i*19,	10+an[i],	20+i*19,	BLACK);//在指定位置画一条线
+				LCD_Fill(125-an[i],	19+i*19,	125,			20+i*19,	BLACK);//在指定位置画一条线
+				an[i]++;
+			}
+			else//线长增加
+			{
+				if(an[i] <= 1)	flag[i] = 0; //在指定位置画一条线
+				LCD_Fill(10+an[i],	19+i*19,	125-an[i],	20+i*19,	line_color[Number_of_cycles]);//在指定位置画一条线
+				an[i]--;
+			}
+		}
+
+		LCD_ShowString(8,	145+16*0,		Battery_Percentage,	WHITE,	BLACK,	16,	0);
+		LCD_ShowString(8,	145+16*1,		Second,							WHITE,	BLACK,	16,	0);
+		
+		LCD_ShowString(8,	145+16*3,		strings[0],					WHITE,	BLACK,	16,	0);
+		LCD_ShowString(8,	145+16*4,		strings[1],					WHITE,	BLACK,	16,	0);
+		LCD_ShowString(8,	145+16*5,		strings[2],					WHITE,	BLACK,	16,	0);
+		
+		
+		/*************按键选择功能**********************/
+		if(key_confirm == 1 && function == -1) //检测到按下了确认按键
+		{
+			switch(	key_choose) //判断当前选择的是那个功能被选中
+			{
+				case 0:	function = 0;	break; //选中了功能1
+				case 1:	function = 1;	break; //选中了功能1
+				case 2:	function = 2;	break; //选中了功能1
+				case 3:	function = 3;	break; //选中了功能1
+				case 4:	function = 4;	break; //选中了功能1
+				case 5:	function = 5;	break; //选中了功能1
+				default : function = -1;
+			}
+			key_confirm =0; //把确认按键归零
+			LCD_ShowString(0,	145+16*key_choose,	strings[3],	BLACK,	BLACK,	16,	0); //把该功能前面显示的>去掉	
+		}
+		
+		/*************根据选好的功能进行具体操作**********************/
+		if(function == -1) //对主界面功能的具体操作
+		{
+			LCD_ShowString(0,	145+16*key_choose,	strings[3],	WHITE,	BLACK,	16,	0); //在功能前显示>号
+			LCD_ShowFloatNum1(25,	104,	time,	4,	WHITE,	BLACK,	32); //显示时间
+			LCD_ShowString(8,	145+16*2,		data,								WHITE,	BLACK,	16,	0);
+		}
+		else	if(function == 0) //对功能0 的具体操作
+		{
+			/**************功能的具体实现****************/
+			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 600-100*key_choose); //设置PWM的占空比，调节背光
+			
+			/*****************按键和显示处理***********************/
+			LCD_ShowString(0,	145+16*0,	strings[4],	WHITE,	BLACK,	16,	0); //在此功能前面显示#号
+			
+			if(key_confirm == 1) //检测是否有确认按键已经被按下，如果确认了就退出这个功能
+			{				
+				key_choose = 0; //把按键选择归回原位
+				
+				function = -1; //把功能重新回到主界面
+				
+				key_confirm = 0; //把确认按键归零
+				
+				LCD_ShowString(0,	145+16*0,	strings[4],	BLACK,	BLACK,	16,	0);	//把该功能前面显示的#去掉	
+			}
+		}
+		else	if(function == 1) //对功能1 的具体操作
+		{
+			/**************功能的具体实现****************/
+			if(j == 0)
+			{
+				LCD_Fill(25, 137, 25+32, 139,GREEN);//在指定位置画线
+				//set_time_value = time;
+				if(key_choose_history != key_choose)
+				{
+					if(key_choose_history	<	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_time_hour = set_time_hour +	1;
+						if(set_time_hour > 23)
+							set_time_hour = 0;
+					}
+					if(key_choose_history	>	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_time_hour = set_time_hour	-	1;
+						if(set_time_hour <	0)
+							set_time_hour =23;
+					}
+				}
+				
+				if(key_confirm)
+				{
+					LCD_Fill(25, 137, 25+32, 139,BLACK);//在指定位置画线
+					j=1;
+					key_confirm = 0;
+				}
+			}
+			else if(j == 1)
+			{
+				LCD_Fill(25+32+16, 137, 25+32+16+32, 139,GREEN);//在指定位置画线
+				//set_time_value = time;
+				if(key_choose_history != key_choose)
+				{
+					if(key_choose_history	<	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_time_min	=	set_time_min	+	1;
+						if(set_time_min > 59)
+							set_time_min = 0;
+					}
+					if(key_choose_history>key_choose)
+					{
+						key_choose_history = key_choose;
+						set_time_min	= set_time_min	-	1;
+						if(set_time_min < 0)
+							set_time_min =	59;
+					}
+				}
+				
+				if(key_confirm)
+				{
+					LCD_Fill(25+32+16, 137, 25+32+16+32, 139,BLACK);//在指定位置画线
+					
+					sTime.Hours = set_time_hour;
+					
+					sTime.Minutes = set_time_min;
+					
+					sTime.Seconds = 0;
+					
+					sTime.DayLightSaving = RTC_DAYLIGHTSAVING_SUB1H;
+					
+					sTime.StoreOperation = RTC_STOREOPERATION_SET;
+					
+					if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
+					{
+						Error_Handler();
+					}
+					
+					key_confirm = 0;
+					
+					key_choose = 1; //把按键选择归回原位
+				
+					function = -1; //把功能重新回到主界面
+					
+					key_confirm = 0; //把确认按键归零
+					
+					j=0;
+					
+					LCD_ShowString(0,	145+16*1,	strings[4],	BLACK,	BLACK,	16,	0);	//把该功能前面显示的#去掉	
+				}
+			}
+			
+				
+			LCD_ShowFloatNum1(25,	104,	set_time_hour+set_time_min*0.01,	4,	GREEN,	BLACK,	32); //显示时间
+			
+			/*****************按键和显示处理***********************/
+			LCD_ShowString(0,	145+16*1,	strings[4],	WHITE,	BLACK,	16,	0); //在此功能前面显示#号
+				
+		}
+		else	if(function == 2) //对功能1 的具体操作
+		{
+			/**************功能的具体实现****************/
+			if(j == 0)
+			{
+				//LCD_Fill(72, 145+18*2+17, 72+16, 145+18*2+17,	GREEN);//在指定位置画线
+				LCD_ShowIntNum(72,145+16*2	,			set_data_year	,	2,	GREEN,	BLACK,	16);//显示整数变量
+				//set_time_value = time;
+				if(key_choose_history != key_choose)
+				{
+					if(key_choose_history	<	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_data_year = set_data_year +	1;
+						
+						if(set_data_year > 99)
+							set_data_year = 0;
+					}
+					if(key_choose_history	>	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_data_year = set_data_year	-	1;
+						if(set_data_year <	0)
+							set_data_year =0;
+					}
+				}
+				
+				if(key_confirm)
+				{
+					LCD_ShowIntNum(72,145+16*2	,			set_data_year	,	2,	WHITE,	BLACK,	16);//显示整数变量
+					j=1;
+					key_confirm = 0;
+				}
+			}
+			else if(j == 1)
+			{
+				LCD_ShowIntNum(72+16+8,145+16*2	,	set_data_month,	2,	GREEN,	BLACK,	16);//显示整数变量
+				if(key_choose_history != key_choose)
+				{
+					if(key_choose_history	<	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_data_month	=	set_data_month	+	1;
+						if(set_data_month > 12)
+							set_data_month = 0;
+					}
+					if(key_choose_history>key_choose)
+					{
+						key_choose_history = key_choose;
+						set_data_month	= set_data_month	-	1;
+						if(set_data_month < 0)
+							set_data_month =	12;
+					}
+				}
+				
+				if(key_confirm)
+				{
+					LCD_ShowIntNum(72+16+8,145+16*2	,	set_data_month,	2,	WHITE,	BLACK,	16);//显示整数变量
+					j=2;
+					key_confirm = 0;
+				}
+			}
+			else if(j == 2)
+			{
+				LCD_ShowIntNum(96+8+16,145+16*2	,	set_data_data	,	2,	GREEN,	BLACK,	16);//显示整数变量
+				if(key_choose_history != key_choose)
+				{
+					if(key_choose_history	<	key_choose)
+					{
+						key_choose_history = key_choose;
+						set_data_data	=	set_data_data	+	1;
+						if(set_data_data > 12)
+							set_data_data = 0;
+					}
+					if(key_choose_history>key_choose)
+					{
+						key_choose_history = key_choose;
+						set_data_data	= set_data_data	-	1;
+						if(set_data_data < 0)
+							set_data_data =	12;
+					}
+				}
+				
+				if(key_confirm)
+				{
+
+					LCD_ShowIntNum(96+8+16,145+16*2	,	set_data_data	,	2,	WHITE,	BLACK,	16);//显示整数变量
+					
+				  sDate.Year = set_data_year;
+					switch(set_data_month)
+					{
+						 case 1:sDate.Month = RTC_MONTH_JANUARY  ;  break;        
+						 case 2:sDate.Month =RTC_MONTH_FEBRUARY  ;  break;                  
+						 case 3:sDate.Month =RTC_MONTH_MARCH		 ;  break;                     
+						 case 4:sDate.Month = RTC_MONTH_APRIL  	 ;  break;                 
+						 case 5:sDate.Month =RTC_MONTH_MAY   		 ;  break;              
+						 case 6:sDate.Month =RTC_MONTH_JUNE      ;  break;               
+						 case 7:sDate.Month = RTC_MONTH_JULY     ;  break;                  
+						 case 8:sDate.Month =RTC_MONTH_AUGUST     ;  break;                
+						 case 9:sDate.Month =RTC_MONTH_SEPTEMBER  ;  break;                
+						 case 10:sDate.Month =RTC_MONTH_OCTOBER   ;  break;                
+						 case 11:sDate.Month =RTC_MONTH_NOVEMBER 	  ; break;               
+						 case 12:sDate.Month = RTC_MONTH_DECEMBER   ; break;        
+						default:sDate.Month = RTC_MONTH_JANUARY  ;           
+					}
+					sDate.Date = set_data_data;
+					if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
+						{
+							Error_Handler();
+						}
+					
+					key_choose = 2; //把按键选择归回原位
+				
+					function = -1; //把功能重新回到主界面
+					
+					key_confirm = 0; //把确认按键归零
+					
+					j=0;
+					
+					LCD_ShowString(0,	145+16*2,	strings[4],	BLACK,	BLACK,	16,	0);	//把该功能前面显示的#去掉	
+				}
+			}
+			
+			/*****************按键和显示处理***********************/
+			LCD_ShowString(0,	145+16*2,	strings[4],	WHITE,	BLACK,	16,	0); //在此功能前面显示#号
+				
+		}
+		else	if(function == 3) //对闹钟功能的具体操作
+		{
+			/**************功能的具体实现****************/
+			//LCD_ShowPicture(0,0,240,135,gImage_liuzhi);
+			/*****************按键和显示处理***********************/
+			LCD_ShowString(0,	145+16*0,	strings[4],	WHITE,	BLACK,	16,	0); //在此功能前面显示#号
+			
+			if(key_confirm == 1) //检测是否有确认按键已经被按下，如果确认了就退出这个功能
+			{				
+				key_choose = 0; //把按键选择归回原位
+				
+				function = -1; //把功能重新回到主界面
+				
+				key_confirm = 0; //把确认按键归零
+				
+				LCD_ShowString(0,	145+16*0,	strings[4],	BLACK,	BLACK,	16,	0);	//把该功能前面显示的#去掉	
+			}
+		}
+		else	if(function == 4) //对游戏功能的具体操作
+		{
+			/**************功能的具体实现****************/
+			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 600-100*key_choose); //设置PWM的占空比，调节背光
+			
+			/*****************按键和显示处理***********************/
+			LCD_ShowString(0,	145+16*0,	strings[4],	WHITE,	BLACK,	16,	0); //在此功能前面显示#号
+			
+			if(key_confirm == 1) //检测是否有确认按键已经被按下，如果确认了就退出这个功能
+			{				
+				key_choose = 0; //把按键选择归回原位
+				
+				function = -1; //把功能重新回到主界面
+				
+				key_confirm = 0; //把确认按键归零
+				
+				LCD_ShowString(0,	145+16*0,	strings[4],	BLACK,	BLACK,	16,	0);	//把该功能前面显示的#去掉	
+			}
+		}
+		else	if(function == 5) //对睡眠功能的具体操作
+		{
+			/**************功能的具体实现****************/
+			//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0); //设置PWM的占空比，调节背光
+			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0); //设置PWM的占空比，调节背光
+			/*****************按键和显示处理***********************/
+			
+			/****************进入低功耗模式，关闭大部分外设来节约电流*************************/	
+			
+			LCD_RES_Clr();//显示屏幕复位
+			
+			/****************关闭GPIO*********************/
+//			GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
+//			GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+//			GPIO_InitStruct.Pull = GPIO_NOPULL;
+//			HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+//			
+//			GPIO_InitStruct.Pin = GPIO_PIN_15|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_9;
+//			GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+//			GPIO_InitStruct.Pull = GPIO_NOPULL;
+//			HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+			
+			__HAL_RCC_DMA2_CLK_DISABLE(); //关闭PWM控制输出
+			__HAL_RCC_ADC1_CLK_DISABLE();	//关闭ADC
+			__HAL_RCC_I2C1_CLK_DISABLE();  //关闭IIC通讯
+			__HAL_RCC_SPI1_CLK_DISABLE(); 	//关闭屏幕的SPI通讯
+			__HAL_RCC_TIM2_CLK_DISABLE();	//关闭PWM输出
+			__HAL_RCC_TIM4_CLK_DISABLE();	//关闭PWM输出
+			__HAL_RCC_USART1_CLK_DISABLE();//关闭串口通讯
+			
+			SystemClock_Config();
+			
+			//进入到死循环中，并且降低系统时钟频率进一步降工作电流
+			while(1)
+			{
+				if(!HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin)) break;
+			}	
+			
+//			HAL_Init();
+			SystemClock_Config();
+//			MX_GPIO_Init();
+//			MX_DMA_Init();
+//			MX_ADC1_Init();
+//			MX_I2C1_Init();
+//			MX_SPI1_Init();
+//			MX_TIM2_Init();
+//			MX_TIM4_Init();
+//			MX_USART1_UART_Init();
+//			MX_USB_DEVICE_Init();
+//			MX_RTC_Init();
+//			HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4); //开启定时器PWM通道 定时器2 通道3
+//			__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0); //设置PWM的占空比，这里初始化占空比为0
+//			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4); //开启定时器PWM通道 定时器2 通道3
+//			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0); //设置PWM的占空比，这里初始化占空比为0
+			
+			__HAL_RCC_DMA2_CLK_ENABLE(); //关闭PWM控制输出
+			__HAL_RCC_ADC1_CLK_ENABLE();	//关闭ADC
+			__HAL_RCC_I2C1_CLK_ENABLE();  //关闭IIC通讯
+			__HAL_RCC_SPI1_CLK_ENABLE(); 	//关闭屏幕的SPI通讯
+			__HAL_RCC_TIM2_CLK_ENABLE();	//关闭PWM输出
+			__HAL_RCC_TIM4_CLK_ENABLE();	//关闭PWM输出
+			__HAL_RCC_USART1_CLK_ENABLE();//关闭串口通讯
+			
+			LCD_Init();//LCD初始化
+			//LCD_Fill(0,0,LCD_W,LCD_H,BLACK);
+			LCD_ShowPicture(0,0,134,103,gImage_111);
+			//if(key_confirm == 1) //检测是否有确认按键已经被按下，如果确认了就退出这个功能
+			//{				
+				key_choose = 5; //把按键选择归回原位
+				
+				function = -1; //把功能重新回到主界面
+				
+				key_confirm = 0; //把确认按键归零
+				
+				__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 80); //设置PWM的占空比，调节背光
+				
+				HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+			//}
+		}
+		
+			
+		//串口测试
+		if(Uart1_RxBuff[0] =='0') HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		else if(Uart1_RxBuff[0] =='1') HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		
+
+		//按检查测试
+		switch(Get_Key_value())
+		{
+			case 1 : {printf("pass KEY1\r\n");	LCD_ShowString(0,	145+16*key_choose,	strings[3],	BLACK,BLACK,16,0);	if(key_choose >0) key_choose--;	else key_choose =5;	}  break;
+			case 2 : {printf("pass KEY2\r\n");	key_confirm = 1;	} break;
+			case 3 : {printf("pass KEY3\r\n");	LCD_ShowString(0,	145+16*key_choose,	strings[3],	BLACK,BLACK,16,0);	if(key_choose <5) key_choose++;	else key_choose =0;	} break;
+			default : {__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);}break;
+		}
+	
+		/*设置ADC的引脚用来检测电池电压*/
+		HAL_ADC_Start(&hadc1);
+		HAL_ADC_PollForConversion(&hadc1, 10);
+		if(HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC))
+		{
+			ADC1_Value = HAL_ADC_GetValue(&hadc1);
+		}
+		
+		Battery_voltage	= 2*ADC1_Value*3.3f/4096;	//电池的电压值
+		Battery_voltage_ = Battery_voltage*200 - 741;
+		
+		strcpy(	Battery_Percentage, "power "	);
+		strcat(	Battery_Percentage, fun	(	Battery_voltage_	%100	/	10)	);
+		strcat(	Battery_Percentage,	fun	(	Battery_voltage_	%100	%	10)	); //":Electricity "
+		strcat(	Battery_Percentage,	"% or Led"	);
+		
+		strcpy(	Second, "seconds is "	);
+		strcat(	Second, fun	(	 sTime.Seconds	/	10)	);
+		strcat(	Second,	fun	(	 sTime.Seconds	%	10)	); 
+		
+		strcpy(	data, "date is "	);
+		strcat(	data, fun	(	 sDate.Year	/	10)	);
+		strcat(	data,	fun	(	 sDate.Year	%	10)	); 
+		strcat(	data, "."	);
+		strcat(	data,	fun	(	sDate.Month	/	10)	); 
+		strcat(	data, fun	(	sDate.Month	%	10)	);
+		strcat(	data, "."	);
+		strcat(	data,	fun	(	sDate.Date	/	10)	); 
+		strcat(	data, fun	(	sDate.Date	%	10)	);
+		
+//		printf("V%.1f	%s	%d:%d:%d    %d:%d:%d %f |||%d\r\n",Battery_voltage	,	Battery_Percentage,	sDate.Year,	sDate.Month,	sDate.Date,	sTime.Hours, sTime.Minutes, sTime.Seconds, time,80*key_choose);
+			
+//		if(mpu_dmp_get_data(&pitch,&roll,&yaw)==0)
+//		{ 
+//			temp=MPU_Get_Temperature();	//得到温度值
+//			MPU_Get_Accelerometer(&aacx,&aacy,&aacz);	//得到加速度传感器数据
+//			MPU_Get_Gyroscope(&gyrox,&gyroy,&gyroz);	//得到陀螺仪数据
+//		}
+//		printf("%d  %d  %d\r\n",gyrox,gyroy,gyroz);
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage 
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  /** Initializes the CPU, AHB and APB busses clocks 
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 25;
+  RCC_OscInitStruct.PLL.PLLN = 192;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 4;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Initializes the CPU, AHB and APB busses clocks 
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/* USER CODE BEGIN 4 */
+/* USER CODE BEGIN 4 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  /* Prevent unused argument(s) compilation warning */
+	int i;
+  UNUSED(huart);
+  /* NOTE: This function Should not be modified, when the callback is needed,
+           the HAL_UART_TxCpltCallback could be implemented in the user file
+   */
+ if(Uart1_Rx_Cnt >= 255)  //溢出判断
+ {
+  Uart1_Rx_Cnt = 0;
+  memset(Uart1_RxBuff,0x00,sizeof(Uart1_RxBuff));
+  HAL_UART_Transmit(&huart1, (uint8_t *)&cAlmStr, sizeof(cAlmStr),0xFFFF); 
+ }
+ else
+ {
+  Uart1_RxBuff[Uart1_Rx_Cnt++] = aRxBuffer;   //接收数据转存
+  if((Uart1_RxBuff[Uart1_Rx_Cnt-1] == 0x0A)&&(Uart1_RxBuff[Uart1_Rx_Cnt-2] == 0x0D)) //判断结束位
+  {
+		for (i=0; i<sizeof(Uart1_RxBuff)-1; i++)
+		{	
+			Reve_Data[i] = Uart1_RxBuff[i]; 
+		}
+		HAL_UART_Transmit(&huart1, (uint8_t *)&Uart1_RxBuff, Uart1_Rx_Cnt,0xFFFF); //将收到的信息发送出去
+   Uart1_Rx_Cnt = 0;
+   memset(Uart1_RxBuff,0x00,sizeof(Uart1_RxBuff)); //清空数组
+  }
+ }
+ HAL_UART_Receive_IT(&huart1, (uint8_t *)&aRxBuffer, 1);   //再开启接收中断
+}
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{ 
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
