@@ -1,7 +1,0 @@
-Added Component: Designator=N1(NRF2.4G)
-Add component. Clean all parameters for all variants
-Added Component: Designator=SETR1(remote_sensing_6)
-Add component. Clean all parameters for all variants
-Added Member To Class: ClassName=Sheet-watch Member=Component N1 NRF2.4G
-Added Member To Class: ClassName=Sheet-watch Member=Component SETR1 remote_sensing_6
-Added Room: Name=Sheet-watch

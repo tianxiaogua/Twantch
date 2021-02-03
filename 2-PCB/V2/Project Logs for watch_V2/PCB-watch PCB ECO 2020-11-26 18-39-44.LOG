@@ -1,5 +1,0 @@
-Added Component: Designator=X1(XTAL-3215)
-Add component. Clean all parameters for all variants
-Added Pin To Net: NetName=PC14 Pin=X1-1
-Added Pin To Net: NetName=PC15 Pin=X1-2
-Added Member To Class: ClassName=Sheet-watch Member=Component X1 32.768kKHz
