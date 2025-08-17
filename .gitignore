@@ -1,0 +1,6 @@
+MDK-ARM/watch
+MDK-ARM/DebugConfig
+MDK-ARM/RTE
+.vscode
+guider/lvgl-simulator
+guider/temp
