@@ -29,7 +29,14 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
+#define Rx_Max 140
+extern uint8_t		Rx_Flag;
+extern uint16_t		Rx_Len;
+extern uint8_t		Rx_Buf[Rx_Max];
 
+extern uint8_t		Rx2_Flag;
+extern uint16_t		Rx2_Len;
+extern uint8_t		Rx2_Buf[Rx_Max];
 /* USER CODE END Includes */
 
 extern UART_HandleTypeDef huart1;

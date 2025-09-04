@@ -47,7 +47,7 @@ void LCD_Fill_buf(u16 xsta, u16 ysta, u16 xend, u16 yend, u16 *color)
 	// delay_ms(20);
 
 	// HAL_SPI_Transmit_DMA(&hspi2, (u8 *)color, num); // DMA发送数据
-	HAL_SPI_Transmit(&hspi2, (u8 *)color, num, 0xFFFFFF);//发送数据
+	HAL_SPI_Transmit(&hspi1, (u8 *)color, num, 0xFFFFFF);//发送数据
 	// delay_ms(20);
 }
 #if DIS

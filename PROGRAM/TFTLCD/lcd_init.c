@@ -27,7 +27,7 @@ void LCD_Writ_Bus(u8 dat)
 //		dat<<=1;
 //	}
 	// HAL_SPI_Transmit_DMA(&hspi2,&dat,1);//发送数据
-	HAL_SPI_Transmit(&hspi2,&dat,1, 0xFF);//发送数据
+	HAL_SPI_Transmit(&hspi1,&dat,1, 0xFF);//发送数据
 	LCD_DC_Set();//写数据
 }
 

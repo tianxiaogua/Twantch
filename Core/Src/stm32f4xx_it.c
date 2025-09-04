@@ -26,7 +26,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-
+#include "usart.h"
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -63,6 +63,7 @@ extern DMA_HandleTypeDef hdma_usart1_tx;
 extern DMA_HandleTypeDef hdma_usart2_tx;
 extern DMA_HandleTypeDef hdma_usart2_rx;
 extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart2;
 extern TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN EV */
@@ -233,8 +234,48 @@ void USART1_IRQHandler(void)
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
+	uint32_t temp;
+	if((__HAL_UART_GET_FLAG(&huart1,UART_FLAG_IDLE) != RESET))
+	{
+		__HAL_UART_CLEAR_IDLEFLAG(&huart1);
 
+		HAL_UART_DMAStop(&huart1);
+
+		temp = huart1.hdmarx->Instance->NDTR; // CNDTR
+		Rx_Len = Rx_Max - temp;
+
+		Rx_Flag=1;
+
+		HAL_UART_Receive_DMA(&huart1,Rx_Buf,Rx_Max);
+	}
   /* USER CODE END USART1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART2 global interrupt.
+  */
+void USART2_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART2_IRQn 0 */
+
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  /* USER CODE BEGIN USART2_IRQn 1 */
+	uint32_t temp;
+	if((__HAL_UART_GET_FLAG(&huart2,UART_FLAG_IDLE) != RESET))
+	{
+		__HAL_UART_CLEAR_IDLEFLAG(&huart2);
+
+		HAL_UART_DMAStop(&huart2);
+
+		temp = huart2.hdmarx->Instance->NDTR; // CNDTR
+		Rx2_Len = Rx_Max - temp;
+
+		Rx2_Flag=1;
+
+		HAL_UART_Receive_DMA(&huart2,Rx2_Buf,Rx_Max);
+	}
+  /* USER CODE END USART2_IRQn 1 */
 }
 
 /**

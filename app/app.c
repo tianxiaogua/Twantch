@@ -387,8 +387,8 @@ void watch_base_task(void)
     key_config_init(&key_up.key_info);
     key_config_init(&key_down.key_info);
 
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-    __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 70);
+    //HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+    //__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 70);
     HAL_TIM_Base_Start_IT(&htim3); // 1ms
 
     debug_init(SoftVersion, HardVersion, BuildDataStr, BuildTimeStr);
