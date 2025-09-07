@@ -41,7 +41,7 @@
 
 #define SoftVersion     0x000011      //software version, please use table seperata "#define" and "SoftVersion" and "//software version"
 #define HardVersion     0x000021      //hardware version, please use table seperata "#define" and "HardVersion" and "//hardware version"
-
+#define APP_JUMP_DELAY  (80)         // 界面跳转动画
 char BuildDataStr[] = __DATE__;         //Build date
 char BuildTimeStr[] = __TIME__;         //Build time
 
@@ -97,7 +97,7 @@ static void app_screen_jump_id(int32 key_event)
                 GUA_LOGW("screen jump menu\r\n");
                 setup_scr_sc_menu(&g_dis.guider_ui);
                 app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-                lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+                lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                 g_dis.screen_jump_id = SCREEN_JUMP_MENU;
             }
             break;
@@ -107,7 +107,7 @@ static void app_screen_jump_id(int32 key_event)
             if (key_event == EVENT_DOUBLE_CLICK) {
                 GUA_LOGI("screen jump main\r\n");
                 setup_scr_sc_main(&g_dis.guider_ui);
-                lv_scr_load_anim(g_dis.guider_ui.sc_main, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, true);
+                lv_scr_load_anim(g_dis.guider_ui.sc_main, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
                 app_updata_time(&g_dis.guider_ui, g_dis.rtc_time.Minutes, g_dis.rtc_time.Seconds); // 更新显示时间
                 g_dis.screen_jump_id = SCREEN_JUMP_MAIN;
                 break;
@@ -119,7 +119,7 @@ static void app_screen_jump_id(int32 key_event)
                         GUA_LOGW("screen display rate\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_RATE;
 //                        setup_scr_sc_heart(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
@@ -127,7 +127,7 @@ static void app_screen_jump_id(int32 key_event)
                         GUA_LOGW("screen display oxy\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_OXY;
 //                        setup_scr_sc_spo2(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
@@ -135,7 +135,7 @@ static void app_screen_jump_id(int32 key_event)
                         GUA_LOGW("screen display sport\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_SPORT;
 //                        setup_scr_sc_sport(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
@@ -153,7 +153,7 @@ static void app_screen_jump_id(int32 key_event)
                         // GUA_LOGW("screen display tic\r\n");
                         // g_dis.screen_jump_id = SCREEN_JUMP_TIMER;
                         // setup_scr_sc_timer(&g_dis.guider_ui);
-                        // lv_scr_load_anim(g_dis.guider_ui.sc_timer, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+                        // lv_scr_load_anim(g_dis.guider_ui.sc_timer, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
@@ -165,7 +165,7 @@ static void app_screen_jump_id(int32 key_event)
                         GUA_LOGW("screen display light\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_LIT;
 //                        setup_scr_sc_light(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
@@ -173,7 +173,7 @@ static void app_screen_jump_id(int32 key_event)
                         GUA_LOGW("screen display sport\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_WEAT;
 //                        setup_scr_sc_weather(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
@@ -181,7 +181,7 @@ static void app_screen_jump_id(int32 key_event)
                         // GUA_LOGW("screen display message\r\n");
                         // g_dis.screen_jump_id = SCREEN_JUMP_MSG;
                         // setup_scr_sc_message(&g_dis.guider_ui);
-                        // lv_scr_load_anim(g_dis.guider_ui.scr_message, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+                        // lv_scr_load_anim(g_dis.guider_ui.scr_message, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
                 }
@@ -206,7 +206,7 @@ static void app_screen_jump_id(int32 key_event)
                 GUA_LOGW("screen jump menu\r\n");
                setup_scr_sc_menu(&g_dis.guider_ui);
                app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-               lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, true);
+               lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
                 g_dis.screen_jump_id = SCREEN_JUMP_MENU;
             }
             break;

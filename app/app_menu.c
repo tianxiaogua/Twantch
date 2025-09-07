@@ -12,7 +12,7 @@
 #include "driver_usart.h"
 #include "lcd_init.h"
 
-#define CARTOON_TIME  (100) // 动画时间
+#define CARTOON_TIME  (80) // 动画时间
 #define SCREEN_HEIGHT LCD_H // 屏幕高度
 #define SCREEN_WIDTH  LCD_W // 屏幕宽度
 
