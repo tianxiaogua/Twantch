@@ -10,16 +10,18 @@
 #include "events_init.h"
 #include "custom.h"
 #include "driver_usart.h"
+#include "lcd_init.h"
 
+#define CARTOON_TIME  (100) // 动画时间
+#define SCREEN_HEIGHT LCD_H // 屏幕高度
+#define SCREEN_WIDTH  LCD_W // 屏幕宽度
 
-#define CARTOON_TIME  100 // 动画时间
-#define SCREEN_HEIGHT 240 // 屏幕高度
-#define IMG_LENGTH    110 // 图标之间中心距离
-#define IMG_HEIGHT    60  // 图片高度
-#define LABEL_HEIGHT  40  // 文本高度
-#define POSION_LAB_X  30  // 文字横坐标位置
-#define I_L_DISTANCE  65  // 图标和文字的中心距离
-#define POSION_X      ((135 - IMG_HEIGHT) / 2) // 图片横坐标位置
+#define IMG_HEIGHT    (80)  // 图片高度
+#define LABEL_HEIGHT  (40)  // 文本高度
+
+#define IMG_LENGTH    (IMG_HEIGHT + LABEL_HEIGHT + 6) // 图标之间中心距离
+#define I_L_DISTANCE  (IMG_HEIGHT + 2)  // 图标和文字的中心距离
+#define POSION_X      ((SCREEN_WIDTH - IMG_HEIGHT) / 2) // 图片横坐标位置
 #define POSION_Y      (((SCREEN_HEIGHT - IMG_HEIGHT) / 2)-10) // 中心图标纵坐标位置
 
 static KEY_TYPE g_event_type;
@@ -30,16 +32,16 @@ int32_t g_menu_status = SCREEN_MENU_RATE;
 
 static void menu_lvgl_init_menu_font(lv_ui *ui)
 {
-//    label[0] = ui->sc_menu_label_menu_1;
-//    label[1] = ui->sc_menu_label_menu_2;
-//    label[2] = ui->sc_menu_label_menu_3;
-//    label[3] = ui->sc_menu_label_menu_4;
-//    label[4] = ui->sc_menu_label_menu_5;
-//    label[5] = ui->sc_menu_label_menu_6;
-//    label[6] = ui->sc_menu_label_menu_7;
-//    label[7] = ui->sc_menu_label_menu_8;
-//    label[8] = ui->sc_menu_label_menu_9;
-//    label[9] = ui->sc_menu_label_menu_10;
+   label[0] = ui->sc_menu_label_1;
+   label[1] = ui->sc_menu_label_2;
+   label[2] = ui->sc_menu_label_3;
+   label[3] = ui->sc_menu_label_4;
+   label[4] = ui->sc_menu_label_5;
+   label[5] = ui->sc_menu_label_6;
+   label[6] = ui->sc_menu_label_7;
+   label[7] = ui->sc_menu_label_8;
+   label[8] = ui->sc_menu_label_9;
+   label[9] = ui->sc_menu_label_10;
     GUA_LOGI("inti font\r\n");
     return;
 }
@@ -47,16 +49,16 @@ static void menu_lvgl_init_menu_font(lv_ui *ui)
 
 static void menu_lvgl_init_menu_image(lv_ui *ui)
 {
-//    img[0] = ui->sc_menu_img_menu_1;
-//    img[1] = ui->sc_menu_img_menu_2;
-//    img[2] = ui->sc_menu_img_menu_3;
-//    img[3] = ui->sc_menu_img_menu_4;
-//    img[4] = ui->sc_menu_img_menu_5;
-//    img[5] = ui->sc_menu_img_menu_6;
-//    img[6] = ui->sc_menu_img_menu_7;
-//    img[7] = ui->sc_menu_img_menu_8;
-//    img[8] = ui->sc_menu_img_menu_9;
-//    img[9] = ui->sc_menu_img_menu_10;
+   img[0] = ui->sc_menu_img_1;
+   img[1] = ui->sc_menu_img_2;
+   img[2] = ui->sc_menu_img_3;
+   img[3] = ui->sc_menu_img_4;
+   img[4] = ui->sc_menu_img_5;
+   img[5] = ui->sc_menu_img_6;
+   img[6] = ui->sc_menu_img_7;
+   img[7] = ui->sc_menu_img_8;
+   img[8] = ui->sc_menu_img_9;
+   img[9] = ui->sc_menu_img_10;
     GUA_LOGI("image font\r\n");
     return;
 }
