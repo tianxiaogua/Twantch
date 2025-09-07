@@ -1,5 +1,3 @@
-# SPDX-License-Identifier: MIT
-# Copyright 2020-2021 NXP
 # images
 include $(PRJ_DIR)/generated/images/images.mk
 

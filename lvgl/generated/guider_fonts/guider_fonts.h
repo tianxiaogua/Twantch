@@ -7,10 +7,7 @@
     
     #include "lv_font.h"
     
-    LV_FONT_DECLARE(lv_font_dingliehuobanfont20241217_2_24)
-LV_FONT_DECLARE(lv_font_simsun_12)
-LV_FONT_DECLARE(lv_font_dingliehuobanfont20241217_2_16)
-
+    
     
     #ifdef __cplusplus
     }

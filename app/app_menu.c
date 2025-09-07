@@ -30,16 +30,16 @@ int32_t g_menu_status = SCREEN_MENU_RATE;
 
 static void menu_lvgl_init_menu_font(lv_ui *ui)
 {
-    label[0] = ui->sc_menu_label_menu_1;
-    label[1] = ui->sc_menu_label_menu_2;
-    label[2] = ui->sc_menu_label_menu_3;
-    label[3] = ui->sc_menu_label_menu_4;
-    label[4] = ui->sc_menu_label_menu_5;
-    label[5] = ui->sc_menu_label_menu_6;
-    label[6] = ui->sc_menu_label_menu_7;
-    label[7] = ui->sc_menu_label_menu_8;
-    label[8] = ui->sc_menu_label_menu_9;
-    label[9] = ui->sc_menu_label_menu_10;
+//    label[0] = ui->sc_menu_label_menu_1;
+//    label[1] = ui->sc_menu_label_menu_2;
+//    label[2] = ui->sc_menu_label_menu_3;
+//    label[3] = ui->sc_menu_label_menu_4;
+//    label[4] = ui->sc_menu_label_menu_5;
+//    label[5] = ui->sc_menu_label_menu_6;
+//    label[6] = ui->sc_menu_label_menu_7;
+//    label[7] = ui->sc_menu_label_menu_8;
+//    label[8] = ui->sc_menu_label_menu_9;
+//    label[9] = ui->sc_menu_label_menu_10;
     GUA_LOGI("inti font\r\n");
     return;
 }
@@ -47,16 +47,16 @@ static void menu_lvgl_init_menu_font(lv_ui *ui)
 
 static void menu_lvgl_init_menu_image(lv_ui *ui)
 {
-    img[0] = ui->sc_menu_img_menu_1;
-    img[1] = ui->sc_menu_img_menu_2;
-    img[2] = ui->sc_menu_img_menu_3;
-    img[3] = ui->sc_menu_img_menu_4;
-    img[4] = ui->sc_menu_img_menu_5;
-    img[5] = ui->sc_menu_img_menu_6;
-    img[6] = ui->sc_menu_img_menu_7;
-    img[7] = ui->sc_menu_img_menu_8;
-    img[8] = ui->sc_menu_img_menu_9;
-    img[9] = ui->sc_menu_img_menu_10;
+//    img[0] = ui->sc_menu_img_menu_1;
+//    img[1] = ui->sc_menu_img_menu_2;
+//    img[2] = ui->sc_menu_img_menu_3;
+//    img[3] = ui->sc_menu_img_menu_4;
+//    img[4] = ui->sc_menu_img_menu_5;
+//    img[5] = ui->sc_menu_img_menu_6;
+//    img[6] = ui->sc_menu_img_menu_7;
+//    img[7] = ui->sc_menu_img_menu_8;
+//    img[8] = ui->sc_menu_img_menu_9;
+//    img[9] = ui->sc_menu_img_menu_10;
     GUA_LOGI("image font\r\n");
     return;
 }

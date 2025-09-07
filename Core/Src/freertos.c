@@ -131,7 +131,7 @@ void StartDefaultTask(void const * argument)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
-	watch_main_task();
+	app_watch_main_task();
   for(;;)
   {
     osDelay(1);
@@ -150,7 +150,7 @@ void StartTask02(void const * argument)
 {
   /* USER CODE BEGIN StartTask02 */
   /* Infinite loop */
-	watch_base_task();
+	app_watch_base_task();
   for(;;)
   {
     osDelay(1);

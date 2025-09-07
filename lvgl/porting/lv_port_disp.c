@@ -16,8 +16,8 @@
 #include "spi.h"
 #include "lcd_init.h"
 
-#define MY_DISP_HOR_RES (135)   /* 屏幕宽度 */
-#define MY_DISP_VER_RES (240)   /* 屏幕高度 */
+#define MY_DISP_HOR_RES (172)   /* 屏幕宽度 */
+#define MY_DISP_VER_RES (320)   /* 屏幕高度 */
 
 /*********************
  *      DEFINES

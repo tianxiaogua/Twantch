@@ -95,9 +95,9 @@ static void app_screen_jump_id(int32 key_event)
         case SCREEN_JUMP_MAIN: {
             if (key_event == EVENT_SHORT_CLICK) {
                 GUA_LOGW("screen jump menu\r\n");
-                setup_scr_sc_menu(&g_dis.guider_ui);
-                app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-                lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+                // setup_scr_sc_menu(&g_dis.guider_ui);
+                // app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
+                // lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
                 g_dis.screen_jump_id = SCREEN_JUMP_MENU;
             }
             break;
@@ -106,9 +106,9 @@ static void app_screen_jump_id(int32 key_event)
         case SCREEN_JUMP_MENU: {
             if (key_event == EVENT_DOUBLE_CLICK) {
                 GUA_LOGI("screen jump main\r\n");
-                setup_scr_sc_main(&g_dis.guider_ui);
-                lv_scr_load_anim(g_dis.guider_ui.sc_main, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, true);
-                app_updata_time(&g_dis.guider_ui, g_dis.rtc_time.Minutes, g_dis.rtc_time.Seconds); // 更新显示时间
+                // setup_scr_sc_main(&g_dis.guider_ui);
+                // lv_scr_load_anim(g_dis.guider_ui.sc_main, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, true);
+                // app_updata_time(&g_dis.guider_ui, g_dis.rtc_time.Minutes, g_dis.rtc_time.Seconds); // 更新显示时间
                 g_dis.screen_jump_id = SCREEN_JUMP_MAIN;
                 break;
             } else if (key_event == EVENT_SHORT_CLICK) {
@@ -118,24 +118,24 @@ static void app_screen_jump_id(int32 key_event)
                     case SCREEN_MENU_RATE: {
                         GUA_LOGW("screen display rate\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_RATE;
-                        setup_scr_sc_heart(&g_dis.guider_ui);
-                        lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        setup_scr_sc_heart(&g_dis.guider_ui);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_OXY: {
                         GUA_LOGW("screen display oxy\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_OXY;
-                        setup_scr_sc_spo2(&g_dis.guider_ui);
-                        lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        setup_scr_sc_spo2(&g_dis.guider_ui);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_SPORT: {
                         GUA_LOGW("screen display sport\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_SPORT;
-                        setup_scr_sc_sport(&g_dis.guider_ui);
-                        lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        setup_scr_sc_sport(&g_dis.guider_ui);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
                         break;
                     }
 
@@ -164,16 +164,16 @@ static void app_screen_jump_id(int32 key_event)
                     case SCREEN_MENU_LIT: {
                         GUA_LOGW("screen display light\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_LIT;
-                        setup_scr_sc_light(&g_dis.guider_ui);
-                        lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        setup_scr_sc_light(&g_dis.guider_ui);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_WEAT: {
                         GUA_LOGW("screen display sport\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_WEAT;
-                        setup_scr_sc_weather(&g_dis.guider_ui);
-                        lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
+//                        setup_scr_sc_weather(&g_dis.guider_ui);
+//                        lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, true);
                         break;
                     }
 
@@ -204,9 +204,9 @@ static void app_screen_jump_id(int32 key_event)
                 key_data.key_valye = KEY_TYPE_CENTER;
                 key_queue_set(&key_data); // 手动更新按键事件，方式界面没有反应
                 GUA_LOGW("screen jump menu\r\n");
-                setup_scr_sc_menu(&g_dis.guider_ui);
-                app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-                lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, true);
+//                setup_scr_sc_menu(&g_dis.guider_ui);
+//                app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
+//                lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, true);
                 g_dis.screen_jump_id = SCREEN_JUMP_MENU;
             }
             break;
@@ -257,16 +257,16 @@ static int32 app_change_display_time(lv_obj_t * obj, uint8 time)
         return REV_ERR;
     }
     switch (time) {
-        case 0: lv_img_set_src(obj, &_NUM0_25x60);  break;// 更新为新的图片资源
-        case 1: lv_img_set_src(obj, &_NUM1_25x60);  break;// 更新为新的图片资源
-        case 2: lv_img_set_src(obj, &_NUM2_25x60);  break;// 更新为新的图片资源
-        case 3: lv_img_set_src(obj, &_NUM3_25x60);  break;// 更新为新的图片资源
-        case 4: lv_img_set_src(obj, &_NUM4_25x60);  break;// 更新为新的图片资源
-        case 5: lv_img_set_src(obj, &_NUM5_25x60);  break;// 更新为新的图片资源
-        case 6: lv_img_set_src(obj, &_NUM6_25x60);  break;// 更新为新的图片资源
-        case 7: lv_img_set_src(obj, &_NUM7_25x60);  break;// 更新为新的图片资源
-        case 8: lv_img_set_src(obj, &_NUM8_25x60);  break;// 更新为新的图片资源
-        case 9: lv_img_set_src(obj, &_NUM9_25x60);  break;// 更新为新的图片资源
+//        case 0: lv_img_set_src(obj, &_NUM0_25x60);  break;// 更新为新的图片资源
+//        case 1: lv_img_set_src(obj, &_NUM1_25x60);  break;// 更新为新的图片资源
+//        case 2: lv_img_set_src(obj, &_NUM2_25x60);  break;// 更新为新的图片资源
+//        case 3: lv_img_set_src(obj, &_NUM3_25x60);  break;// 更新为新的图片资源
+//        case 4: lv_img_set_src(obj, &_NUM4_25x60);  break;// 更新为新的图片资源
+//        case 5: lv_img_set_src(obj, &_NUM5_25x60);  break;// 更新为新的图片资源
+//        case 6: lv_img_set_src(obj, &_NUM6_25x60);  break;// 更新为新的图片资源
+//        case 7: lv_img_set_src(obj, &_NUM7_25x60);  break;// 更新为新的图片资源
+//        case 8: lv_img_set_src(obj, &_NUM8_25x60);  break;// 更新为新的图片资源
+//        case 9: lv_img_set_src(obj, &_NUM9_25x60);  break;// 更新为新的图片资源
         default:
             break;
     }
@@ -283,12 +283,12 @@ static int32 app_updata_time(lv_ui *ui, uint8 hour, uint8 minutes)
     }
 
     app_extract_digits(hour, &tenx, &ones);
-    app_change_display_time(ui->sc_main_img_num_0, tenx);
-    app_change_display_time(ui->sc_main_img_num_1, ones);
+//    app_change_display_time(ui->sc_main_img_num_0, tenx);
+//    app_change_display_time(ui->sc_main_img_num_1, ones);
 
-    app_extract_digits(minutes, &tenx, &ones);
-    app_change_display_time(ui->sc_main_img_num_2, tenx);
-    app_change_display_time(ui->sc_main_img_num_3, ones);
+//    app_extract_digits(minutes, &tenx, &ones);
+//    app_change_display_time(ui->sc_main_img_num_2, tenx);
+//    app_change_display_time(ui->sc_main_img_num_3, ones);
 
     return REV_OK;
 }
@@ -318,7 +318,7 @@ static void app_updata_system_message()
         if (g_dis.battery_percent_his != g_dis.battery_percent) {
             g_dis.battery_percent_his = g_dis.battery_percent;
             GUA_LOGI("battery precent updata[%02d]\r\n", g_dis.battery_percent);
-            lv_bar_set_value(g_dis.guider_ui.sc_main_sc_main_lable_bar_battery, g_dis.battery_percent, LV_ANIM_OFF);  // 带动画（默认1000ms）
+            // lv_bar_set_value(g_dis.guider_ui.sc_main_sc_main_lable_bar_battery, g_dis.battery_percent, LV_ANIM_OFF);  // 带动画（默认1000ms）
         }
     }
 
@@ -350,7 +350,13 @@ static KEY_TYPE app_get_key_value(KEY_MANAGE *ctl, int32 key)
 }
 
 
-void watch_main_task(void)
+void app_watch_lv_tick_inc(void)
+{
+    lv_tick_inc(1); // 1毫秒调用周期
+}
+
+
+void app_watch_main_task(void)
 {
 	lv_init();  // LVGL初始化
 	lv_port_disp_init(); // 显示初始化
@@ -372,7 +378,7 @@ void watch_main_task(void)
 
 
 // 优先级最高
-void watch_base_task(void)
+void app_watch_base_task(void)
 {
     int32 key = 0;
     KEY_DATA key_data;
@@ -387,9 +393,9 @@ void watch_base_task(void)
     key_config_init(&key_up.key_info);
     key_config_init(&key_down.key_info);
 
-    //HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-    //__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 70);
-    HAL_TIM_Base_Start_IT(&htim3); // 1ms
+//   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+//   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 70);
+    HAL_TIM_Base_Start_IT(&htim5); // 1ms LVGL界面滴答中断
 
     debug_init(SoftVersion, HardVersion, BuildDataStr, BuildTimeStr);
     init_key_gpio();

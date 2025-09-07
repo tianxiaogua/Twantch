@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2V8M.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -2372,6 +2372,41 @@
               <FileType>1</FileType>
               <FilePath>..\lvgl\src\widgets\lv_textarea.c</FilePath>
             </File>
+            <File>
+              <FileName>lodepng.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\png\lodepng.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_png.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\png\lv_png.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_qrcode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\qrcode\lv_qrcode.c</FilePath>
+            </File>
+            <File>
+              <FileName>qrcodegen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\qrcode\qrcodegen.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_sjpg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\sjpg\lv_sjpg.c</FilePath>
+            </File>
+            <File>
+              <FileName>tjpgd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\sjpg\tjpgd.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_rlottie.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\extra\libs\rlottie\lv_rlottie.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2393,219 +2428,19 @@
               <FilePath>..\lvgl\generated\gui_guider.c</FilePath>
             </File>
             <File>
-              <FileName>setup_scr_sc_heart.c</FileName>
+              <FileName>setup_scr_screen.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_heart.c</FilePath>
+              <FilePath>..\lvgl\generated\setup_scr_screen.c</FilePath>
             </File>
             <File>
-              <FileName>setup_scr_sc_main.c</FileName>
+              <FileName>_2_172x320.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_main.c</FilePath>
+              <FilePath>..\lvgl\generated\images\_2_172x320.c</FilePath>
             </File>
             <File>
-              <FileName>setup_scr_sc_menu.c</FileName>
+              <FileName>_1_142x166.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_menu.c</FilePath>
-            </File>
-            <File>
-              <FileName>setup_scr_sc_spo2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_spo2.c</FilePath>
-            </File>
-            <File>
-              <FileName>setup_scr_sc_timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_font_dingliehuobanfont20241217_2_16.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\guider_fonts\lv_font_dingliehuobanfont20241217_2_16.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_font_dingliehuobanfont20241217_2_24.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\guider_fonts\lv_font_dingliehuobanfont20241217_2_24.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_font_simsun_12.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\guider_fonts\lv_font_simsun_12.c</FilePath>
-            </File>
-            <File>
-              <FileName>_1_102x122.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_1_102x122.c</FilePath>
-            </File>
-            <File>
-              <FileName>_2_135x240.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_2_135x240.c</FilePath>
-            </File>
-            <File>
-              <FileName>_bigCloud_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_bigCloud_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_calorie_20x20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_calorie_20x20.c</FilePath>
-            </File>
-            <File>
-              <FileName>_delete_30x30.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_delete_30x30.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO1_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO1_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO2_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO2_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO3_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO3_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO4_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO4_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO5_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO5_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO6_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO6_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ICO7_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO7_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_ioc_sport_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ioc_sport_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_message_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_message_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM0_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM0_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM1_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM1_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM2_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM2_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM3_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM3_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM4_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM4_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM5_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM5_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM6_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM6_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM7_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM7_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM8_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM8_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_NUM9_25x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_NUM9_25x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_reset2_31x28.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_reset2_31x28.c</FilePath>
-            </File>
-            <File>
-              <FileName>_rng_30x30.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_rng_30x30.c</FilePath>
-            </File>
-            <File>
-              <FileName>_second_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_second_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>_set_116x38.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_set_116x38.c</FilePath>
-            </File>
-            <File>
-              <FileName>_sey_start_30x30.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_sey_start_30x30.c</FilePath>
-            </File>
-            <File>
-              <FileName>_step_20x23.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_step_20x23.c</FilePath>
-            </File>
-            <File>
-              <FileName>_time_20x20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_time_20x20.c</FilePath>
-            </File>
-            <File>
-              <FileName>_timer_60x60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_timer_60x60.c</FilePath>
-            </File>
-            <File>
-              <FileName>setup_scr_sc_light.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_light.c</FilePath>
-            </File>
-            <File>
-              <FileName>setup_scr_sc_sport.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_sport.c</FilePath>
-            </File>
-            <File>
-              <FileName>setup_scr_sc_weather.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\setup_scr_sc_weather.c</FilePath>
+              <FilePath>..\lvgl\generated\images\_1_142x166.c</FilePath>
             </File>
           </Files>
         </Group>

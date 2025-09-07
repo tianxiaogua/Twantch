@@ -1,5 +1,6 @@
-// SPDX-License-Identifier: MIT
-// Copyright 2020-2021 NXP
+// SPDX-License-Identifier: MIT
+// Copyright 2020 NXP
+
 /**
  * @file custom.c
  *
