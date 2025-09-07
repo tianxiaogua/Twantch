@@ -26,11 +26,19 @@
 #define LCD_RES_Clr() HAL_GPIO_WritePin(LCD_RES_GPIO_Port,LCD_RES_Pin,GPIO_PIN_RESET)//RES
 #define LCD_RES_Set()  HAL_GPIO_WritePin(LCD_RES_GPIO_Port,LCD_RES_Pin,GPIO_PIN_SET)
 
-#define LCD_DC_Clr()  HAL_GPIO_WritePin(LCD_DC_GPIO_Port,LCD_DC_Pin,GPIO_PIN_RESET)//DC
-#define LCD_DC_Set()   HAL_GPIO_WritePin(LCD_DC_GPIO_Port,LCD_DC_Pin,GPIO_PIN_SET)
+// #define LCD_DC_Clr()  HAL_GPIO_WritePin(LCD_DC_GPIO_Port,LCD_DC_Pin,GPIO_PIN_RESET)//DC
+// #define LCD_DC_Set()   HAL_GPIO_WritePin(LCD_DC_GPIO_Port,LCD_DC_Pin,GPIO_PIN_SET)
 
-#define LCD_CS_Clr()   HAL_GPIO_WritePin(LCD_CS_GPIO_Port,LCD_CS_Pin,GPIO_PIN_RESET)//CS
-#define LCD_CS_Set()   HAL_GPIO_WritePin(LCD_CS_GPIO_Port,LCD_CS_Pin,GPIO_PIN_SET)
+// #define LCD_CS_Clr()   HAL_GPIO_WritePin(LCD_CS_GPIO_Port,LCD_CS_Pin,GPIO_PIN_RESET)//CS
+// #define LCD_CS_Set()   HAL_GPIO_WritePin(LCD_CS_GPIO_Port,LCD_CS_Pin,GPIO_PIN_SET)
+
+#define LCD_DC_Clr()   LL_GPIO_ResetOutputPin(LCD_DC_GPIO_Port,LCD_DC_Pin)//DC
+#define LCD_DC_Set()   LL_GPIO_SetOutputPin(LCD_DC_GPIO_Port,LCD_DC_Pin)
+
+#define LCD_CS_Clr()   LL_GPIO_ResetOutputPin(LCD_CS_GPIO_Port,LCD_CS_Pin)//CS
+#define LCD_CS_Set()   LL_GPIO_SetOutputPin(LCD_CS_GPIO_Port, LCD_CS_Pin);
+
+
 
 void LCD_GPIO_Init(void);//初始化GPIO
 void LCD_Writ_Bus(u8 dat);//模拟SPI时序

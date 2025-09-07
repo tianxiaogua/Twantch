@@ -1,5 +1,6 @@
 #include "lcd_init.h"
 
+#define SPI_TRANSMIT HAL_SPI_Transmit
 
 /******************************************************************************
       函数说明：LCD串行数据写入函数
@@ -11,7 +12,7 @@ void LCD_Writ_Bus(u8 dat)
 	// u8 i;
 	LCD_CS_Clr();
 
-	HAL_SPI_Transmit(&hspi1,&dat,1, 0xFF);//发送数据
+	SPI_TRANSMIT(&hspi1,&dat,1, 0xFF);//发送数据
 	// LCD_DC_Set();//写数据
 	LCD_CS_Set();
 }
@@ -26,7 +27,7 @@ void LCD_WR_DATA8(u8 dat)
 {
 	// LCD_Writ_Bus(dat);
 	LCD_CS_Clr();
-	HAL_SPI_Transmit(&hspi1,&dat,1, 0xFF);//发送数据
+	SPI_TRANSMIT(&hspi1,&dat,1, 0xFF);//发送数据
 	LCD_CS_Set();
 }
 
@@ -42,7 +43,7 @@ void LCD_WR_DATA(u16 dat)
 	// data[0] = ;
 	// data[1] = dat;
 	LCD_CS_Clr();
-	HAL_SPI_Transmit(&hspi1, data, 2, 0xFF);//发送数据
+	SPI_TRANSMIT(&hspi1, data, 2, 0xFF);//发送数据
 	LCD_CS_Set();
 }
 
@@ -57,7 +58,7 @@ void LCD_WR_REG(u8 dat)
 	LCD_DC_Clr();//写命令
 	// LCD_Writ_Bus(dat);
 	LCD_CS_Clr();
-	HAL_SPI_Transmit(&hspi1,&dat,1, 0xFF);//发送数据
+	SPI_TRANSMIT(&hspi1,&dat,1, 0xFF);//发送数据
 	LCD_CS_Set();
 	LCD_DC_Set();//写数据
 }
