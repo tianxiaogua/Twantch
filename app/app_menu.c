@@ -171,9 +171,11 @@ static void menu_lvgl_encoder_handler(lv_event_t * e)
 int32 app_menu_lvgl_setup(lv_ui *ui, lv_obj_t * parent)
 {
     lv_group_t *group = lv_group_create();
-    uint16_t i =0;
+    uint16_t i = 0;
+    uint16_t location = 0;
+    int32 posion_y = 0;
 
-    GUA_LOGI("init app menu\r\n");
+    GUA_LOGI("init app menu, g_menu_status:[%d]\r\n", g_menu_status);
 
     menu_lvgl_init_menu_font(ui);
     menu_lvgl_init_menu_image(ui);
@@ -184,18 +186,28 @@ int32 app_menu_lvgl_setup(lv_ui *ui, lv_obj_t * parent)
         lv_obj_add_event_cb(img[i], menu_lvgl_encoder_handler, LV_EVENT_KEY, NULL);
     }
 
+    location = g_menu_status;
     for (i=0; i<SCREEN_MENU_MAX-2; i++) {
-        int32 posion_y = POSION_Y + (i)*IMG_LENGTH;
-        lv_obj_set_pos(img[i],   POSION_X, posion_y);
-        lv_obj_align(label[i], LV_ALIGN_TOP_MID, 0, 0); // 水平居中
-        lv_obj_set_y(label[i], posion_y + I_L_DISTANCE); // 纵坐标固定
+        posion_y = POSION_Y + (i)*IMG_LENGTH;
+        lv_obj_set_pos(img[location], POSION_X, posion_y);
+        lv_obj_align(label[location], LV_ALIGN_TOP_MID, 0, 0); // 水平居中
+        lv_obj_set_y(label[location], posion_y + I_L_DISTANCE); // 纵坐标固定
+
+        location ++;
+        if (location >= SCREEN_MENU_MAX) {
+            location = 0;
+        }
     }
 
     for (i=0; i<2; i++) {
-        int32 posion_y = POSION_Y - (2-i)*IMG_LENGTH;
-        lv_obj_set_pos(img[(SCREEN_MENU_MAX-2)+i],   POSION_X, posion_y);
-        lv_obj_align(label[(SCREEN_MENU_MAX-2)+i], LV_ALIGN_TOP_MID, 0, 0); // 水平居中
-        lv_obj_set_y(label[(SCREEN_MENU_MAX-2)+i], posion_y + I_L_DISTANCE); // 纵坐标固定
+        posion_y = POSION_Y - (2-i)*IMG_LENGTH;
+        lv_obj_set_pos(img[location], POSION_X, posion_y);
+        lv_obj_align(label[location], LV_ALIGN_TOP_MID, 0, 0); // 水平居中
+        lv_obj_set_y(label[location], posion_y + I_L_DISTANCE); // 纵坐标固定
+        location ++;
+        if (location >= SCREEN_MENU_MAX) {
+            location = 0;
+        }
     }
 
     return REV_OK;

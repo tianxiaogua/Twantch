@@ -56,10 +56,10 @@ typedef struct
 	bool sc_clock_del;
 	lv_obj_t *sc_clock_label_1;
 	lv_obj_t *sc_clock_label_2;
-	lv_obj_t *sc_clock_btn_1;
-	lv_obj_t *sc_clock_btn_1_label;
 	lv_obj_t *sc_clock_btn_2;
 	lv_obj_t *sc_clock_btn_2_label;
+	lv_obj_t *sc_clock_btn_3;
+	lv_obj_t *sc_clock_btn_3_label;
 	lv_obj_t *sc_heart;
 	bool sc_heart_del;
 	lv_obj_t *sc_heart_label_1;

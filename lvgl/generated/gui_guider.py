@@ -1186,7 +1186,7 @@ style_sc_clock_main_main_default.set_bg_opa(255)
 sc_clock.add_style(style_sc_clock_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
 
 sc_clock_label_1 = lv.label(sc_clock)
-sc_clock_label_1.set_pos(int(36),int(9))
+sc_clock_label_1.set_pos(int(36),int(21))
 sc_clock_label_1.set_size(100,32)
 sc_clock_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
 sc_clock_label_1.set_text("设置时间")
@@ -1257,41 +1257,9 @@ style_sc_clock_label_2_main_main_default.set_pad_bottom(2)
 # add style for sc_clock_label_2
 sc_clock_label_2.add_style(style_sc_clock_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
 
-sc_clock_btn_1 = lv.btn(sc_clock)
-sc_clock_btn_1.set_pos(int(52),int(210))
-sc_clock_btn_1.set_size(69,48)
-sc_clock_btn_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_clock_btn_1_label = lv.label(sc_clock_btn_1)
-sc_clock_btn_1_label.set_text("↓")
-sc_clock_btn_1.set_style_pad_all(0, lv.STATE.DEFAULT)
-sc_clock_btn_1_label.align(lv.ALIGN.CENTER,0,0)
-# create style style_sc_clock_btn_1_main_main_default
-style_sc_clock_btn_1_main_main_default = lv.style_t()
-style_sc_clock_btn_1_main_main_default.init()
-style_sc_clock_btn_1_main_main_default.set_radius(5)
-style_sc_clock_btn_1_main_main_default.set_bg_color(lv.color_make(0xc5,0x34,0x34))
-style_sc_clock_btn_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_clock_btn_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_clock_btn_1_main_main_default.set_bg_opa(255)
-style_sc_clock_btn_1_main_main_default.set_border_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_clock_btn_1_main_main_default.set_border_width(0)
-style_sc_clock_btn_1_main_main_default.set_border_opa(255)
-style_sc_clock_btn_1_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_clock_btn_1_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_29)
-except AttributeError:
-    try:
-        style_sc_clock_btn_1_main_main_default.set_text_font(lv.font_montserrat_29)
-    except AttributeError:
-        style_sc_clock_btn_1_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_clock_btn_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-
-# add style for sc_clock_btn_1
-sc_clock_btn_1.add_style(style_sc_clock_btn_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
 sc_clock_btn_2 = lv.btn(sc_clock)
-sc_clock_btn_2.set_pos(int(52),int(74))
-sc_clock_btn_2.set_size(69,48)
+sc_clock_btn_2.set_pos(int(45),int(79))
+sc_clock_btn_2.set_size(83,37)
 sc_clock_btn_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
 sc_clock_btn_2_label = lv.label(sc_clock_btn_2)
 sc_clock_btn_2_label.set_text("↑")
@@ -1301,7 +1269,7 @@ sc_clock_btn_2_label.align(lv.ALIGN.CENTER,0,0)
 style_sc_clock_btn_2_main_main_default = lv.style_t()
 style_sc_clock_btn_2_main_main_default.init()
 style_sc_clock_btn_2_main_main_default.set_radius(5)
-style_sc_clock_btn_2_main_main_default.set_bg_color(lv.color_make(0xc5,0x34,0x34))
+style_sc_clock_btn_2_main_main_default.set_bg_color(lv.color_make(0xff,0x00,0x00))
 style_sc_clock_btn_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
 style_sc_clock_btn_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
 style_sc_clock_btn_2_main_main_default.set_bg_opa(255)
@@ -1320,6 +1288,38 @@ style_sc_clock_btn_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
 
 # add style for sc_clock_btn_2
 sc_clock_btn_2.add_style(style_sc_clock_btn_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_clock_btn_3 = lv.btn(sc_clock)
+sc_clock_btn_3.set_pos(int(45),int(225))
+sc_clock_btn_3.set_size(83,37)
+sc_clock_btn_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_clock_btn_3_label = lv.label(sc_clock_btn_3)
+sc_clock_btn_3_label.set_text("↓")
+sc_clock_btn_3.set_style_pad_all(0, lv.STATE.DEFAULT)
+sc_clock_btn_3_label.align(lv.ALIGN.CENTER,0,0)
+# create style style_sc_clock_btn_3_main_main_default
+style_sc_clock_btn_3_main_main_default = lv.style_t()
+style_sc_clock_btn_3_main_main_default.init()
+style_sc_clock_btn_3_main_main_default.set_radius(5)
+style_sc_clock_btn_3_main_main_default.set_bg_color(lv.color_make(0xff,0x00,0x00))
+style_sc_clock_btn_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_clock_btn_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_clock_btn_3_main_main_default.set_bg_opa(255)
+style_sc_clock_btn_3_main_main_default.set_border_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_clock_btn_3_main_main_default.set_border_width(0)
+style_sc_clock_btn_3_main_main_default.set_border_opa(255)
+style_sc_clock_btn_3_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_clock_btn_3_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_29)
+except AttributeError:
+    try:
+        style_sc_clock_btn_3_main_main_default.set_text_font(lv.font_montserrat_29)
+    except AttributeError:
+        style_sc_clock_btn_3_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_clock_btn_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+
+# add style for sc_clock_btn_3
+sc_clock_btn_3.add_style(style_sc_clock_btn_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
 
 sc_heart = lv.obj()
 sc_heart.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)

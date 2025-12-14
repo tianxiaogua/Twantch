@@ -16,7 +16,7 @@ typedef enum {
     SCREEN_MENU_LIGHT  = 5,
     SCREEN_MENU_WEAT   = 6,
     SCREEN_MENU_MSG    = 7,
-    // SCREEN_MENU_SET    = 8,
+    SCREEN_MENU_SET    = 8,
     SCREEN_MENU_MAX,
 } MENU_DEFINE;
 
