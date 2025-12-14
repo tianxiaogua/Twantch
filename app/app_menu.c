@@ -41,7 +41,6 @@ static void menu_lvgl_init_menu_font(lv_ui *ui)
    label[6] = ui->sc_menu_label_7;
    label[7] = ui->sc_menu_label_8;
    label[8] = ui->sc_menu_label_9;
-   label[9] = ui->sc_menu_label_10;
     GUA_LOGI("inti font\r\n");
     return;
 }
@@ -58,7 +57,6 @@ static void menu_lvgl_init_menu_image(lv_ui *ui)
    img[6] = ui->sc_menu_img_7;
    img[7] = ui->sc_menu_img_8;
    img[8] = ui->sc_menu_img_9;
-   img[9] = ui->sc_menu_img_10;
     GUA_LOGI("image font\r\n");
     return;
 }

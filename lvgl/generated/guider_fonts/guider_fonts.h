@@ -9,6 +9,9 @@
     
     LV_FONT_DECLARE(lv_font_dingliehuobanfont20241217_2_29)
 LV_FONT_DECLARE(lv_font_simsun_12)
+LV_FONT_DECLARE(lv_font_simsun_20)
+LV_FONT_DECLARE(lv_font_dingliehuobanfont20241217_2_20)
+LV_FONT_DECLARE(lv_font_simsun_15)
 
     
     #ifdef __cplusplus

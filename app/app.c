@@ -34,6 +34,7 @@
 #include "driver_gpio.h"
 #include "driver_delay.h"
 #include "driver_adc.h"
+#include "driver_pwm.h"
 
 #include "app_data_transmission.h"
 #include "app_menu.h"
@@ -50,7 +51,7 @@ typedef enum {
     SCREEN_JUMP_MAIN   = 0,
     SCREEN_JUMP_MENU   = 1,
     SCREEN_JUMP_RATE   = 2,
-    SCREEN_JUMP_OXY    = 3,
+    SCREEN_JUMP_SPO2    = 3,
     SCREEN_JUMP_SPORT  = 4,
     SCREEN_JUMP_CLOCK  = 5,
     SCREEN_JUMP_TIC   = 6,
@@ -86,6 +87,8 @@ typedef struct
 
 DISPLAY_MANAGE g_dis = {0};
 
+static int32 app_change_display_time(lv_obj_t * obj, uint8 time);
+static int32 app_updata_time(lv_ui *ui, uint8 hour, uint8 minutes);
 
 static void app_screen_jump_id(int32 key_event)
 {
@@ -118,79 +121,78 @@ static void app_screen_jump_id(int32 key_event)
                     case SCREEN_MENU_RATE: {
                         GUA_LOGW("screen display rate\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_RATE;
-//                        setup_scr_sc_heart(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                        setup_scr_sc_heart(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
-                    case SCREEN_MENU_OXY: {
+                    case SCREEN_MENU_SPO2: {
                         GUA_LOGW("screen display oxy\r\n");
-                        g_dis.screen_jump_id = SCREEN_JUMP_OXY;
-//                        setup_scr_sc_spo2(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                        g_dis.screen_jump_id = SCREEN_JUMP_SPO2;
+                        setup_scr_sc_spo2(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_SPORT: {
                         GUA_LOGW("screen display sport\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_SPORT;
-//                        setup_scr_sc_sport(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                        setup_scr_sc_sport(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_CLOCK: {
+                        GUA_LOGW("screen display second\r\n");
+                        g_dis.screen_jump_id = SCREEN_JUMP_TIMER;
+                        setup_scr_sc_clock(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_clock, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
-                    case SCREEN_MENU_TIC: {
-                        GUA_LOGW("screen display tic\r\n");
-                        // g_dis.screen_jump_id = SCREEN_JUMP_TIC;
-                        break;
-                    }
-
-                    case SCREEN_MENU_TIMER: {
-                        // GUA_LOGW("screen display tic\r\n");
-                        // g_dis.screen_jump_id = SCREEN_JUMP_TIMER;
-                        // setup_scr_sc_timer(&g_dis.guider_ui);
-                        // lv_scr_load_anim(g_dis.guider_ui.sc_timer, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    case SCREEN_MENU_SECOND: {
+                        GUA_LOGW("screen display second\r\n");
+                        g_dis.screen_jump_id = SCREEN_JUMP_TIMER;
+                        setup_scr_sc_second(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_second, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_SET: {
+                        GUA_LOGW("screen display setting\r\n");
                         break;
                     }
 
-                    case SCREEN_MENU_LIT: {
+                    case SCREEN_MENU_LIGHT: {
                         GUA_LOGW("screen display light\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_LIT;
-//                        setup_scr_sc_light(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                        setup_scr_sc_light(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_WEAT: {
                         GUA_LOGW("screen display sport\r\n");
                         g_dis.screen_jump_id = SCREEN_JUMP_WEAT;
-//                        setup_scr_sc_weather(&g_dis.guider_ui);
-//                        lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                       setup_scr_sc_weather(&g_dis.guider_ui);
+                       lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
 
                     case SCREEN_MENU_MSG: {
-                        // GUA_LOGW("screen display message\r\n");
-                        // g_dis.screen_jump_id = SCREEN_JUMP_MSG;
-                        // setup_scr_sc_message(&g_dis.guider_ui);
-                        // lv_scr_load_anim(g_dis.guider_ui.scr_message, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                        GUA_LOGW("screen display message\r\n");
+                        g_dis.screen_jump_id = SCREEN_JUMP_MSG;
+                        setup_scr_sc_message(&g_dis.guider_ui);
+                        lv_scr_load_anim(g_dis.guider_ui.sc_message, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
                         break;
                     }
                 }
             }
             break;
         }
-
+        // 其他界面双击跳转到菜单界面
         case SCREEN_JUMP_RATE :
-        case SCREEN_JUMP_OXY :
+        case SCREEN_JUMP_SPO2 :
         case SCREEN_JUMP_SPORT :
         case SCREEN_JUMP_CLOCK :
         case SCREEN_JUMP_TIC :
@@ -204,9 +206,9 @@ static void app_screen_jump_id(int32 key_event)
                 key_data.key_valye = KEY_TYPE_CENTER;
                 key_queue_set(&key_data); // 手动更新按键事件，方式界面没有反应
                 GUA_LOGW("screen jump menu\r\n");
-               setup_scr_sc_menu(&g_dis.guider_ui);
-               app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-               lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
+                setup_scr_sc_menu(&g_dis.guider_ui);
+                app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
+                lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
                 g_dis.screen_jump_id = SCREEN_JUMP_MENU;
             }
             break;
@@ -248,6 +250,7 @@ static int32 app_extract_digits(uint8 num, uint8 *tens, uint8 *ones) {
         *tens = num / 10;   // 十位数字
         *ones = num % 10;   // 个位数字
     }
+    return 0;
 }
 
 
@@ -271,6 +274,7 @@ static int32 app_change_display_time(lv_obj_t * obj, uint8 time)
             break;
     }
     lv_obj_invalidate(obj);  // 强制重绘图片
+	return 0;
 }
 
 
@@ -328,7 +332,7 @@ static void app_updata_system_message()
 
 
 
-static KEY_TYPE app_get_key_value(KEY_MANAGE *ctl, int32 key)
+static uint8 app_get_key_value(KEY_MANAGE *ctl, int32 key)
 {
     if (key) { // 硬件按键按下
         if (ctl->histery_key != key) {
@@ -393,8 +397,8 @@ void app_watch_base_task(void)
     key_config_init(&key_up.key_info);
     key_config_init(&key_down.key_info);
 
-//   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-//   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 70);
+    init_PWM();
+
     HAL_TIM_Base_Start_IT(&htim5); // 1ms LVGL界面滴答中断
 
     debug_init(SoftVersion, HardVersion, BuildDataStr, BuildTimeStr);

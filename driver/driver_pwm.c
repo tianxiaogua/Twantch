@@ -29,8 +29,8 @@ void init_PWM()
 	// __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);    //修改占空比
 	// __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);    //修改占空比
 
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0);
+	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 1000);
 
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
@@ -50,17 +50,17 @@ void init_PWM()
 void set_pwm_channel_1(uint16_t duty)
 {
 	// if(duty>3600) duty = 3600;
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty);
+	// __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty);
 }
 void set_pwm_channel_2(uint16_t duty)
 {
 //	if(duty>3600) duty = 3600;
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty);
+	// __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty);
 }
 void set_pwm_channel_3(uint16_t duty)
 {
 //	if(duty>3600) duty = 3600;
-	__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, duty);
+	// __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, duty);
 }
 
 /*******************************************************************************
@@ -88,7 +88,7 @@ void set_pwm_channel_3_2(uint16_t duty)
 void set_pwm_channel_2_1(uint16_t duty)
 {
 	// if(duty>3600) duty = 3600;
-	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, duty);
+	// __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, duty);
 }
 
 void beep(uint16_t status)

@@ -1699,6 +1699,11 @@
               <FileType>1</FileType>
               <FilePath>..\driver\driver_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>driver_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\driver_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2773,11 +2778,6 @@
               <FilePath>..\lvgl\generated\images\_ICO1_81x80.c</FilePath>
             </File>
             <File>
-              <FileName>_ICO3_81x80.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\generated\images\_ICO3_81x80.c</FilePath>
-            </File>
-            <File>
               <FileName>_ICO4_81x80.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\lvgl\generated\images\_ICO4_81x80.c</FilePath>
@@ -2831,6 +2831,121 @@
               <FileName>_ICO2_81x80.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\lvgl\generated\images\_ICO2_81x80.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_heart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_heart.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_simsun_15.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\guider_fonts\lv_font_simsun_15.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_simsun_20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\guider_fonts\lv_font_simsun_20.c</FilePath>
+            </File>
+            <File>
+              <FileName>_reset_35x33.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_reset_35x33.c</FilePath>
+            </File>
+            <File>
+              <FileName>_set_122x44.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_set_122x44.c</FilePath>
+            </File>
+            <File>
+              <FileName>_set_123x44.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_set_123x44.c</FilePath>
+            </File>
+            <File>
+              <FileName>_sey_start_34x32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_sey_start_34x32.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_weather.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_weather.c</FilePath>
+            </File>
+            <File>
+              <FileName>_bigCloud_85x79.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_bigCloud_85x79.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_dingliehuobanfont20241217_2_20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\guider_fonts\lv_font_dingliehuobanfont20241217_2_20.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_sport.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_sport.c</FilePath>
+            </File>
+            <File>
+              <FileName>_calorie_30x30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_calorie_30x30.c</FilePath>
+            </File>
+            <File>
+              <FileName>_step_30x30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_step_30x30.c</FilePath>
+            </File>
+            <File>
+              <FileName>_time_30x30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_time_30x30.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_message.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_message.c</FilePath>
+            </File>
+            <File>
+              <FileName>_delete_37x34.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_delete_37x34.c</FilePath>
+            </File>
+            <File>
+              <FileName>_rng_42x41.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_rng_42x41.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_spo2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_spo2.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_light.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_light.c</FilePath>
+            </File>
+            <File>
+              <FileName>_light_52x65.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\images\_light_52x65.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_sc_second.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_sc_second.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup_scr_screen_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\generated\setup_scr_screen_1.c</FilePath>
             </File>
           </Files>
         </Group>
