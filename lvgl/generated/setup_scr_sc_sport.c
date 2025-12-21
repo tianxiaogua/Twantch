@@ -115,9 +115,9 @@ void setup_scr_sc_sport(lv_ui *ui){
 	lv_style_set_bg_grad_dir(&style_sc_sport_bar_1_main_indicator_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_sport_bar_1_main_indicator_default, 255);
 	lv_obj_add_style(ui->sc_sport_bar_1, &style_sc_sport_bar_1_main_indicator_default, LV_PART_INDICATOR|LV_STATE_DEFAULT);
-	lv_obj_set_style_anim_time(ui->sc_sport_bar_1, 1000, 0);
+	lv_obj_set_style_anim_time(ui->sc_sport_bar_1, 300, 0);
 	lv_bar_set_mode(ui->sc_sport_bar_1, LV_BAR_MODE_NORMAL);
-	lv_bar_set_value(ui->sc_sport_bar_1, 50, LV_ANIM_OFF);
+	lv_bar_set_value(ui->sc_sport_bar_1, 0, LV_ANIM_ON);
 
 	//Write codes sc_sport_label_2
 	ui->sc_sport_label_2 = lv_label_create(ui->sc_sport);
@@ -139,7 +139,7 @@ void setup_scr_sc_sport(lv_ui *ui){
 	lv_style_set_bg_grad_dir(&style_sc_sport_label_2_main_main_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_sport_label_2_main_main_default, 0);
 	lv_style_set_text_color(&style_sc_sport_label_2_main_main_default, lv_color_make(0x35, 0xa7, 0xa5));
-	lv_style_set_text_font(&style_sc_sport_label_2_main_main_default, &lv_font_simsun_20);
+	lv_style_set_text_font(&style_sc_sport_label_2_main_main_default, &lv_font_dingliehuobanfont20241217_2_20);
 	lv_style_set_text_letter_space(&style_sc_sport_label_2_main_main_default, 2);
 	lv_style_set_text_line_space(&style_sc_sport_label_2_main_main_default, 0);
 	lv_style_set_text_align(&style_sc_sport_label_2_main_main_default, LV_TEXT_ALIGN_CENTER);
@@ -237,9 +237,9 @@ void setup_scr_sc_sport(lv_ui *ui){
 	lv_style_set_bg_grad_dir(&style_sc_sport_bar_2_main_indicator_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_sport_bar_2_main_indicator_default, 255);
 	lv_obj_add_style(ui->sc_sport_bar_2, &style_sc_sport_bar_2_main_indicator_default, LV_PART_INDICATOR|LV_STATE_DEFAULT);
-	lv_obj_set_style_anim_time(ui->sc_sport_bar_2, 1000, 0);
+	lv_obj_set_style_anim_time(ui->sc_sport_bar_2, 300, 0);
 	lv_bar_set_mode(ui->sc_sport_bar_2, LV_BAR_MODE_NORMAL);
-	lv_bar_set_value(ui->sc_sport_bar_2, 50, LV_ANIM_OFF);
+	lv_bar_set_value(ui->sc_sport_bar_2, 0, LV_ANIM_ON);
 
 	//Write codes sc_sport_label_4
 	ui->sc_sport_label_4 = lv_label_create(ui->sc_sport);
@@ -261,7 +261,7 @@ void setup_scr_sc_sport(lv_ui *ui){
 	lv_style_set_bg_grad_dir(&style_sc_sport_label_4_main_main_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_sport_label_4_main_main_default, 0);
 	lv_style_set_text_color(&style_sc_sport_label_4_main_main_default, lv_color_make(0xf0, 0x69, 0x3d));
-	lv_style_set_text_font(&style_sc_sport_label_4_main_main_default, &lv_font_simsun_20);
+	lv_style_set_text_font(&style_sc_sport_label_4_main_main_default, &lv_font_dingliehuobanfont20241217_2_20);
 	lv_style_set_text_letter_space(&style_sc_sport_label_4_main_main_default, 2);
 	lv_style_set_text_line_space(&style_sc_sport_label_4_main_main_default, 0);
 	lv_style_set_text_align(&style_sc_sport_label_4_main_main_default, LV_TEXT_ALIGN_CENTER);
@@ -359,9 +359,9 @@ void setup_scr_sc_sport(lv_ui *ui){
 	lv_style_set_bg_grad_dir(&style_sc_sport_bar_3_main_indicator_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_sport_bar_3_main_indicator_default, 255);
 	lv_obj_add_style(ui->sc_sport_bar_3, &style_sc_sport_bar_3_main_indicator_default, LV_PART_INDICATOR|LV_STATE_DEFAULT);
-	lv_obj_set_style_anim_time(ui->sc_sport_bar_3, 1000, 0);
+	lv_obj_set_style_anim_time(ui->sc_sport_bar_3, 300, 0);
 	lv_bar_set_mode(ui->sc_sport_bar_3, LV_BAR_MODE_NORMAL);
-	lv_bar_set_value(ui->sc_sport_bar_3, 50, LV_ANIM_OFF);
+	lv_bar_set_value(ui->sc_sport_bar_3, 0, LV_ANIM_ON);
 
 	//Write codes sc_sport_label_6
 	ui->sc_sport_label_6 = lv_label_create(ui->sc_sport);
@@ -382,8 +382,8 @@ void setup_scr_sc_sport(lv_ui *ui){
 	lv_style_set_bg_grad_color(&style_sc_sport_label_6_main_main_default, lv_color_make(0x21, 0x95, 0xf6));
 	lv_style_set_bg_grad_dir(&style_sc_sport_label_6_main_main_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_sport_label_6_main_main_default, 0);
-	lv_style_set_text_color(&style_sc_sport_label_6_main_main_default, lv_color_make(0xe0, 0xbe, 0x9e));
-	lv_style_set_text_font(&style_sc_sport_label_6_main_main_default, &lv_font_simsun_20);
+	lv_style_set_text_color(&style_sc_sport_label_6_main_main_default, lv_color_make(0xff, 0xbb, 0x00));
+	lv_style_set_text_font(&style_sc_sport_label_6_main_main_default, &lv_font_dingliehuobanfont20241217_2_20);
 	lv_style_set_text_letter_space(&style_sc_sport_label_6_main_main_default, 2);
 	lv_style_set_text_line_space(&style_sc_sport_label_6_main_main_default, 0);
 	lv_style_set_text_align(&style_sc_sport_label_6_main_main_default, LV_TEXT_ALIGN_CENTER);

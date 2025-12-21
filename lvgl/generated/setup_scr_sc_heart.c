@@ -59,7 +59,7 @@ void setup_scr_sc_heart(lv_ui *ui){
 
 	//Write codes sc_heart_label_2
 	ui->sc_heart_label_2 = lv_label_create(ui->sc_heart);
-	lv_obj_set_pos(ui->sc_heart_label_2, 1, 42);
+	lv_obj_set_pos(ui->sc_heart_label_2, -4, 41);
 	lv_obj_set_size(ui->sc_heart_label_2, 40, 20);
 	lv_obj_set_scrollbar_mode(ui->sc_heart_label_2, LV_SCROLLBAR_MODE_OFF);
 	lv_label_set_text(ui->sc_heart_label_2, "175");
@@ -89,7 +89,7 @@ void setup_scr_sc_heart(lv_ui *ui){
 
 	//Write codes sc_heart_label_5
 	ui->sc_heart_label_5 = lv_label_create(ui->sc_heart);
-	lv_obj_set_pos(ui->sc_heart_label_5, 11, 205);
+	lv_obj_set_pos(ui->sc_heart_label_5, 0, 205);
 	lv_obj_set_size(ui->sc_heart_label_5, 31, 20);
 	lv_obj_set_scrollbar_mode(ui->sc_heart_label_5, LV_SCROLLBAR_MODE_OFF);
 	lv_label_set_text(ui->sc_heart_label_5, "75");
@@ -119,8 +119,8 @@ void setup_scr_sc_heart(lv_ui *ui){
 
 	//Write codes sc_heart_chart_1
 	ui->sc_heart_chart_1 = lv_chart_create(ui->sc_heart);
-	lv_obj_set_pos(ui->sc_heart_chart_1, 35, 44);
-	lv_obj_set_size(ui->sc_heart_chart_1, 129, 230);
+	lv_obj_set_pos(ui->sc_heart_chart_1, 31, 45);
+	lv_obj_set_size(ui->sc_heart_chart_1, 141, 230);
 	lv_obj_set_scrollbar_mode(ui->sc_heart_chart_1, LV_SCROLLBAR_MODE_OFF);
 
 	//Write style state: LV_STATE_DEFAULT for style_sc_heart_chart_1_main_main_default
@@ -135,26 +135,19 @@ void setup_scr_sc_heart(lv_ui *ui){
 	lv_style_set_bg_grad_dir(&style_sc_heart_chart_1_main_main_default, LV_GRAD_DIR_NONE);
 	lv_style_set_bg_opa(&style_sc_heart_chart_1_main_main_default, 0);
 	lv_style_set_border_color(&style_sc_heart_chart_1_main_main_default, lv_color_make(0xff, 0xff, 0xff));
-	lv_style_set_border_width(&style_sc_heart_chart_1_main_main_default, 1);
+	lv_style_set_border_width(&style_sc_heart_chart_1_main_main_default, 0);
 	lv_style_set_border_opa(&style_sc_heart_chart_1_main_main_default, 0);
-	lv_style_set_line_color(&style_sc_heart_chart_1_main_main_default, lv_color_make(0xe8, 0xe8, 0xe8));
+	lv_style_set_line_color(&style_sc_heart_chart_1_main_main_default, lv_color_make(0xff, 0xff, 0xff));
 	lv_style_set_line_width(&style_sc_heart_chart_1_main_main_default, 2);
 	lv_style_set_line_opa(&style_sc_heart_chart_1_main_main_default, 255);
 	lv_obj_add_style(ui->sc_heart_chart_1, &style_sc_heart_chart_1_main_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_chart_set_type(ui->sc_heart_chart_1, LV_CHART_TYPE_LINE);
-	lv_chart_set_range(ui->sc_heart_chart_1,LV_CHART_AXIS_PRIMARY_Y, 0, 170);
+	lv_chart_set_type(ui->sc_heart_chart_1, LV_CHART_TYPE_BAR);
+	lv_chart_set_range(ui->sc_heart_chart_1,LV_CHART_AXIS_PRIMARY_Y, 0, 175);
 	lv_chart_set_div_line_count(ui->sc_heart_chart_1, 5, 0);
-	lv_chart_set_point_count(ui->sc_heart_chart_1, 5);
-	lv_chart_series_t * sc_heart_chart_1_0 = lv_chart_add_series(ui->sc_heart_chart_1, lv_color_make(0xff, 0x00, 0x00), LV_CHART_AXIS_PRIMARY_Y);
-	lv_chart_set_next_value(ui->sc_heart_chart_1, sc_heart_chart_1_0, 1);
-	lv_chart_set_next_value(ui->sc_heart_chart_1, sc_heart_chart_1_0, 20);
-	lv_chart_set_next_value(ui->sc_heart_chart_1, sc_heart_chart_1_0, 30);
-	lv_chart_set_next_value(ui->sc_heart_chart_1, sc_heart_chart_1_0, 40);
-	lv_chart_set_next_value(ui->sc_heart_chart_1, sc_heart_chart_1_0, 5);
 
 	//Write codes sc_heart_label_3
 	ui->sc_heart_label_3 = lv_label_create(ui->sc_heart);
-	lv_obj_set_pos(ui->sc_heart_label_3, 1, 84);
+	lv_obj_set_pos(ui->sc_heart_label_3, -5, 93);
 	lv_obj_set_size(ui->sc_heart_label_3, 40, 20);
 	lv_obj_set_scrollbar_mode(ui->sc_heart_label_3, LV_SCROLLBAR_MODE_OFF);
 	lv_label_set_text(ui->sc_heart_label_3, "150");
@@ -184,7 +177,7 @@ void setup_scr_sc_heart(lv_ui *ui){
 
 	//Write codes sc_heart_label_4
 	ui->sc_heart_label_4 = lv_label_create(ui->sc_heart);
-	lv_obj_set_pos(ui->sc_heart_label_4, 1, 150);
+	lv_obj_set_pos(ui->sc_heart_label_4, -5, 150);
 	lv_obj_set_size(ui->sc_heart_label_4, 40, 32);
 	lv_obj_set_scrollbar_mode(ui->sc_heart_label_4, LV_SCROLLBAR_MODE_OFF);
 	lv_label_set_text(ui->sc_heart_label_4, "100");
@@ -214,7 +207,7 @@ void setup_scr_sc_heart(lv_ui *ui){
 
 	//Write codes sc_heart_label_6
 	ui->sc_heart_label_6 = lv_label_create(ui->sc_heart);
-	lv_obj_set_pos(ui->sc_heart_label_6, -29, 256);
+	lv_obj_set_pos(ui->sc_heart_label_6, -34, 259);
 	lv_obj_set_size(ui->sc_heart_label_6, 100, 32);
 	lv_obj_set_scrollbar_mode(ui->sc_heart_label_6, LV_SCROLLBAR_MODE_OFF);
 	lv_label_set_text(ui->sc_heart_label_6, "50");

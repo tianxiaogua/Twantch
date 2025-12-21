@@ -386,6 +386,1054 @@ style_sc_main_bar_battery_main_indicator_default.set_bg_opa(255)
 # add style for sc_main_bar_battery
 sc_main_bar_battery.add_style(style_sc_main_bar_battery_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
 
+sc_heart = lv.obj()
+sc_heart.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+# create style style_sc_heart_main_main_default
+style_sc_heart_main_main_default = lv.style_t()
+style_sc_heart_main_main_default.init()
+style_sc_heart_main_main_default.set_bg_color(lv.color_make(0x00,0x00,0x00))
+style_sc_heart_main_main_default.set_bg_opa(255)
+
+# add style for sc_heart
+sc_heart.add_style(style_sc_heart_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_1 = lv.label(sc_heart)
+sc_heart_label_1.set_pos(int(14),int(11))
+sc_heart_label_1.set_size(134,23)
+sc_heart_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_1.set_text("heart:92BMP")
+sc_heart_label_1.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_1_main_main_default
+style_sc_heart_label_1_main_main_default = lv.style_t()
+style_sc_heart_label_1_main_main_default.init()
+style_sc_heart_label_1_main_main_default.set_radius(0)
+style_sc_heart_label_1_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_1_main_main_default.set_bg_opa(255)
+style_sc_heart_label_1_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_1_main_main_default.set_text_font(lv.font_simsun_20)
+except AttributeError:
+    try:
+        style_sc_heart_label_1_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_heart_label_1_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_1_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_1_main_main_default.set_text_line_space(0)
+style_sc_heart_label_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_1_main_main_default.set_pad_left(0)
+style_sc_heart_label_1_main_main_default.set_pad_right(0)
+style_sc_heart_label_1_main_main_default.set_pad_top(0)
+style_sc_heart_label_1_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_1
+sc_heart_label_1.add_style(style_sc_heart_label_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_2 = lv.label(sc_heart)
+sc_heart_label_2.set_pos(int(-4),int(41))
+sc_heart_label_2.set_size(40,20)
+sc_heart_label_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_2.set_text("175")
+sc_heart_label_2.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_2_main_main_default
+style_sc_heart_label_2_main_main_default = lv.style_t()
+style_sc_heart_label_2_main_main_default.init()
+style_sc_heart_label_2_main_main_default.set_radius(0)
+style_sc_heart_label_2_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_2_main_main_default.set_bg_opa(0)
+style_sc_heart_label_2_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_2_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_2_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_2_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_2_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_2_main_main_default.set_text_line_space(0)
+style_sc_heart_label_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_2_main_main_default.set_pad_left(0)
+style_sc_heart_label_2_main_main_default.set_pad_right(0)
+style_sc_heart_label_2_main_main_default.set_pad_top(0)
+style_sc_heart_label_2_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_2
+sc_heart_label_2.add_style(style_sc_heart_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_5 = lv.label(sc_heart)
+sc_heart_label_5.set_pos(int(0),int(205))
+sc_heart_label_5.set_size(31,20)
+sc_heart_label_5.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_5.set_text("75")
+sc_heart_label_5.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_5_main_main_default
+style_sc_heart_label_5_main_main_default = lv.style_t()
+style_sc_heart_label_5_main_main_default.init()
+style_sc_heart_label_5_main_main_default.set_radius(0)
+style_sc_heart_label_5_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_5_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_5_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_5_main_main_default.set_bg_opa(0)
+style_sc_heart_label_5_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_5_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_5_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_5_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_5_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_5_main_main_default.set_text_line_space(0)
+style_sc_heart_label_5_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_5_main_main_default.set_pad_left(0)
+style_sc_heart_label_5_main_main_default.set_pad_right(0)
+style_sc_heart_label_5_main_main_default.set_pad_top(0)
+style_sc_heart_label_5_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_5
+sc_heart_label_5.add_style(style_sc_heart_label_5_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_chart_1 = lv.chart(sc_heart)
+sc_heart_chart_1.set_pos(int(31),int(45))
+sc_heart_chart_1.set_size(141,230)
+sc_heart_chart_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_chart_1.set_type(lv.chart.TYPE.BAR)
+sc_heart_chart_1.set_range(lv.chart.AXIS.PRIMARY_Y, 0, 175)
+sc_heart_chart_1.set_div_line_count(5, 0)
+sc_heart_chart_1.set_point_count(5)
+# create style style_sc_heart_chart_1_main_main_default
+style_sc_heart_chart_1_main_main_default = lv.style_t()
+style_sc_heart_chart_1_main_main_default.init()
+style_sc_heart_chart_1_main_main_default.set_radius(0)
+style_sc_heart_chart_1_main_main_default.set_bg_color(lv.color_make(0xff,0xff,0xff))
+style_sc_heart_chart_1_main_main_default.set_bg_grad_color(lv.color_make(0xff,0xff,0xff))
+style_sc_heart_chart_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_chart_1_main_main_default.set_bg_opa(0)
+style_sc_heart_chart_1_main_main_default.set_border_color(lv.color_make(0xff,0xff,0xff))
+style_sc_heart_chart_1_main_main_default.set_border_width(0)
+style_sc_heart_chart_1_main_main_default.set_border_opa(0)
+style_sc_heart_chart_1_main_main_default.set_line_color(lv.color_make(0xff,0xff,0xff))
+style_sc_heart_chart_1_main_main_default.set_line_width(2)
+style_sc_heart_chart_1_main_main_default.set_line_opa(255)
+
+# add style for sc_heart_chart_1
+sc_heart_chart_1.add_style(style_sc_heart_chart_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_3 = lv.label(sc_heart)
+sc_heart_label_3.set_pos(int(-5),int(93))
+sc_heart_label_3.set_size(40,20)
+sc_heart_label_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_3.set_text("150")
+sc_heart_label_3.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_3_main_main_default
+style_sc_heart_label_3_main_main_default = lv.style_t()
+style_sc_heart_label_3_main_main_default.init()
+style_sc_heart_label_3_main_main_default.set_radius(0)
+style_sc_heart_label_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_3_main_main_default.set_bg_opa(0)
+style_sc_heart_label_3_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_3_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_3_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_3_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_3_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_3_main_main_default.set_text_line_space(0)
+style_sc_heart_label_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_3_main_main_default.set_pad_left(0)
+style_sc_heart_label_3_main_main_default.set_pad_right(0)
+style_sc_heart_label_3_main_main_default.set_pad_top(0)
+style_sc_heart_label_3_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_3
+sc_heart_label_3.add_style(style_sc_heart_label_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_4 = lv.label(sc_heart)
+sc_heart_label_4.set_pos(int(-5),int(150))
+sc_heart_label_4.set_size(40,32)
+sc_heart_label_4.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_4.set_text("100")
+sc_heart_label_4.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_4_main_main_default
+style_sc_heart_label_4_main_main_default = lv.style_t()
+style_sc_heart_label_4_main_main_default.init()
+style_sc_heart_label_4_main_main_default.set_radius(0)
+style_sc_heart_label_4_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_4_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_4_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_4_main_main_default.set_bg_opa(0)
+style_sc_heart_label_4_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_4_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_4_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_4_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_4_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_4_main_main_default.set_text_line_space(0)
+style_sc_heart_label_4_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_4_main_main_default.set_pad_left(0)
+style_sc_heart_label_4_main_main_default.set_pad_right(0)
+style_sc_heart_label_4_main_main_default.set_pad_top(0)
+style_sc_heart_label_4_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_4
+sc_heart_label_4.add_style(style_sc_heart_label_4_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_6 = lv.label(sc_heart)
+sc_heart_label_6.set_pos(int(-34),int(259))
+sc_heart_label_6.set_size(100,32)
+sc_heart_label_6.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_6.set_text("50")
+sc_heart_label_6.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_6_main_main_default
+style_sc_heart_label_6_main_main_default = lv.style_t()
+style_sc_heart_label_6_main_main_default.init()
+style_sc_heart_label_6_main_main_default.set_radius(0)
+style_sc_heart_label_6_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_6_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_6_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_6_main_main_default.set_bg_opa(0)
+style_sc_heart_label_6_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_6_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_6_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_6_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_6_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_6_main_main_default.set_text_line_space(0)
+style_sc_heart_label_6_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_6_main_main_default.set_pad_left(0)
+style_sc_heart_label_6_main_main_default.set_pad_right(0)
+style_sc_heart_label_6_main_main_default.set_pad_top(0)
+style_sc_heart_label_6_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_6
+sc_heart_label_6.add_style(style_sc_heart_label_6_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_7 = lv.label(sc_heart)
+sc_heart_label_7.set_pos(int(11),int(277))
+sc_heart_label_7.set_size(49,20)
+sc_heart_label_7.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_7.set_text("00:00")
+sc_heart_label_7.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_7_main_main_default
+style_sc_heart_label_7_main_main_default = lv.style_t()
+style_sc_heart_label_7_main_main_default.init()
+style_sc_heart_label_7_main_main_default.set_radius(0)
+style_sc_heart_label_7_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_7_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_7_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_7_main_main_default.set_bg_opa(0)
+style_sc_heart_label_7_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_7_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_7_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_7_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_7_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_7_main_main_default.set_text_line_space(0)
+style_sc_heart_label_7_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_7_main_main_default.set_pad_left(0)
+style_sc_heart_label_7_main_main_default.set_pad_right(0)
+style_sc_heart_label_7_main_main_default.set_pad_top(0)
+style_sc_heart_label_7_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_7
+sc_heart_label_7.add_style(style_sc_heart_label_7_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_8 = lv.label(sc_heart)
+sc_heart_label_8.set_pos(int(111),int(274))
+sc_heart_label_8.set_size(53,17)
+sc_heart_label_8.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_8.set_text("24:00")
+sc_heart_label_8.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_8_main_main_default
+style_sc_heart_label_8_main_main_default = lv.style_t()
+style_sc_heart_label_8_main_main_default.init()
+style_sc_heart_label_8_main_main_default.set_radius(0)
+style_sc_heart_label_8_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_8_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_8_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_8_main_main_default.set_bg_opa(0)
+style_sc_heart_label_8_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_8_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_8_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_8_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_8_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_8_main_main_default.set_text_line_space(0)
+style_sc_heart_label_8_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_8_main_main_default.set_pad_left(0)
+style_sc_heart_label_8_main_main_default.set_pad_right(0)
+style_sc_heart_label_8_main_main_default.set_pad_top(0)
+style_sc_heart_label_8_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_8
+sc_heart_label_8.add_style(style_sc_heart_label_8_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_heart_label_9 = lv.label(sc_heart)
+sc_heart_label_9.set_pos(int(7),int(297))
+sc_heart_label_9.set_size(157,16)
+sc_heart_label_9.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_heart_label_9.set_text("MAX:67 MIN:66")
+sc_heart_label_9.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_heart_label_9_main_main_default
+style_sc_heart_label_9_main_main_default = lv.style_t()
+style_sc_heart_label_9_main_main_default.init()
+style_sc_heart_label_9_main_main_default.set_radius(0)
+style_sc_heart_label_9_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_9_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_heart_label_9_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_heart_label_9_main_main_default.set_bg_opa(0)
+style_sc_heart_label_9_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_heart_label_9_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_heart_label_9_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_heart_label_9_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_heart_label_9_main_main_default.set_text_letter_space(2)
+style_sc_heart_label_9_main_main_default.set_text_line_space(0)
+style_sc_heart_label_9_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_heart_label_9_main_main_default.set_pad_left(0)
+style_sc_heart_label_9_main_main_default.set_pad_right(0)
+style_sc_heart_label_9_main_main_default.set_pad_top(0)
+style_sc_heart_label_9_main_main_default.set_pad_bottom(0)
+
+# add style for sc_heart_label_9
+sc_heart_label_9.add_style(style_sc_heart_label_9_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2 = lv.obj()
+sc_spo2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+# create style style_sc_spo2_main_main_default
+style_sc_spo2_main_main_default = lv.style_t()
+style_sc_spo2_main_main_default.init()
+style_sc_spo2_main_main_default.set_bg_color(lv.color_make(0x00,0x00,0x00))
+style_sc_spo2_main_main_default.set_bg_opa(255)
+
+# add style for sc_spo2
+sc_spo2.add_style(style_sc_spo2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_1 = lv.label(sc_spo2)
+sc_spo2_label_1.set_pos(int(19),int(11))
+sc_spo2_label_1.set_size(134,23)
+sc_spo2_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_1.set_text("SPO2 99")
+sc_spo2_label_1.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_1_main_main_default
+style_sc_spo2_label_1_main_main_default = lv.style_t()
+style_sc_spo2_label_1_main_main_default.init()
+style_sc_spo2_label_1_main_main_default.set_radius(0)
+style_sc_spo2_label_1_main_main_default.set_bg_color(lv.color_make(0xf6,0x23,0x62))
+style_sc_spo2_label_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_1_main_main_default.set_bg_opa(255)
+style_sc_spo2_label_1_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_1_main_main_default.set_text_font(lv.font_simsun_20)
+except AttributeError:
+    try:
+        style_sc_spo2_label_1_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_spo2_label_1_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_1_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_1_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_1_main_main_default.set_pad_left(0)
+style_sc_spo2_label_1_main_main_default.set_pad_right(0)
+style_sc_spo2_label_1_main_main_default.set_pad_top(0)
+style_sc_spo2_label_1_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_1
+sc_spo2_label_1.add_style(style_sc_spo2_label_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_2 = lv.label(sc_spo2)
+sc_spo2_label_2.set_pos(int(-5),int(39))
+sc_spo2_label_2.set_size(40,20)
+sc_spo2_label_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_2.set_text("175")
+sc_spo2_label_2.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_2_main_main_default
+style_sc_spo2_label_2_main_main_default = lv.style_t()
+style_sc_spo2_label_2_main_main_default.init()
+style_sc_spo2_label_2_main_main_default.set_radius(0)
+style_sc_spo2_label_2_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_2_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_2_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_2_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_2_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_2_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_2_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_2_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_2_main_main_default.set_pad_left(0)
+style_sc_spo2_label_2_main_main_default.set_pad_right(0)
+style_sc_spo2_label_2_main_main_default.set_pad_top(0)
+style_sc_spo2_label_2_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_2
+sc_spo2_label_2.add_style(style_sc_spo2_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_5 = lv.label(sc_spo2)
+sc_spo2_label_5.set_pos(int(0),int(206))
+sc_spo2_label_5.set_size(31,20)
+sc_spo2_label_5.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_5.set_text("75")
+sc_spo2_label_5.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_5_main_main_default
+style_sc_spo2_label_5_main_main_default = lv.style_t()
+style_sc_spo2_label_5_main_main_default.init()
+style_sc_spo2_label_5_main_main_default.set_radius(0)
+style_sc_spo2_label_5_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_5_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_5_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_5_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_5_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_5_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_5_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_5_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_5_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_5_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_5_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_5_main_main_default.set_pad_left(0)
+style_sc_spo2_label_5_main_main_default.set_pad_right(0)
+style_sc_spo2_label_5_main_main_default.set_pad_top(0)
+style_sc_spo2_label_5_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_5
+sc_spo2_label_5.add_style(style_sc_spo2_label_5_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_chart_1 = lv.chart(sc_spo2)
+sc_spo2_chart_1.set_pos(int(31),int(44))
+sc_spo2_chart_1.set_size(141,230)
+sc_spo2_chart_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_chart_1.set_type(lv.chart.TYPE.BAR)
+sc_spo2_chart_1.set_range(lv.chart.AXIS.PRIMARY_Y, 0, 170)
+sc_spo2_chart_1.set_div_line_count(5, 0)
+sc_spo2_chart_1.set_point_count(5)
+# create style style_sc_spo2_chart_1_main_main_default
+style_sc_spo2_chart_1_main_main_default = lv.style_t()
+style_sc_spo2_chart_1_main_main_default.init()
+style_sc_spo2_chart_1_main_main_default.set_radius(0)
+style_sc_spo2_chart_1_main_main_default.set_bg_color(lv.color_make(0xff,0xff,0xff))
+style_sc_spo2_chart_1_main_main_default.set_bg_grad_color(lv.color_make(0xff,0xff,0xff))
+style_sc_spo2_chart_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_chart_1_main_main_default.set_bg_opa(0)
+style_sc_spo2_chart_1_main_main_default.set_border_color(lv.color_make(0xff,0xff,0xff))
+style_sc_spo2_chart_1_main_main_default.set_border_width(1)
+style_sc_spo2_chart_1_main_main_default.set_border_opa(0)
+style_sc_spo2_chart_1_main_main_default.set_line_color(lv.color_make(0xe8,0xe8,0xe8))
+style_sc_spo2_chart_1_main_main_default.set_line_width(2)
+style_sc_spo2_chart_1_main_main_default.set_line_opa(255)
+
+# add style for sc_spo2_chart_1
+sc_spo2_chart_1.add_style(style_sc_spo2_chart_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_3 = lv.label(sc_spo2)
+sc_spo2_label_3.set_pos(int(-4),int(91))
+sc_spo2_label_3.set_size(40,20)
+sc_spo2_label_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_3.set_text("150")
+sc_spo2_label_3.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_3_main_main_default
+style_sc_spo2_label_3_main_main_default = lv.style_t()
+style_sc_spo2_label_3_main_main_default.init()
+style_sc_spo2_label_3_main_main_default.set_radius(0)
+style_sc_spo2_label_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_3_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_3_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_3_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_3_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_3_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_3_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_3_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_3_main_main_default.set_pad_left(0)
+style_sc_spo2_label_3_main_main_default.set_pad_right(0)
+style_sc_spo2_label_3_main_main_default.set_pad_top(0)
+style_sc_spo2_label_3_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_3
+sc_spo2_label_3.add_style(style_sc_spo2_label_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_4 = lv.label(sc_spo2)
+sc_spo2_label_4.set_pos(int(-4),int(150))
+sc_spo2_label_4.set_size(40,32)
+sc_spo2_label_4.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_4.set_text("100")
+sc_spo2_label_4.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_4_main_main_default
+style_sc_spo2_label_4_main_main_default = lv.style_t()
+style_sc_spo2_label_4_main_main_default.init()
+style_sc_spo2_label_4_main_main_default.set_radius(0)
+style_sc_spo2_label_4_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_4_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_4_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_4_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_4_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_4_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_4_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_4_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_4_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_4_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_4_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_4_main_main_default.set_pad_left(0)
+style_sc_spo2_label_4_main_main_default.set_pad_right(0)
+style_sc_spo2_label_4_main_main_default.set_pad_top(0)
+style_sc_spo2_label_4_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_4
+sc_spo2_label_4.add_style(style_sc_spo2_label_4_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_6 = lv.label(sc_spo2)
+sc_spo2_label_6.set_pos(int(-33),int(256))
+sc_spo2_label_6.set_size(100,32)
+sc_spo2_label_6.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_6.set_text("50")
+sc_spo2_label_6.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_6_main_main_default
+style_sc_spo2_label_6_main_main_default = lv.style_t()
+style_sc_spo2_label_6_main_main_default.init()
+style_sc_spo2_label_6_main_main_default.set_radius(0)
+style_sc_spo2_label_6_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_6_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_6_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_6_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_6_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_6_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_6_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_6_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_6_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_6_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_6_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_6_main_main_default.set_pad_left(0)
+style_sc_spo2_label_6_main_main_default.set_pad_right(0)
+style_sc_spo2_label_6_main_main_default.set_pad_top(0)
+style_sc_spo2_label_6_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_6
+sc_spo2_label_6.add_style(style_sc_spo2_label_6_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_7 = lv.label(sc_spo2)
+sc_spo2_label_7.set_pos(int(11),int(277))
+sc_spo2_label_7.set_size(49,20)
+sc_spo2_label_7.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_7.set_text("00:00")
+sc_spo2_label_7.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_7_main_main_default
+style_sc_spo2_label_7_main_main_default = lv.style_t()
+style_sc_spo2_label_7_main_main_default.init()
+style_sc_spo2_label_7_main_main_default.set_radius(0)
+style_sc_spo2_label_7_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_7_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_7_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_7_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_7_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_7_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_7_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_7_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_7_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_7_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_7_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_7_main_main_default.set_pad_left(0)
+style_sc_spo2_label_7_main_main_default.set_pad_right(0)
+style_sc_spo2_label_7_main_main_default.set_pad_top(0)
+style_sc_spo2_label_7_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_7
+sc_spo2_label_7.add_style(style_sc_spo2_label_7_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_spo2_label_8 = lv.label(sc_spo2)
+sc_spo2_label_8.set_pos(int(111),int(274))
+sc_spo2_label_8.set_size(53,17)
+sc_spo2_label_8.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_spo2_label_8.set_text("24:00")
+sc_spo2_label_8.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_spo2_label_8_main_main_default
+style_sc_spo2_label_8_main_main_default = lv.style_t()
+style_sc_spo2_label_8_main_main_default.init()
+style_sc_spo2_label_8_main_main_default.set_radius(0)
+style_sc_spo2_label_8_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_8_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_spo2_label_8_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_spo2_label_8_main_main_default.set_bg_opa(0)
+style_sc_spo2_label_8_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
+try:
+    style_sc_spo2_label_8_main_main_default.set_text_font(lv.font_simsun_15)
+except AttributeError:
+    try:
+        style_sc_spo2_label_8_main_main_default.set_text_font(lv.font_montserrat_15)
+    except AttributeError:
+        style_sc_spo2_label_8_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_spo2_label_8_main_main_default.set_text_letter_space(2)
+style_sc_spo2_label_8_main_main_default.set_text_line_space(0)
+style_sc_spo2_label_8_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_spo2_label_8_main_main_default.set_pad_left(0)
+style_sc_spo2_label_8_main_main_default.set_pad_right(0)
+style_sc_spo2_label_8_main_main_default.set_pad_top(0)
+style_sc_spo2_label_8_main_main_default.set_pad_bottom(0)
+
+# add style for sc_spo2_label_8
+sc_spo2_label_8.add_style(style_sc_spo2_label_8_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport = lv.obj()
+sc_sport.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+# create style style_sc_sport_main_main_default
+style_sc_sport_main_main_default = lv.style_t()
+style_sc_sport_main_main_default.init()
+style_sc_sport_main_main_default.set_bg_color(lv.color_make(0x00,0x00,0x00))
+style_sc_sport_main_main_default.set_bg_opa(255)
+
+# add style for sc_sport
+sc_sport.add_style(style_sc_sport_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_label_1 = lv.label(sc_sport)
+sc_sport_label_1.set_pos(int(43),int(12))
+sc_sport_label_1.set_size(103,21)
+sc_sport_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_label_1.set_text("运动步数")
+sc_sport_label_1.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_sport_label_1_main_main_default
+style_sc_sport_label_1_main_main_default = lv.style_t()
+style_sc_sport_label_1_main_main_default.init()
+style_sc_sport_label_1_main_main_default.set_radius(0)
+style_sc_sport_label_1_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_label_1_main_main_default.set_bg_opa(0)
+style_sc_sport_label_1_main_main_default.set_text_color(lv.color_make(0x66,0xf0,0xcd))
+try:
+    style_sc_sport_label_1_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
+except AttributeError:
+    try:
+        style_sc_sport_label_1_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_sport_label_1_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_sport_label_1_main_main_default.set_text_letter_space(2)
+style_sc_sport_label_1_main_main_default.set_text_line_space(0)
+style_sc_sport_label_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_sport_label_1_main_main_default.set_pad_left(0)
+style_sc_sport_label_1_main_main_default.set_pad_right(0)
+style_sc_sport_label_1_main_main_default.set_pad_top(0)
+style_sc_sport_label_1_main_main_default.set_pad_bottom(0)
+
+# add style for sc_sport_label_1
+sc_sport_label_1.add_style(style_sc_sport_label_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_img_1 = lv.img(sc_sport)
+sc_sport_img_1.set_pos(int(13),int(4))
+sc_sport_img_1.set_size(30,30)
+sc_sport_img_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_img_1.add_flag(lv.obj.FLAG.CLICKABLE)
+try:
+    with open('D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1092114602.png','rb') as f:
+        sc_sport_img_1_img_data = f.read()
+except:
+    print('Could not open D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1092114602.png')
+    sys.exit()
+
+sc_sport_img_1_img = lv.img_dsc_t({
+  'data_size': len(sc_sport_img_1_img_data),
+  'header': {'always_zero': 0, 'w': 30, 'h': 30, 'cf': lv.img.CF.TRUE_COLOR_ALPHA},
+  'data': sc_sport_img_1_img_data
+})
+
+sc_sport_img_1.set_src(sc_sport_img_1_img)
+sc_sport_img_1.set_pivot(0,0)
+sc_sport_img_1.set_angle(0)
+# create style style_sc_sport_img_1_main_main_default
+style_sc_sport_img_1_main_main_default = lv.style_t()
+style_sc_sport_img_1_main_main_default.init()
+style_sc_sport_img_1_main_main_default.set_img_recolor(lv.color_make(0xff,0xff,0xff))
+style_sc_sport_img_1_main_main_default.set_img_recolor_opa(0)
+style_sc_sport_img_1_main_main_default.set_img_opa(255)
+
+# add style for sc_sport_img_1
+sc_sport_img_1.add_style(style_sc_sport_img_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_bar_1 = lv.bar(sc_sport)
+sc_sport_bar_1.set_pos(int(25),int(44))
+sc_sport_bar_1.set_size(123,20)
+sc_sport_bar_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_bar_1.set_style_anim_time(300, 0)
+sc_sport_bar_1.set_mode(lv.bar.MODE.NORMAL)
+sc_sport_bar_1.set_value(0, lv.ANIM.ON)
+# create style style_sc_sport_bar_1_main_main_default
+style_sc_sport_bar_1_main_main_default = lv.style_t()
+style_sc_sport_bar_1_main_main_default.init()
+style_sc_sport_bar_1_main_main_default.set_radius(10)
+style_sc_sport_bar_1_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_bar_1_main_main_default.set_bg_opa(60)
+style_sc_sport_bar_1_main_main_default.set_shadow_width(2)
+style_sc_sport_bar_1_main_main_default.set_shadow_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_1_main_main_default.set_shadow_opa(149)
+style_sc_sport_bar_1_main_main_default.set_shadow_spread(3)
+style_sc_sport_bar_1_main_main_default.set_shadow_ofs_x(0)
+style_sc_sport_bar_1_main_main_default.set_shadow_ofs_y(0)
+
+# add style for sc_sport_bar_1
+sc_sport_bar_1.add_style(style_sc_sport_bar_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+# create style style_sc_sport_bar_1_main_indicator_default
+style_sc_sport_bar_1_main_indicator_default = lv.style_t()
+style_sc_sport_bar_1_main_indicator_default.init()
+style_sc_sport_bar_1_main_indicator_default.set_radius(10)
+style_sc_sport_bar_1_main_indicator_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_1_main_indicator_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_1_main_indicator_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_bar_1_main_indicator_default.set_bg_opa(255)
+
+# add style for sc_sport_bar_1
+sc_sport_bar_1.add_style(style_sc_sport_bar_1_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
+
+sc_sport_label_2 = lv.label(sc_sport)
+sc_sport_label_2.set_pos(int(36),int(75))
+sc_sport_label_2.set_size(100,32)
+sc_sport_label_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_label_2.set_text("122")
+sc_sport_label_2.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_sport_label_2_main_main_default
+style_sc_sport_label_2_main_main_default = lv.style_t()
+style_sc_sport_label_2_main_main_default.init()
+style_sc_sport_label_2_main_main_default.set_radius(0)
+style_sc_sport_label_2_main_main_default.set_bg_color(lv.color_make(0x95,0xc3,0xe9))
+style_sc_sport_label_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_label_2_main_main_default.set_bg_opa(0)
+style_sc_sport_label_2_main_main_default.set_text_color(lv.color_make(0x35,0xa7,0xa5))
+try:
+    style_sc_sport_label_2_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
+except AttributeError:
+    try:
+        style_sc_sport_label_2_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_sport_label_2_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_sport_label_2_main_main_default.set_text_letter_space(2)
+style_sc_sport_label_2_main_main_default.set_text_line_space(0)
+style_sc_sport_label_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_sport_label_2_main_main_default.set_pad_left(0)
+style_sc_sport_label_2_main_main_default.set_pad_right(0)
+style_sc_sport_label_2_main_main_default.set_pad_top(0)
+style_sc_sport_label_2_main_main_default.set_pad_bottom(0)
+
+# add style for sc_sport_label_2
+sc_sport_label_2.add_style(style_sc_sport_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_img_2 = lv.img(sc_sport)
+sc_sport_img_2.set_pos(int(13),int(107))
+sc_sport_img_2.set_size(30,30)
+sc_sport_img_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_img_2.add_flag(lv.obj.FLAG.CLICKABLE)
+try:
+    with open('D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp306905943.png','rb') as f:
+        sc_sport_img_2_img_data = f.read()
+except:
+    print('Could not open D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp306905943.png')
+    sys.exit()
+
+sc_sport_img_2_img = lv.img_dsc_t({
+  'data_size': len(sc_sport_img_2_img_data),
+  'header': {'always_zero': 0, 'w': 30, 'h': 30, 'cf': lv.img.CF.TRUE_COLOR_ALPHA},
+  'data': sc_sport_img_2_img_data
+})
+
+sc_sport_img_2.set_src(sc_sport_img_2_img)
+sc_sport_img_2.set_pivot(0,0)
+sc_sport_img_2.set_angle(0)
+# create style style_sc_sport_img_2_main_main_default
+style_sc_sport_img_2_main_main_default = lv.style_t()
+style_sc_sport_img_2_main_main_default.init()
+style_sc_sport_img_2_main_main_default.set_img_recolor(lv.color_make(0xff,0xff,0xff))
+style_sc_sport_img_2_main_main_default.set_img_recolor_opa(0)
+style_sc_sport_img_2_main_main_default.set_img_opa(255)
+
+# add style for sc_sport_img_2
+sc_sport_img_2.add_style(style_sc_sport_img_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_label_3 = lv.label(sc_sport)
+sc_sport_label_3.set_pos(int(48),int(114))
+sc_sport_label_3.set_size(100,32)
+sc_sport_label_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_label_3.set_text("热量消耗")
+sc_sport_label_3.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_sport_label_3_main_main_default
+style_sc_sport_label_3_main_main_default = lv.style_t()
+style_sc_sport_label_3_main_main_default.init()
+style_sc_sport_label_3_main_main_default.set_radius(0)
+style_sc_sport_label_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_label_3_main_main_default.set_bg_opa(0)
+style_sc_sport_label_3_main_main_default.set_text_color(lv.color_make(0xeb,0x66,0x1e))
+try:
+    style_sc_sport_label_3_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
+except AttributeError:
+    try:
+        style_sc_sport_label_3_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_sport_label_3_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_sport_label_3_main_main_default.set_text_letter_space(2)
+style_sc_sport_label_3_main_main_default.set_text_line_space(0)
+style_sc_sport_label_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_sport_label_3_main_main_default.set_pad_left(0)
+style_sc_sport_label_3_main_main_default.set_pad_right(0)
+style_sc_sport_label_3_main_main_default.set_pad_top(0)
+style_sc_sport_label_3_main_main_default.set_pad_bottom(0)
+
+# add style for sc_sport_label_3
+sc_sport_label_3.add_style(style_sc_sport_label_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_bar_2 = lv.bar(sc_sport)
+sc_sport_bar_2.set_pos(int(30),int(150))
+sc_sport_bar_2.set_size(113,20)
+sc_sport_bar_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_bar_2.set_style_anim_time(300, 0)
+sc_sport_bar_2.set_mode(lv.bar.MODE.NORMAL)
+sc_sport_bar_2.set_value(0, lv.ANIM.ON)
+# create style style_sc_sport_bar_2_main_main_default
+style_sc_sport_bar_2_main_main_default = lv.style_t()
+style_sc_sport_bar_2_main_main_default.init()
+style_sc_sport_bar_2_main_main_default.set_radius(10)
+style_sc_sport_bar_2_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_bar_2_main_main_default.set_bg_opa(60)
+style_sc_sport_bar_2_main_main_default.set_shadow_width(2)
+style_sc_sport_bar_2_main_main_default.set_shadow_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_2_main_main_default.set_shadow_opa(255)
+style_sc_sport_bar_2_main_main_default.set_shadow_spread(3)
+style_sc_sport_bar_2_main_main_default.set_shadow_ofs_x(0)
+style_sc_sport_bar_2_main_main_default.set_shadow_ofs_y(0)
+
+# add style for sc_sport_bar_2
+sc_sport_bar_2.add_style(style_sc_sport_bar_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+# create style style_sc_sport_bar_2_main_indicator_default
+style_sc_sport_bar_2_main_indicator_default = lv.style_t()
+style_sc_sport_bar_2_main_indicator_default.init()
+style_sc_sport_bar_2_main_indicator_default.set_radius(10)
+style_sc_sport_bar_2_main_indicator_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_2_main_indicator_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_2_main_indicator_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_bar_2_main_indicator_default.set_bg_opa(255)
+
+# add style for sc_sport_bar_2
+sc_sport_bar_2.add_style(style_sc_sport_bar_2_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
+
+sc_sport_label_4 = lv.label(sc_sport)
+sc_sport_label_4.set_pos(int(48),int(185))
+sc_sport_label_4.set_size(85,19)
+sc_sport_label_4.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_label_4.set_text("1222K")
+sc_sport_label_4.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_sport_label_4_main_main_default
+style_sc_sport_label_4_main_main_default = lv.style_t()
+style_sc_sport_label_4_main_main_default.init()
+style_sc_sport_label_4_main_main_default.set_radius(0)
+style_sc_sport_label_4_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_4_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_4_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_label_4_main_main_default.set_bg_opa(0)
+style_sc_sport_label_4_main_main_default.set_text_color(lv.color_make(0xf0,0x69,0x3d))
+try:
+    style_sc_sport_label_4_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
+except AttributeError:
+    try:
+        style_sc_sport_label_4_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_sport_label_4_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_sport_label_4_main_main_default.set_text_letter_space(2)
+style_sc_sport_label_4_main_main_default.set_text_line_space(0)
+style_sc_sport_label_4_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_sport_label_4_main_main_default.set_pad_left(0)
+style_sc_sport_label_4_main_main_default.set_pad_right(0)
+style_sc_sport_label_4_main_main_default.set_pad_top(0)
+style_sc_sport_label_4_main_main_default.set_pad_bottom(0)
+
+# add style for sc_sport_label_4
+sc_sport_label_4.add_style(style_sc_sport_label_4_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_img_3 = lv.img(sc_sport)
+sc_sport_img_3.set_pos(int(13),int(216))
+sc_sport_img_3.set_size(30,30)
+sc_sport_img_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_img_3.add_flag(lv.obj.FLAG.CLICKABLE)
+try:
+    with open('D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1712045993.png','rb') as f:
+        sc_sport_img_3_img_data = f.read()
+except:
+    print('Could not open D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1712045993.png')
+    sys.exit()
+
+sc_sport_img_3_img = lv.img_dsc_t({
+  'data_size': len(sc_sport_img_3_img_data),
+  'header': {'always_zero': 0, 'w': 30, 'h': 30, 'cf': lv.img.CF.TRUE_COLOR_ALPHA},
+  'data': sc_sport_img_3_img_data
+})
+
+sc_sport_img_3.set_src(sc_sport_img_3_img)
+sc_sport_img_3.set_pivot(0,0)
+sc_sport_img_3.set_angle(0)
+# create style style_sc_sport_img_3_main_main_default
+style_sc_sport_img_3_main_main_default = lv.style_t()
+style_sc_sport_img_3_main_main_default.init()
+style_sc_sport_img_3_main_main_default.set_img_recolor(lv.color_make(0xff,0xff,0xff))
+style_sc_sport_img_3_main_main_default.set_img_recolor_opa(0)
+style_sc_sport_img_3_main_main_default.set_img_opa(255)
+
+# add style for sc_sport_img_3
+sc_sport_img_3.add_style(style_sc_sport_img_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_label_5 = lv.label(sc_sport)
+sc_sport_label_5.set_pos(int(48),int(222))
+sc_sport_label_5.set_size(100,32)
+sc_sport_label_5.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_label_5.set_text("活动时长")
+sc_sport_label_5.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_sport_label_5_main_main_default
+style_sc_sport_label_5_main_main_default = lv.style_t()
+style_sc_sport_label_5_main_main_default.init()
+style_sc_sport_label_5_main_main_default.set_radius(0)
+style_sc_sport_label_5_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_5_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_5_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_label_5_main_main_default.set_bg_opa(0)
+style_sc_sport_label_5_main_main_default.set_text_color(lv.color_make(0xff,0xaf,0x24))
+try:
+    style_sc_sport_label_5_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
+except AttributeError:
+    try:
+        style_sc_sport_label_5_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_sport_label_5_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_sport_label_5_main_main_default.set_text_letter_space(2)
+style_sc_sport_label_5_main_main_default.set_text_line_space(0)
+style_sc_sport_label_5_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_sport_label_5_main_main_default.set_pad_left(0)
+style_sc_sport_label_5_main_main_default.set_pad_right(0)
+style_sc_sport_label_5_main_main_default.set_pad_top(0)
+style_sc_sport_label_5_main_main_default.set_pad_bottom(0)
+
+# add style for sc_sport_label_5
+sc_sport_label_5.add_style(style_sc_sport_label_5_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+sc_sport_bar_3 = lv.bar(sc_sport)
+sc_sport_bar_3.set_pos(int(31),int(254))
+sc_sport_bar_3.set_size(117,20)
+sc_sport_bar_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_bar_3.set_style_anim_time(300, 0)
+sc_sport_bar_3.set_mode(lv.bar.MODE.NORMAL)
+sc_sport_bar_3.set_value(0, lv.ANIM.ON)
+# create style style_sc_sport_bar_3_main_main_default
+style_sc_sport_bar_3_main_main_default = lv.style_t()
+style_sc_sport_bar_3_main_main_default.init()
+style_sc_sport_bar_3_main_main_default.set_radius(10)
+style_sc_sport_bar_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_bar_3_main_main_default.set_bg_opa(60)
+style_sc_sport_bar_3_main_main_default.set_shadow_width(2)
+style_sc_sport_bar_3_main_main_default.set_shadow_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_3_main_main_default.set_shadow_opa(255)
+style_sc_sport_bar_3_main_main_default.set_shadow_spread(3)
+style_sc_sport_bar_3_main_main_default.set_shadow_ofs_x(0)
+style_sc_sport_bar_3_main_main_default.set_shadow_ofs_y(0)
+
+# add style for sc_sport_bar_3
+sc_sport_bar_3.add_style(style_sc_sport_bar_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
+# create style style_sc_sport_bar_3_main_indicator_default
+style_sc_sport_bar_3_main_indicator_default = lv.style_t()
+style_sc_sport_bar_3_main_indicator_default.init()
+style_sc_sport_bar_3_main_indicator_default.set_radius(10)
+style_sc_sport_bar_3_main_indicator_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_3_main_indicator_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_bar_3_main_indicator_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_bar_3_main_indicator_default.set_bg_opa(255)
+
+# add style for sc_sport_bar_3
+sc_sport_bar_3.add_style(style_sc_sport_bar_3_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
+
+sc_sport_label_6 = lv.label(sc_sport)
+sc_sport_label_6.set_pos(int(36),int(286))
+sc_sport_label_6.set_size(100,32)
+sc_sport_label_6.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
+sc_sport_label_6.set_text("78min")
+sc_sport_label_6.set_long_mode(lv.label.LONG.WRAP)
+# create style style_sc_sport_label_6_main_main_default
+style_sc_sport_label_6_main_main_default = lv.style_t()
+style_sc_sport_label_6_main_main_default.init()
+style_sc_sport_label_6_main_main_default.set_radius(0)
+style_sc_sport_label_6_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_6_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
+style_sc_sport_label_6_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
+style_sc_sport_label_6_main_main_default.set_bg_opa(0)
+style_sc_sport_label_6_main_main_default.set_text_color(lv.color_make(0xff,0xbb,0x00))
+try:
+    style_sc_sport_label_6_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
+except AttributeError:
+    try:
+        style_sc_sport_label_6_main_main_default.set_text_font(lv.font_montserrat_20)
+    except AttributeError:
+        style_sc_sport_label_6_main_main_default.set_text_font(lv.font_montserrat_16)
+style_sc_sport_label_6_main_main_default.set_text_letter_space(2)
+style_sc_sport_label_6_main_main_default.set_text_line_space(0)
+style_sc_sport_label_6_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
+style_sc_sport_label_6_main_main_default.set_pad_left(0)
+style_sc_sport_label_6_main_main_default.set_pad_right(0)
+style_sc_sport_label_6_main_main_default.set_pad_top(0)
+style_sc_sport_label_6_main_main_default.set_pad_bottom(0)
+
+# add style for sc_sport_label_6
+sc_sport_label_6.add_style(style_sc_sport_label_6_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
+
 sc_menu = lv.obj()
 sc_menu.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
 # create style style_sc_menu_main_main_default
@@ -1321,653 +2369,6 @@ style_sc_clock_btn_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
 # add style for sc_clock_btn_3
 sc_clock_btn_3.add_style(style_sc_clock_btn_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
 
-sc_heart = lv.obj()
-sc_heart.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-# create style style_sc_heart_main_main_default
-style_sc_heart_main_main_default = lv.style_t()
-style_sc_heart_main_main_default.init()
-style_sc_heart_main_main_default.set_bg_color(lv.color_make(0x00,0x00,0x00))
-style_sc_heart_main_main_default.set_bg_opa(255)
-
-# add style for sc_heart
-sc_heart.add_style(style_sc_heart_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_1 = lv.label(sc_heart)
-sc_heart_label_1.set_pos(int(14),int(11))
-sc_heart_label_1.set_size(134,23)
-sc_heart_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_1.set_text("heart:92BMP")
-sc_heart_label_1.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_1_main_main_default
-style_sc_heart_label_1_main_main_default = lv.style_t()
-style_sc_heart_label_1_main_main_default.init()
-style_sc_heart_label_1_main_main_default.set_radius(0)
-style_sc_heart_label_1_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_1_main_main_default.set_bg_opa(255)
-style_sc_heart_label_1_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_1_main_main_default.set_text_font(lv.font_simsun_20)
-except AttributeError:
-    try:
-        style_sc_heart_label_1_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_heart_label_1_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_1_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_1_main_main_default.set_text_line_space(0)
-style_sc_heart_label_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_1_main_main_default.set_pad_left(0)
-style_sc_heart_label_1_main_main_default.set_pad_right(0)
-style_sc_heart_label_1_main_main_default.set_pad_top(0)
-style_sc_heart_label_1_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_1
-sc_heart_label_1.add_style(style_sc_heart_label_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_2 = lv.label(sc_heart)
-sc_heart_label_2.set_pos(int(1),int(42))
-sc_heart_label_2.set_size(40,20)
-sc_heart_label_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_2.set_text("175")
-sc_heart_label_2.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_2_main_main_default
-style_sc_heart_label_2_main_main_default = lv.style_t()
-style_sc_heart_label_2_main_main_default.init()
-style_sc_heart_label_2_main_main_default.set_radius(0)
-style_sc_heart_label_2_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_2_main_main_default.set_bg_opa(0)
-style_sc_heart_label_2_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_2_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_2_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_2_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_2_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_2_main_main_default.set_text_line_space(0)
-style_sc_heart_label_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_2_main_main_default.set_pad_left(0)
-style_sc_heart_label_2_main_main_default.set_pad_right(0)
-style_sc_heart_label_2_main_main_default.set_pad_top(0)
-style_sc_heart_label_2_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_2
-sc_heart_label_2.add_style(style_sc_heart_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_5 = lv.label(sc_heart)
-sc_heart_label_5.set_pos(int(11),int(205))
-sc_heart_label_5.set_size(31,20)
-sc_heart_label_5.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_5.set_text("75")
-sc_heart_label_5.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_5_main_main_default
-style_sc_heart_label_5_main_main_default = lv.style_t()
-style_sc_heart_label_5_main_main_default.init()
-style_sc_heart_label_5_main_main_default.set_radius(0)
-style_sc_heart_label_5_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_5_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_5_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_5_main_main_default.set_bg_opa(0)
-style_sc_heart_label_5_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_5_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_5_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_5_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_5_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_5_main_main_default.set_text_line_space(0)
-style_sc_heart_label_5_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_5_main_main_default.set_pad_left(0)
-style_sc_heart_label_5_main_main_default.set_pad_right(0)
-style_sc_heart_label_5_main_main_default.set_pad_top(0)
-style_sc_heart_label_5_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_5
-sc_heart_label_5.add_style(style_sc_heart_label_5_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_chart_1 = lv.chart(sc_heart)
-sc_heart_chart_1.set_pos(int(35),int(44))
-sc_heart_chart_1.set_size(129,230)
-sc_heart_chart_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_chart_1.set_type(lv.chart.TYPE.LINE)
-sc_heart_chart_1.set_range(lv.chart.AXIS.PRIMARY_Y, 0, 170)
-sc_heart_chart_1.set_div_line_count(5, 0)
-sc_heart_chart_1.set_point_count(5)
-chart_series_0 = lv.chart.add_series(sc_heart_chart_1, lv.color_make(0xff,0x00,0x00), lv.chart.AXIS.PRIMARY_Y);
-sc_heart_chart_1.set_next_value(chart_series_0, 1)
-sc_heart_chart_1.set_next_value(chart_series_0, 20)
-sc_heart_chart_1.set_next_value(chart_series_0, 30)
-sc_heart_chart_1.set_next_value(chart_series_0, 40)
-sc_heart_chart_1.set_next_value(chart_series_0, 5)
-# create style style_sc_heart_chart_1_main_main_default
-style_sc_heart_chart_1_main_main_default = lv.style_t()
-style_sc_heart_chart_1_main_main_default.init()
-style_sc_heart_chart_1_main_main_default.set_radius(0)
-style_sc_heart_chart_1_main_main_default.set_bg_color(lv.color_make(0xff,0xff,0xff))
-style_sc_heart_chart_1_main_main_default.set_bg_grad_color(lv.color_make(0xff,0xff,0xff))
-style_sc_heart_chart_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_chart_1_main_main_default.set_bg_opa(0)
-style_sc_heart_chart_1_main_main_default.set_border_color(lv.color_make(0xff,0xff,0xff))
-style_sc_heart_chart_1_main_main_default.set_border_width(1)
-style_sc_heart_chart_1_main_main_default.set_border_opa(0)
-style_sc_heart_chart_1_main_main_default.set_line_color(lv.color_make(0xe8,0xe8,0xe8))
-style_sc_heart_chart_1_main_main_default.set_line_width(2)
-style_sc_heart_chart_1_main_main_default.set_line_opa(255)
-
-# add style for sc_heart_chart_1
-sc_heart_chart_1.add_style(style_sc_heart_chart_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_3 = lv.label(sc_heart)
-sc_heart_label_3.set_pos(int(1),int(84))
-sc_heart_label_3.set_size(40,20)
-sc_heart_label_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_3.set_text("150")
-sc_heart_label_3.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_3_main_main_default
-style_sc_heart_label_3_main_main_default = lv.style_t()
-style_sc_heart_label_3_main_main_default.init()
-style_sc_heart_label_3_main_main_default.set_radius(0)
-style_sc_heart_label_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_3_main_main_default.set_bg_opa(0)
-style_sc_heart_label_3_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_3_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_3_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_3_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_3_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_3_main_main_default.set_text_line_space(0)
-style_sc_heart_label_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_3_main_main_default.set_pad_left(0)
-style_sc_heart_label_3_main_main_default.set_pad_right(0)
-style_sc_heart_label_3_main_main_default.set_pad_top(0)
-style_sc_heart_label_3_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_3
-sc_heart_label_3.add_style(style_sc_heart_label_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_4 = lv.label(sc_heart)
-sc_heart_label_4.set_pos(int(1),int(150))
-sc_heart_label_4.set_size(40,32)
-sc_heart_label_4.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_4.set_text("100")
-sc_heart_label_4.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_4_main_main_default
-style_sc_heart_label_4_main_main_default = lv.style_t()
-style_sc_heart_label_4_main_main_default.init()
-style_sc_heart_label_4_main_main_default.set_radius(0)
-style_sc_heart_label_4_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_4_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_4_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_4_main_main_default.set_bg_opa(0)
-style_sc_heart_label_4_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_4_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_4_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_4_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_4_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_4_main_main_default.set_text_line_space(0)
-style_sc_heart_label_4_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_4_main_main_default.set_pad_left(0)
-style_sc_heart_label_4_main_main_default.set_pad_right(0)
-style_sc_heart_label_4_main_main_default.set_pad_top(0)
-style_sc_heart_label_4_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_4
-sc_heart_label_4.add_style(style_sc_heart_label_4_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_6 = lv.label(sc_heart)
-sc_heart_label_6.set_pos(int(-29),int(256))
-sc_heart_label_6.set_size(100,32)
-sc_heart_label_6.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_6.set_text("50")
-sc_heart_label_6.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_6_main_main_default
-style_sc_heart_label_6_main_main_default = lv.style_t()
-style_sc_heart_label_6_main_main_default.init()
-style_sc_heart_label_6_main_main_default.set_radius(0)
-style_sc_heart_label_6_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_6_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_6_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_6_main_main_default.set_bg_opa(0)
-style_sc_heart_label_6_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_6_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_6_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_6_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_6_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_6_main_main_default.set_text_line_space(0)
-style_sc_heart_label_6_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_6_main_main_default.set_pad_left(0)
-style_sc_heart_label_6_main_main_default.set_pad_right(0)
-style_sc_heart_label_6_main_main_default.set_pad_top(0)
-style_sc_heart_label_6_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_6
-sc_heart_label_6.add_style(style_sc_heart_label_6_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_7 = lv.label(sc_heart)
-sc_heart_label_7.set_pos(int(11),int(277))
-sc_heart_label_7.set_size(49,20)
-sc_heart_label_7.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_7.set_text("00:00")
-sc_heart_label_7.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_7_main_main_default
-style_sc_heart_label_7_main_main_default = lv.style_t()
-style_sc_heart_label_7_main_main_default.init()
-style_sc_heart_label_7_main_main_default.set_radius(0)
-style_sc_heart_label_7_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_7_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_7_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_7_main_main_default.set_bg_opa(0)
-style_sc_heart_label_7_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_7_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_7_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_7_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_7_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_7_main_main_default.set_text_line_space(0)
-style_sc_heart_label_7_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_7_main_main_default.set_pad_left(0)
-style_sc_heart_label_7_main_main_default.set_pad_right(0)
-style_sc_heart_label_7_main_main_default.set_pad_top(0)
-style_sc_heart_label_7_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_7
-sc_heart_label_7.add_style(style_sc_heart_label_7_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_8 = lv.label(sc_heart)
-sc_heart_label_8.set_pos(int(111),int(274))
-sc_heart_label_8.set_size(53,17)
-sc_heart_label_8.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_8.set_text("24:00")
-sc_heart_label_8.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_8_main_main_default
-style_sc_heart_label_8_main_main_default = lv.style_t()
-style_sc_heart_label_8_main_main_default.init()
-style_sc_heart_label_8_main_main_default.set_radius(0)
-style_sc_heart_label_8_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_8_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_8_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_8_main_main_default.set_bg_opa(0)
-style_sc_heart_label_8_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_8_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_8_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_8_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_8_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_8_main_main_default.set_text_line_space(0)
-style_sc_heart_label_8_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_8_main_main_default.set_pad_left(0)
-style_sc_heart_label_8_main_main_default.set_pad_right(0)
-style_sc_heart_label_8_main_main_default.set_pad_top(0)
-style_sc_heart_label_8_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_8
-sc_heart_label_8.add_style(style_sc_heart_label_8_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_heart_label_9 = lv.label(sc_heart)
-sc_heart_label_9.set_pos(int(7),int(297))
-sc_heart_label_9.set_size(157,16)
-sc_heart_label_9.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_heart_label_9.set_text("MAX:67 MIN:66")
-sc_heart_label_9.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_heart_label_9_main_main_default
-style_sc_heart_label_9_main_main_default = lv.style_t()
-style_sc_heart_label_9_main_main_default.init()
-style_sc_heart_label_9_main_main_default.set_radius(0)
-style_sc_heart_label_9_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_9_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_heart_label_9_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_heart_label_9_main_main_default.set_bg_opa(0)
-style_sc_heart_label_9_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_heart_label_9_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_heart_label_9_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_heart_label_9_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_heart_label_9_main_main_default.set_text_letter_space(2)
-style_sc_heart_label_9_main_main_default.set_text_line_space(0)
-style_sc_heart_label_9_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_heart_label_9_main_main_default.set_pad_left(0)
-style_sc_heart_label_9_main_main_default.set_pad_right(0)
-style_sc_heart_label_9_main_main_default.set_pad_top(0)
-style_sc_heart_label_9_main_main_default.set_pad_bottom(0)
-
-# add style for sc_heart_label_9
-sc_heart_label_9.add_style(style_sc_heart_label_9_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2 = lv.obj()
-sc_spo2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-# create style style_sc_spo2_main_main_default
-style_sc_spo2_main_main_default = lv.style_t()
-style_sc_spo2_main_main_default.init()
-style_sc_spo2_main_main_default.set_bg_color(lv.color_make(0x00,0x00,0x00))
-style_sc_spo2_main_main_default.set_bg_opa(255)
-
-# add style for sc_spo2
-sc_spo2.add_style(style_sc_spo2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_1 = lv.label(sc_spo2)
-sc_spo2_label_1.set_pos(int(19),int(11))
-sc_spo2_label_1.set_size(134,23)
-sc_spo2_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_1.set_text("SPO2 99")
-sc_spo2_label_1.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_1_main_main_default
-style_sc_spo2_label_1_main_main_default = lv.style_t()
-style_sc_spo2_label_1_main_main_default.init()
-style_sc_spo2_label_1_main_main_default.set_radius(0)
-style_sc_spo2_label_1_main_main_default.set_bg_color(lv.color_make(0xf6,0x23,0x62))
-style_sc_spo2_label_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_1_main_main_default.set_bg_opa(255)
-style_sc_spo2_label_1_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_1_main_main_default.set_text_font(lv.font_simsun_20)
-except AttributeError:
-    try:
-        style_sc_spo2_label_1_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_spo2_label_1_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_1_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_1_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_1_main_main_default.set_pad_left(0)
-style_sc_spo2_label_1_main_main_default.set_pad_right(0)
-style_sc_spo2_label_1_main_main_default.set_pad_top(0)
-style_sc_spo2_label_1_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_1
-sc_spo2_label_1.add_style(style_sc_spo2_label_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_2 = lv.label(sc_spo2)
-sc_spo2_label_2.set_pos(int(1),int(44))
-sc_spo2_label_2.set_size(40,20)
-sc_spo2_label_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_2.set_text("175")
-sc_spo2_label_2.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_2_main_main_default
-style_sc_spo2_label_2_main_main_default = lv.style_t()
-style_sc_spo2_label_2_main_main_default.init()
-style_sc_spo2_label_2_main_main_default.set_radius(0)
-style_sc_spo2_label_2_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_2_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_2_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_2_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_2_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_2_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_2_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_2_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_2_main_main_default.set_pad_left(0)
-style_sc_spo2_label_2_main_main_default.set_pad_right(0)
-style_sc_spo2_label_2_main_main_default.set_pad_top(0)
-style_sc_spo2_label_2_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_2
-sc_spo2_label_2.add_style(style_sc_spo2_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_5 = lv.label(sc_spo2)
-sc_spo2_label_5.set_pos(int(6),int(205))
-sc_spo2_label_5.set_size(31,20)
-sc_spo2_label_5.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_5.set_text("75")
-sc_spo2_label_5.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_5_main_main_default
-style_sc_spo2_label_5_main_main_default = lv.style_t()
-style_sc_spo2_label_5_main_main_default.init()
-style_sc_spo2_label_5_main_main_default.set_radius(0)
-style_sc_spo2_label_5_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_5_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_5_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_5_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_5_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_5_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_5_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_5_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_5_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_5_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_5_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_5_main_main_default.set_pad_left(0)
-style_sc_spo2_label_5_main_main_default.set_pad_right(0)
-style_sc_spo2_label_5_main_main_default.set_pad_top(0)
-style_sc_spo2_label_5_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_5
-sc_spo2_label_5.add_style(style_sc_spo2_label_5_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_chart_1 = lv.chart(sc_spo2)
-sc_spo2_chart_1.set_pos(int(35),int(44))
-sc_spo2_chart_1.set_size(129,230)
-sc_spo2_chart_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_chart_1.set_type(lv.chart.TYPE.LINE)
-sc_spo2_chart_1.set_range(lv.chart.AXIS.PRIMARY_Y, 0, 170)
-sc_spo2_chart_1.set_div_line_count(5, 0)
-sc_spo2_chart_1.set_point_count(5)
-chart_series_0 = lv.chart.add_series(sc_spo2_chart_1, lv.color_make(0xff,0x00,0x00), lv.chart.AXIS.PRIMARY_Y);
-sc_spo2_chart_1.set_next_value(chart_series_0, 1)
-sc_spo2_chart_1.set_next_value(chart_series_0, 20)
-sc_spo2_chart_1.set_next_value(chart_series_0, 30)
-sc_spo2_chart_1.set_next_value(chart_series_0, 40)
-sc_spo2_chart_1.set_next_value(chart_series_0, 5)
-# create style style_sc_spo2_chart_1_main_main_default
-style_sc_spo2_chart_1_main_main_default = lv.style_t()
-style_sc_spo2_chart_1_main_main_default.init()
-style_sc_spo2_chart_1_main_main_default.set_radius(0)
-style_sc_spo2_chart_1_main_main_default.set_bg_color(lv.color_make(0xff,0xff,0xff))
-style_sc_spo2_chart_1_main_main_default.set_bg_grad_color(lv.color_make(0xff,0xff,0xff))
-style_sc_spo2_chart_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_chart_1_main_main_default.set_bg_opa(0)
-style_sc_spo2_chart_1_main_main_default.set_border_color(lv.color_make(0xff,0xff,0xff))
-style_sc_spo2_chart_1_main_main_default.set_border_width(1)
-style_sc_spo2_chart_1_main_main_default.set_border_opa(0)
-style_sc_spo2_chart_1_main_main_default.set_line_color(lv.color_make(0xe8,0xe8,0xe8))
-style_sc_spo2_chart_1_main_main_default.set_line_width(2)
-style_sc_spo2_chart_1_main_main_default.set_line_opa(255)
-
-# add style for sc_spo2_chart_1
-sc_spo2_chart_1.add_style(style_sc_spo2_chart_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_3 = lv.label(sc_spo2)
-sc_spo2_label_3.set_pos(int(1),int(84))
-sc_spo2_label_3.set_size(40,20)
-sc_spo2_label_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_3.set_text("150")
-sc_spo2_label_3.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_3_main_main_default
-style_sc_spo2_label_3_main_main_default = lv.style_t()
-style_sc_spo2_label_3_main_main_default.init()
-style_sc_spo2_label_3_main_main_default.set_radius(0)
-style_sc_spo2_label_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_3_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_3_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_3_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_3_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_3_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_3_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_3_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_3_main_main_default.set_pad_left(0)
-style_sc_spo2_label_3_main_main_default.set_pad_right(0)
-style_sc_spo2_label_3_main_main_default.set_pad_top(0)
-style_sc_spo2_label_3_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_3
-sc_spo2_label_3.add_style(style_sc_spo2_label_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_4 = lv.label(sc_spo2)
-sc_spo2_label_4.set_pos(int(1),int(150))
-sc_spo2_label_4.set_size(40,32)
-sc_spo2_label_4.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_4.set_text("100")
-sc_spo2_label_4.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_4_main_main_default
-style_sc_spo2_label_4_main_main_default = lv.style_t()
-style_sc_spo2_label_4_main_main_default.init()
-style_sc_spo2_label_4_main_main_default.set_radius(0)
-style_sc_spo2_label_4_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_4_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_4_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_4_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_4_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_4_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_4_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_4_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_4_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_4_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_4_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_4_main_main_default.set_pad_left(0)
-style_sc_spo2_label_4_main_main_default.set_pad_right(0)
-style_sc_spo2_label_4_main_main_default.set_pad_top(0)
-style_sc_spo2_label_4_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_4
-sc_spo2_label_4.add_style(style_sc_spo2_label_4_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_6 = lv.label(sc_spo2)
-sc_spo2_label_6.set_pos(int(-29),int(256))
-sc_spo2_label_6.set_size(100,32)
-sc_spo2_label_6.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_6.set_text("50")
-sc_spo2_label_6.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_6_main_main_default
-style_sc_spo2_label_6_main_main_default = lv.style_t()
-style_sc_spo2_label_6_main_main_default.init()
-style_sc_spo2_label_6_main_main_default.set_radius(0)
-style_sc_spo2_label_6_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_6_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_6_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_6_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_6_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_6_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_6_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_6_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_6_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_6_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_6_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_6_main_main_default.set_pad_left(0)
-style_sc_spo2_label_6_main_main_default.set_pad_right(0)
-style_sc_spo2_label_6_main_main_default.set_pad_top(0)
-style_sc_spo2_label_6_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_6
-sc_spo2_label_6.add_style(style_sc_spo2_label_6_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_7 = lv.label(sc_spo2)
-sc_spo2_label_7.set_pos(int(11),int(277))
-sc_spo2_label_7.set_size(49,20)
-sc_spo2_label_7.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_7.set_text("00:00")
-sc_spo2_label_7.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_7_main_main_default
-style_sc_spo2_label_7_main_main_default = lv.style_t()
-style_sc_spo2_label_7_main_main_default.init()
-style_sc_spo2_label_7_main_main_default.set_radius(0)
-style_sc_spo2_label_7_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_7_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_7_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_7_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_7_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_7_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_7_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_7_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_7_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_7_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_7_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_7_main_main_default.set_pad_left(0)
-style_sc_spo2_label_7_main_main_default.set_pad_right(0)
-style_sc_spo2_label_7_main_main_default.set_pad_top(0)
-style_sc_spo2_label_7_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_7
-sc_spo2_label_7.add_style(style_sc_spo2_label_7_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_spo2_label_8 = lv.label(sc_spo2)
-sc_spo2_label_8.set_pos(int(111),int(274))
-sc_spo2_label_8.set_size(53,17)
-sc_spo2_label_8.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_spo2_label_8.set_text("24:00")
-sc_spo2_label_8.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_spo2_label_8_main_main_default
-style_sc_spo2_label_8_main_main_default = lv.style_t()
-style_sc_spo2_label_8_main_main_default.init()
-style_sc_spo2_label_8_main_main_default.set_radius(0)
-style_sc_spo2_label_8_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_8_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_spo2_label_8_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_spo2_label_8_main_main_default.set_bg_opa(0)
-style_sc_spo2_label_8_main_main_default.set_text_color(lv.color_make(0xff,0xff,0xff))
-try:
-    style_sc_spo2_label_8_main_main_default.set_text_font(lv.font_simsun_15)
-except AttributeError:
-    try:
-        style_sc_spo2_label_8_main_main_default.set_text_font(lv.font_montserrat_15)
-    except AttributeError:
-        style_sc_spo2_label_8_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_spo2_label_8_main_main_default.set_text_letter_space(2)
-style_sc_spo2_label_8_main_main_default.set_text_line_space(0)
-style_sc_spo2_label_8_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_spo2_label_8_main_main_default.set_pad_left(0)
-style_sc_spo2_label_8_main_main_default.set_pad_right(0)
-style_sc_spo2_label_8_main_main_default.set_pad_top(0)
-style_sc_spo2_label_8_main_main_default.set_pad_bottom(0)
-
-# add style for sc_spo2_label_8
-sc_spo2_label_8.add_style(style_sc_spo2_label_8_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
 sc_light = lv.obj()
 sc_light.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
 # create style style_sc_light_main_main_default
@@ -2280,419 +2681,6 @@ style_sc_weather_label_7_main_main_default.set_pad_bottom(0)
 
 # add style for sc_weather_label_7
 sc_weather_label_7.add_style(style_sc_weather_label_7_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport = lv.obj()
-sc_sport.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-# create style style_sc_sport_main_main_default
-style_sc_sport_main_main_default = lv.style_t()
-style_sc_sport_main_main_default.init()
-style_sc_sport_main_main_default.set_bg_color(lv.color_make(0x00,0x00,0x00))
-style_sc_sport_main_main_default.set_bg_opa(255)
-
-# add style for sc_sport
-sc_sport.add_style(style_sc_sport_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_label_1 = lv.label(sc_sport)
-sc_sport_label_1.set_pos(int(43),int(12))
-sc_sport_label_1.set_size(103,21)
-sc_sport_label_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_label_1.set_text("运动步数")
-sc_sport_label_1.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_sport_label_1_main_main_default
-style_sc_sport_label_1_main_main_default = lv.style_t()
-style_sc_sport_label_1_main_main_default.init()
-style_sc_sport_label_1_main_main_default.set_radius(0)
-style_sc_sport_label_1_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_label_1_main_main_default.set_bg_opa(0)
-style_sc_sport_label_1_main_main_default.set_text_color(lv.color_make(0x66,0xf0,0xcd))
-try:
-    style_sc_sport_label_1_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
-except AttributeError:
-    try:
-        style_sc_sport_label_1_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_sport_label_1_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_sport_label_1_main_main_default.set_text_letter_space(2)
-style_sc_sport_label_1_main_main_default.set_text_line_space(0)
-style_sc_sport_label_1_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_sport_label_1_main_main_default.set_pad_left(0)
-style_sc_sport_label_1_main_main_default.set_pad_right(0)
-style_sc_sport_label_1_main_main_default.set_pad_top(0)
-style_sc_sport_label_1_main_main_default.set_pad_bottom(0)
-
-# add style for sc_sport_label_1
-sc_sport_label_1.add_style(style_sc_sport_label_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_img_1 = lv.img(sc_sport)
-sc_sport_img_1.set_pos(int(13),int(4))
-sc_sport_img_1.set_size(30,30)
-sc_sport_img_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_img_1.add_flag(lv.obj.FLAG.CLICKABLE)
-try:
-    with open('D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1092114602.png','rb') as f:
-        sc_sport_img_1_img_data = f.read()
-except:
-    print('Could not open D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1092114602.png')
-    sys.exit()
-
-sc_sport_img_1_img = lv.img_dsc_t({
-  'data_size': len(sc_sport_img_1_img_data),
-  'header': {'always_zero': 0, 'w': 30, 'h': 30, 'cf': lv.img.CF.TRUE_COLOR_ALPHA},
-  'data': sc_sport_img_1_img_data
-})
-
-sc_sport_img_1.set_src(sc_sport_img_1_img)
-sc_sport_img_1.set_pivot(0,0)
-sc_sport_img_1.set_angle(0)
-# create style style_sc_sport_img_1_main_main_default
-style_sc_sport_img_1_main_main_default = lv.style_t()
-style_sc_sport_img_1_main_main_default.init()
-style_sc_sport_img_1_main_main_default.set_img_recolor(lv.color_make(0xff,0xff,0xff))
-style_sc_sport_img_1_main_main_default.set_img_recolor_opa(0)
-style_sc_sport_img_1_main_main_default.set_img_opa(255)
-
-# add style for sc_sport_img_1
-sc_sport_img_1.add_style(style_sc_sport_img_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_bar_1 = lv.bar(sc_sport)
-sc_sport_bar_1.set_pos(int(25),int(44))
-sc_sport_bar_1.set_size(123,20)
-sc_sport_bar_1.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_bar_1.set_style_anim_time(1000, 0)
-sc_sport_bar_1.set_mode(lv.bar.MODE.NORMAL)
-sc_sport_bar_1.set_value(50, lv.ANIM.OFF)
-# create style style_sc_sport_bar_1_main_main_default
-style_sc_sport_bar_1_main_main_default = lv.style_t()
-style_sc_sport_bar_1_main_main_default.init()
-style_sc_sport_bar_1_main_main_default.set_radius(10)
-style_sc_sport_bar_1_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_1_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_1_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_bar_1_main_main_default.set_bg_opa(60)
-style_sc_sport_bar_1_main_main_default.set_shadow_width(2)
-style_sc_sport_bar_1_main_main_default.set_shadow_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_1_main_main_default.set_shadow_opa(149)
-style_sc_sport_bar_1_main_main_default.set_shadow_spread(3)
-style_sc_sport_bar_1_main_main_default.set_shadow_ofs_x(0)
-style_sc_sport_bar_1_main_main_default.set_shadow_ofs_y(0)
-
-# add style for sc_sport_bar_1
-sc_sport_bar_1.add_style(style_sc_sport_bar_1_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-# create style style_sc_sport_bar_1_main_indicator_default
-style_sc_sport_bar_1_main_indicator_default = lv.style_t()
-style_sc_sport_bar_1_main_indicator_default.init()
-style_sc_sport_bar_1_main_indicator_default.set_radius(10)
-style_sc_sport_bar_1_main_indicator_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_1_main_indicator_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_1_main_indicator_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_bar_1_main_indicator_default.set_bg_opa(255)
-
-# add style for sc_sport_bar_1
-sc_sport_bar_1.add_style(style_sc_sport_bar_1_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
-
-sc_sport_label_2 = lv.label(sc_sport)
-sc_sport_label_2.set_pos(int(36),int(75))
-sc_sport_label_2.set_size(100,32)
-sc_sport_label_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_label_2.set_text("122")
-sc_sport_label_2.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_sport_label_2_main_main_default
-style_sc_sport_label_2_main_main_default = lv.style_t()
-style_sc_sport_label_2_main_main_default.init()
-style_sc_sport_label_2_main_main_default.set_radius(0)
-style_sc_sport_label_2_main_main_default.set_bg_color(lv.color_make(0x95,0xc3,0xe9))
-style_sc_sport_label_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_label_2_main_main_default.set_bg_opa(0)
-style_sc_sport_label_2_main_main_default.set_text_color(lv.color_make(0x35,0xa7,0xa5))
-try:
-    style_sc_sport_label_2_main_main_default.set_text_font(lv.font_simsun_20)
-except AttributeError:
-    try:
-        style_sc_sport_label_2_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_sport_label_2_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_sport_label_2_main_main_default.set_text_letter_space(2)
-style_sc_sport_label_2_main_main_default.set_text_line_space(0)
-style_sc_sport_label_2_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_sport_label_2_main_main_default.set_pad_left(0)
-style_sc_sport_label_2_main_main_default.set_pad_right(0)
-style_sc_sport_label_2_main_main_default.set_pad_top(0)
-style_sc_sport_label_2_main_main_default.set_pad_bottom(0)
-
-# add style for sc_sport_label_2
-sc_sport_label_2.add_style(style_sc_sport_label_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_img_2 = lv.img(sc_sport)
-sc_sport_img_2.set_pos(int(13),int(107))
-sc_sport_img_2.set_size(30,30)
-sc_sport_img_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_img_2.add_flag(lv.obj.FLAG.CLICKABLE)
-try:
-    with open('D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp306905943.png','rb') as f:
-        sc_sport_img_2_img_data = f.read()
-except:
-    print('Could not open D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp306905943.png')
-    sys.exit()
-
-sc_sport_img_2_img = lv.img_dsc_t({
-  'data_size': len(sc_sport_img_2_img_data),
-  'header': {'always_zero': 0, 'w': 30, 'h': 30, 'cf': lv.img.CF.TRUE_COLOR_ALPHA},
-  'data': sc_sport_img_2_img_data
-})
-
-sc_sport_img_2.set_src(sc_sport_img_2_img)
-sc_sport_img_2.set_pivot(0,0)
-sc_sport_img_2.set_angle(0)
-# create style style_sc_sport_img_2_main_main_default
-style_sc_sport_img_2_main_main_default = lv.style_t()
-style_sc_sport_img_2_main_main_default.init()
-style_sc_sport_img_2_main_main_default.set_img_recolor(lv.color_make(0xff,0xff,0xff))
-style_sc_sport_img_2_main_main_default.set_img_recolor_opa(0)
-style_sc_sport_img_2_main_main_default.set_img_opa(255)
-
-# add style for sc_sport_img_2
-sc_sport_img_2.add_style(style_sc_sport_img_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_label_3 = lv.label(sc_sport)
-sc_sport_label_3.set_pos(int(48),int(114))
-sc_sport_label_3.set_size(100,32)
-sc_sport_label_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_label_3.set_text("热量消耗")
-sc_sport_label_3.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_sport_label_3_main_main_default
-style_sc_sport_label_3_main_main_default = lv.style_t()
-style_sc_sport_label_3_main_main_default.init()
-style_sc_sport_label_3_main_main_default.set_radius(0)
-style_sc_sport_label_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_label_3_main_main_default.set_bg_opa(0)
-style_sc_sport_label_3_main_main_default.set_text_color(lv.color_make(0xeb,0x66,0x1e))
-try:
-    style_sc_sport_label_3_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
-except AttributeError:
-    try:
-        style_sc_sport_label_3_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_sport_label_3_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_sport_label_3_main_main_default.set_text_letter_space(2)
-style_sc_sport_label_3_main_main_default.set_text_line_space(0)
-style_sc_sport_label_3_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_sport_label_3_main_main_default.set_pad_left(0)
-style_sc_sport_label_3_main_main_default.set_pad_right(0)
-style_sc_sport_label_3_main_main_default.set_pad_top(0)
-style_sc_sport_label_3_main_main_default.set_pad_bottom(0)
-
-# add style for sc_sport_label_3
-sc_sport_label_3.add_style(style_sc_sport_label_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_bar_2 = lv.bar(sc_sport)
-sc_sport_bar_2.set_pos(int(30),int(150))
-sc_sport_bar_2.set_size(113,20)
-sc_sport_bar_2.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_bar_2.set_style_anim_time(1000, 0)
-sc_sport_bar_2.set_mode(lv.bar.MODE.NORMAL)
-sc_sport_bar_2.set_value(50, lv.ANIM.OFF)
-# create style style_sc_sport_bar_2_main_main_default
-style_sc_sport_bar_2_main_main_default = lv.style_t()
-style_sc_sport_bar_2_main_main_default.init()
-style_sc_sport_bar_2_main_main_default.set_radius(10)
-style_sc_sport_bar_2_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_2_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_2_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_bar_2_main_main_default.set_bg_opa(60)
-style_sc_sport_bar_2_main_main_default.set_shadow_width(2)
-style_sc_sport_bar_2_main_main_default.set_shadow_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_2_main_main_default.set_shadow_opa(255)
-style_sc_sport_bar_2_main_main_default.set_shadow_spread(3)
-style_sc_sport_bar_2_main_main_default.set_shadow_ofs_x(0)
-style_sc_sport_bar_2_main_main_default.set_shadow_ofs_y(0)
-
-# add style for sc_sport_bar_2
-sc_sport_bar_2.add_style(style_sc_sport_bar_2_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-# create style style_sc_sport_bar_2_main_indicator_default
-style_sc_sport_bar_2_main_indicator_default = lv.style_t()
-style_sc_sport_bar_2_main_indicator_default.init()
-style_sc_sport_bar_2_main_indicator_default.set_radius(10)
-style_sc_sport_bar_2_main_indicator_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_2_main_indicator_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_2_main_indicator_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_bar_2_main_indicator_default.set_bg_opa(255)
-
-# add style for sc_sport_bar_2
-sc_sport_bar_2.add_style(style_sc_sport_bar_2_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
-
-sc_sport_label_4 = lv.label(sc_sport)
-sc_sport_label_4.set_pos(int(48),int(185))
-sc_sport_label_4.set_size(85,19)
-sc_sport_label_4.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_label_4.set_text("1222K")
-sc_sport_label_4.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_sport_label_4_main_main_default
-style_sc_sport_label_4_main_main_default = lv.style_t()
-style_sc_sport_label_4_main_main_default.init()
-style_sc_sport_label_4_main_main_default.set_radius(0)
-style_sc_sport_label_4_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_4_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_4_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_label_4_main_main_default.set_bg_opa(0)
-style_sc_sport_label_4_main_main_default.set_text_color(lv.color_make(0xf0,0x69,0x3d))
-try:
-    style_sc_sport_label_4_main_main_default.set_text_font(lv.font_simsun_20)
-except AttributeError:
-    try:
-        style_sc_sport_label_4_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_sport_label_4_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_sport_label_4_main_main_default.set_text_letter_space(2)
-style_sc_sport_label_4_main_main_default.set_text_line_space(0)
-style_sc_sport_label_4_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_sport_label_4_main_main_default.set_pad_left(0)
-style_sc_sport_label_4_main_main_default.set_pad_right(0)
-style_sc_sport_label_4_main_main_default.set_pad_top(0)
-style_sc_sport_label_4_main_main_default.set_pad_bottom(0)
-
-# add style for sc_sport_label_4
-sc_sport_label_4.add_style(style_sc_sport_label_4_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_img_3 = lv.img(sc_sport)
-sc_sport_img_3.set_pos(int(13),int(216))
-sc_sport_img_3.set_size(30,30)
-sc_sport_img_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_img_3.add_flag(lv.obj.FLAG.CLICKABLE)
-try:
-    with open('D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1712045993.png','rb') as f:
-        sc_sport_img_3_img_data = f.read()
-except:
-    print('Could not open D:\\code\\watch\\Twatch-guider\\Twatch\\generated\\mPythonImages\\mp-1712045993.png')
-    sys.exit()
-
-sc_sport_img_3_img = lv.img_dsc_t({
-  'data_size': len(sc_sport_img_3_img_data),
-  'header': {'always_zero': 0, 'w': 30, 'h': 30, 'cf': lv.img.CF.TRUE_COLOR_ALPHA},
-  'data': sc_sport_img_3_img_data
-})
-
-sc_sport_img_3.set_src(sc_sport_img_3_img)
-sc_sport_img_3.set_pivot(0,0)
-sc_sport_img_3.set_angle(0)
-# create style style_sc_sport_img_3_main_main_default
-style_sc_sport_img_3_main_main_default = lv.style_t()
-style_sc_sport_img_3_main_main_default.init()
-style_sc_sport_img_3_main_main_default.set_img_recolor(lv.color_make(0xff,0xff,0xff))
-style_sc_sport_img_3_main_main_default.set_img_recolor_opa(0)
-style_sc_sport_img_3_main_main_default.set_img_opa(255)
-
-# add style for sc_sport_img_3
-sc_sport_img_3.add_style(style_sc_sport_img_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_label_5 = lv.label(sc_sport)
-sc_sport_label_5.set_pos(int(48),int(222))
-sc_sport_label_5.set_size(100,32)
-sc_sport_label_5.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_label_5.set_text("活动时长")
-sc_sport_label_5.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_sport_label_5_main_main_default
-style_sc_sport_label_5_main_main_default = lv.style_t()
-style_sc_sport_label_5_main_main_default.init()
-style_sc_sport_label_5_main_main_default.set_radius(0)
-style_sc_sport_label_5_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_5_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_5_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_label_5_main_main_default.set_bg_opa(0)
-style_sc_sport_label_5_main_main_default.set_text_color(lv.color_make(0xff,0xaf,0x24))
-try:
-    style_sc_sport_label_5_main_main_default.set_text_font(lv.font_dingliehuobanfont20241217_2_20)
-except AttributeError:
-    try:
-        style_sc_sport_label_5_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_sport_label_5_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_sport_label_5_main_main_default.set_text_letter_space(2)
-style_sc_sport_label_5_main_main_default.set_text_line_space(0)
-style_sc_sport_label_5_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_sport_label_5_main_main_default.set_pad_left(0)
-style_sc_sport_label_5_main_main_default.set_pad_right(0)
-style_sc_sport_label_5_main_main_default.set_pad_top(0)
-style_sc_sport_label_5_main_main_default.set_pad_bottom(0)
-
-# add style for sc_sport_label_5
-sc_sport_label_5.add_style(style_sc_sport_label_5_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-sc_sport_bar_3 = lv.bar(sc_sport)
-sc_sport_bar_3.set_pos(int(31),int(254))
-sc_sport_bar_3.set_size(117,20)
-sc_sport_bar_3.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_bar_3.set_style_anim_time(1000, 0)
-sc_sport_bar_3.set_mode(lv.bar.MODE.NORMAL)
-sc_sport_bar_3.set_value(50, lv.ANIM.OFF)
-# create style style_sc_sport_bar_3_main_main_default
-style_sc_sport_bar_3_main_main_default = lv.style_t()
-style_sc_sport_bar_3_main_main_default.init()
-style_sc_sport_bar_3_main_main_default.set_radius(10)
-style_sc_sport_bar_3_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_3_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_3_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_bar_3_main_main_default.set_bg_opa(60)
-style_sc_sport_bar_3_main_main_default.set_shadow_width(2)
-style_sc_sport_bar_3_main_main_default.set_shadow_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_3_main_main_default.set_shadow_opa(255)
-style_sc_sport_bar_3_main_main_default.set_shadow_spread(3)
-style_sc_sport_bar_3_main_main_default.set_shadow_ofs_x(0)
-style_sc_sport_bar_3_main_main_default.set_shadow_ofs_y(0)
-
-# add style for sc_sport_bar_3
-sc_sport_bar_3.add_style(style_sc_sport_bar_3_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
-
-# create style style_sc_sport_bar_3_main_indicator_default
-style_sc_sport_bar_3_main_indicator_default = lv.style_t()
-style_sc_sport_bar_3_main_indicator_default.init()
-style_sc_sport_bar_3_main_indicator_default.set_radius(10)
-style_sc_sport_bar_3_main_indicator_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_3_main_indicator_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_bar_3_main_indicator_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_bar_3_main_indicator_default.set_bg_opa(255)
-
-# add style for sc_sport_bar_3
-sc_sport_bar_3.add_style(style_sc_sport_bar_3_main_indicator_default, lv.PART.INDICATOR|lv.STATE.DEFAULT)
-
-sc_sport_label_6 = lv.label(sc_sport)
-sc_sport_label_6.set_pos(int(36),int(286))
-sc_sport_label_6.set_size(100,32)
-sc_sport_label_6.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
-sc_sport_label_6.set_text("78min")
-sc_sport_label_6.set_long_mode(lv.label.LONG.WRAP)
-# create style style_sc_sport_label_6_main_main_default
-style_sc_sport_label_6_main_main_default = lv.style_t()
-style_sc_sport_label_6_main_main_default.init()
-style_sc_sport_label_6_main_main_default.set_radius(0)
-style_sc_sport_label_6_main_main_default.set_bg_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_6_main_main_default.set_bg_grad_color(lv.color_make(0x21,0x95,0xf6))
-style_sc_sport_label_6_main_main_default.set_bg_grad_dir(lv.GRAD_DIR.NONE)
-style_sc_sport_label_6_main_main_default.set_bg_opa(0)
-style_sc_sport_label_6_main_main_default.set_text_color(lv.color_make(0xe0,0xbe,0x9e))
-try:
-    style_sc_sport_label_6_main_main_default.set_text_font(lv.font_simsun_20)
-except AttributeError:
-    try:
-        style_sc_sport_label_6_main_main_default.set_text_font(lv.font_montserrat_20)
-    except AttributeError:
-        style_sc_sport_label_6_main_main_default.set_text_font(lv.font_montserrat_16)
-style_sc_sport_label_6_main_main_default.set_text_letter_space(2)
-style_sc_sport_label_6_main_main_default.set_text_line_space(0)
-style_sc_sport_label_6_main_main_default.set_text_align(lv.TEXT_ALIGN.CENTER)
-style_sc_sport_label_6_main_main_default.set_pad_left(0)
-style_sc_sport_label_6_main_main_default.set_pad_right(0)
-style_sc_sport_label_6_main_main_default.set_pad_top(0)
-style_sc_sport_label_6_main_main_default.set_pad_bottom(0)
-
-# add style for sc_sport_label_6
-sc_sport_label_6.add_style(style_sc_sport_label_6_main_main_default, lv.PART.MAIN|lv.STATE.DEFAULT)
 
 sc_message = lv.obj()
 sc_message.set_scrollbar_mode(lv.SCROLLBAR_MODE.OFF)
