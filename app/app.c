@@ -118,30 +118,247 @@ static void app_screen_update_sport(lv_ui *ui)
 }
 
 // 示例：在某个函数中更新时间
-void update_clock_label(void)
+static uint8_t hour = 1;
+static uint8_t min = 1;
+static void update_hour_clock_label(void)
 {
-    static uint8_t hour = 1;
     char buf[16];
     hour = (hour % 24) + 1; // 简单递增
     snprintf(buf, sizeof(buf), "%d时", hour);
     lv_label_set_text(g_dis.guider_ui.sc_clock_label_2, buf);
 }
 
-static int32 clock_flag = 0;
+static void update_min_clock_label(void)
+{
+    char buf[16];
+    min = (min % 24) + 1; // 简单递增
+    snprintf(buf, sizeof(buf), "%d分", min);
+    lv_label_set_text(g_dis.guider_ui.sc_clock_label_2, buf);
+}
+
+
+static void update_ready_clock_label(void)
+{
+    char buf[16];
+    snprintf(buf, sizeof(buf), "%02d:%02d", hour, min);
+    lv_label_set_text(g_dis.guider_ui.sc_clock_label_2, buf);
+}
+
 typedef enum {
-    CLOCK_FLAG_FREE = 0,
-    CLOCK_FLAG_HOUR = 1,
-    CLOCK_FLAG_MINUS = 2
-};
+    CLOCK_FLAG_HOUR = 0, // 设置小时
+    CLOCK_FLAG_MINUS = 1, // 设置分钟
+    CLOCK_FLAG_READY = 2 // 设置完成
+} MENU_CLOCK_JUMP;
+
+static int32 clock_flag = CLOCK_FLAG_HOUR;
+
+
+static void app_go_to_menu(void)
+{
+    KEY_DATA key_data;
+    key_data.key_valye = KEY_TYPE_CENTER;
+    key_queue_set(&key_data); // 手动更新按键事件
+    GUA_LOGW("screen jump menu\r\n");
+    setup_scr_sc_menu(&g_dis.guider_ui);
+    app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
+    lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
+    g_dis.screen_jump_id = SCREEN_JUMP_MENU;
+}
+
+// 闹钟设置初始化界面
+static void app_init_time_clock(void)
+{
+    switch (clock_flag) {
+        case CLOCK_FLAG_HOUR: {
+            update_hour_clock_label();
+            break;
+        }
+        case CLOCK_FLAG_MINUS: {
+            update_min_clock_label();
+            break;
+        }
+        case CLOCK_FLAG_READY: {
+            update_ready_clock_label();
+            break;
+        }
+    }
+}
+
+static void app_set_time_clock(int32 key_type, int32 key_event)
+{
+    switch (clock_flag) {
+        case CLOCK_FLAG_HOUR: {
+            if (key_type != KEY_EVENT_ENTER_ID) { // 如果是上下按钮
+                if (key_event == KEY_TYPE_UP || key_event == KEY_TYPE_UP_LONG) {
+                    update_hour_clock_label();
+                    GUA_LOGW("SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK\r\n");
+                } else if (key_event == KEY_TYPE_DOWN || key_event == KEY_TYPE_DOWN_LONG) {
+                    update_hour_clock_label();
+                    GUA_LOGW("SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK?????\r\n");
+                }
+                break;
+            } else {
+                if (key_event == EVENT_SHORT_CLICK) {
+                    // 跳转到修改分钟
+                    clock_flag = CLOCK_FLAG_MINUS;
+                    update_min_clock_label();
+                } else if (key_event == EVENT_LONG_CLICK) {
+                    // 删除时间
+                    update_hour_clock_label(); // 时钟数字清除
+                } else if (key_event == EVENT_DOUBLE_CLICK) {
+                    // 退出跳转到主界面
+                    app_go_to_menu();
+                }
+            }
+        }
+        break;
+
+        case CLOCK_FLAG_MINUS: {
+            if (key_type != KEY_EVENT_ENTER_ID) { // 如果是上下按钮
+                if (key_event == KEY_TYPE_UP || key_event == KEY_TYPE_UP_LONG) {
+                    update_min_clock_label();
+                    GUA_LOGW("SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK\r\n");
+                } else if (key_event == KEY_TYPE_DOWN || key_event == KEY_TYPE_DOWN_LONG) {
+                    update_min_clock_label();
+                    GUA_LOGW("SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK?????\r\n");
+                }
+                break;
+            } else {
+                if (key_event == EVENT_SHORT_CLICK) {
+                    // 跳转到准备就绪
+                    clock_flag = CLOCK_FLAG_READY;
+                    update_ready_clock_label();
+                } else if (key_event == EVENT_LONG_CLICK) {
+                    // 删除时间 跳转到调整时钟界面
+                    clock_flag = CLOCK_FLAG_HOUR;
+                    update_hour_clock_label();
+                } else if (key_event == EVENT_DOUBLE_CLICK) {
+                    // 退出跳转到主界面
+                    app_go_to_menu();
+                }
+            }
+        }
+        break;
+
+        case CLOCK_FLAG_READY: {
+            if (key_type == KEY_EVENT_ENTER_ID) { // 如果是enter按钮
+                if (key_event == EVENT_LONG_CLICK) {
+                    // 删除时间 跳转到调整时钟界面
+                    clock_flag = CLOCK_FLAG_HOUR;
+                    update_hour_clock_label();
+                } else if (key_event == EVENT_DOUBLE_CLICK) {
+                    // 退出跳转到主界面
+                    clock_flag = CLOCK_FLAG_READY;
+                    app_go_to_menu();
+                }
+            }
+        }
+        default:
+            break;
+    }
+}
+
+// 菜单界面跳转接口
+static void app_jump_menu(int32 key_type, int32 key_event)
+{
+    if (key_type == KEY_EVENT_ENTER_ID) {
+        if (key_event == EVENT_DOUBLE_CLICK) {
+            GUA_LOGI("screen jump main\r\n");
+            setup_scr_sc_main(&g_dis.guider_ui);
+            lv_scr_load_anim(g_dis.guider_ui.sc_main, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
+            app_updata_time(&g_dis.guider_ui, g_dis.rtc_time.Minutes, g_dis.rtc_time.Seconds); // 更新显示时间
+            g_dis.screen_jump_id = SCREEN_JUMP_MAIN;
+        } else if (key_event == EVENT_SHORT_CLICK) {
+            int32 jump_id = app_menu_lvgl_get_id();
+            GUA_LOGW("get menu jump id[%d]\r\n", jump_id);
+            switch (jump_id) {
+                case SCREEN_MENU_RATE: {
+                    GUA_LOGW("screen display rate\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_RATE;
+                    setup_scr_sc_heart(&g_dis.guider_ui);
+                    app_screen_update_table(g_dis.guider_ui.sc_heart_chart_1, data, 24);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+
+                    break;
+                }
+
+                case SCREEN_MENU_SPO2: {
+                    GUA_LOGW("screen display oxy\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_SPO2;
+                    setup_scr_sc_spo2(&g_dis.guider_ui);
+                    app_screen_update_table(g_dis.guider_ui.sc_spo2_chart_1, data, 24);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    break;
+                }
+
+                case SCREEN_MENU_SPORT: {
+                    GUA_LOGW("screen display sport\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_SPORT;
+                    setup_scr_sc_sport(&g_dis.guider_ui);
+                    app_screen_update_sport(&g_dis.guider_ui);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    break;
+                }
+
+                case SCREEN_MENU_CLOCK: {
+                    GUA_LOGW("screen display clock\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_CLOCK;
+                    setup_scr_sc_clock(&g_dis.guider_ui);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_clock, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    app_init_time_clock();
+                    break;
+                }
+
+                case SCREEN_MENU_SECOND: {
+                    GUA_LOGW("screen display second\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_SECOND;
+                    setup_scr_sc_second(&g_dis.guider_ui);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_second, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    break;
+                }
+
+                case SCREEN_MENU_SET: {
+                    GUA_LOGW("screen display setting\r\n");
+                    break;
+                }
+
+                case SCREEN_MENU_LIGHT: {
+                    GUA_LOGW("screen display light\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_LIGHT;
+                    setup_scr_sc_light(&g_dis.guider_ui);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    break;
+                }
+
+                case SCREEN_MENU_WEAT: {
+                    GUA_LOGW("screen display sport\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_WEAT;
+                    setup_scr_sc_weather(&g_dis.guider_ui);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    break;
+                }
+
+                case SCREEN_MENU_MSG: {
+                    GUA_LOGW("screen display message\r\n");
+                    g_dis.screen_jump_id = SCREEN_JUMP_MSG;
+                    setup_scr_sc_message(&g_dis.guider_ui);
+                    lv_scr_load_anim(g_dis.guider_ui.sc_message, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+                    break;
+                }
+            }
+        }
+    }
+}
 
 static void app_screen_jump_id(int32 key_type, int32 key_event)
 {
-    int32 jump_id = 0;
-
     switch (g_dis.screen_jump_id) {
+
+        // 桌面主界面
         case SCREEN_JUMP_MAIN: {
             if (key_type == KEY_EVENT_ENTER_ID) {
                 if (key_event == EVENT_SHORT_CLICK) {
+                    // 跳转到菜单界面
                     GUA_LOGW("screen jump menu\r\n");
                     setup_scr_sc_menu(&g_dis.guider_ui);
                     app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
@@ -152,142 +369,79 @@ static void app_screen_jump_id(int32 key_type, int32 key_event)
             break;
         }
 
+        // 菜单界面处理状态机
         case SCREEN_JUMP_MENU: {
-            if (key_type == KEY_EVENT_ENTER_ID) {
-                if (key_event == EVENT_DOUBLE_CLICK) {
-                    GUA_LOGI("screen jump main\r\n");
-                    setup_scr_sc_main(&g_dis.guider_ui);
-                    lv_scr_load_anim(g_dis.guider_ui.sc_main, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
-                    app_updata_time(&g_dis.guider_ui, g_dis.rtc_time.Minutes, g_dis.rtc_time.Seconds); // 更新显示时间
-                    g_dis.screen_jump_id = SCREEN_JUMP_MAIN;
-                    break;
-                } else if (key_event == EVENT_SHORT_CLICK) {
-                    jump_id = app_menu_lvgl_get_id();
-                    GUA_LOGW("get menu jump id[%d]\r\n", jump_id);
-                    switch (jump_id) {
-                        case SCREEN_MENU_RATE: {
-                            GUA_LOGW("screen display rate\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_RATE;
-                            setup_scr_sc_heart(&g_dis.guider_ui);
-                            app_screen_update_table(g_dis.guider_ui.sc_heart_chart_1, data, 24);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_heart, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
+            app_jump_menu(key_type, key_event);
+            break;
+        }
 
-                            break;
-                        }
-
-                        case SCREEN_MENU_SPO2: {
-                            GUA_LOGW("screen display oxy\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_SPO2;
-                            setup_scr_sc_spo2(&g_dis.guider_ui);
-                            app_screen_update_table(g_dis.guider_ui.sc_spo2_chart_1, data, 24);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_spo2, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-
-                        case SCREEN_MENU_SPORT: {
-                            GUA_LOGW("screen display sport\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_SPORT;
-                            setup_scr_sc_sport(&g_dis.guider_ui);
-                            app_screen_update_sport(&g_dis.guider_ui);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_sport, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-
-                        case SCREEN_MENU_CLOCK: {
-                            GUA_LOGW("screen display clock\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_CLOCK;
-                            setup_scr_sc_clock(&g_dis.guider_ui);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_clock, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-
-                        case SCREEN_MENU_SECOND: {
-                            GUA_LOGW("screen display second\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_SECOND;
-                            setup_scr_sc_second(&g_dis.guider_ui);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_second, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-
-                        case SCREEN_MENU_SET: {
-                            GUA_LOGW("screen display setting\r\n");
-                            break;
-                        }
-
-                        case SCREEN_MENU_LIGHT: {
-                            GUA_LOGW("screen display light\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_LIGHT;
-                            setup_scr_sc_light(&g_dis.guider_ui);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_light, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-
-                        case SCREEN_MENU_WEAT: {
-                            GUA_LOGW("screen display sport\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_WEAT;
-                        setup_scr_sc_weather(&g_dis.guider_ui);
-                        lv_scr_load_anim(g_dis.guider_ui.sc_weather, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-
-                        case SCREEN_MENU_MSG: {
-                            GUA_LOGW("screen display message\r\n");
-                            g_dis.screen_jump_id = SCREEN_JUMP_MSG;
-                            setup_scr_sc_message(&g_dis.guider_ui);
-                            lv_scr_load_anim(g_dis.guider_ui.sc_message, LV_SCR_LOAD_ANIM_MOVE_LEFT, APP_JUMP_DELAY, 0, true);
-                            break;
-                        }
-                    }
-                }
+        // 其他子功能界面处理状态机
+        // 心率界面处理
+        case SCREEN_JUMP_RATE : {
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
             }
             break;
         }
-        // 其他界面双击跳转到菜单界面
-        case SCREEN_JUMP_RATE :
-        case SCREEN_JUMP_SPO2 :
-        case SCREEN_JUMP_SPORT :
-        case SCREEN_JUMP_CLOCK :
-            if (key_type != KEY_EVENT_ENTER_ID) {
-                if (key_event == KEY_TYPE_UP || key_event == KEY_TYPE_UP_LONG) {
-                    update_clock_label();
-                    GUA_LOGW("SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK\r\n");
-                } else if (key_event == KEY_TYPE_DOWN || key_event == KEY_TYPE_DOWN_LONG) {
-                    update_clock_label();
-                    GUA_LOGW("SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK SCREEN_JUMP_CLOCK?????\r\n");
-                }
-                break;
-            } else {
-                if (key_event == EVENT_SHORT_CLICK) {
-                    // 修改时间
-                } else if (key_event == EVENT_LONG_CLICK) {
-                    // 删除时间
-                } else if (key_event == EVENT_DOUBLE_CLICK) {
-                    KEY_DATA key_data;
-                    key_data.key_valye = KEY_TYPE_CENTER;
-                    key_queue_set(&key_data); // 手动更新按键事件，方式界面没有反应
-                    GUA_LOGW("screen jump menu\r\n");
-                    setup_scr_sc_menu(&g_dis.guider_ui);
-                    app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-                    lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
-                    g_dis.screen_jump_id = SCREEN_JUMP_MENU;
-                }
+
+        // 血氧处理界面
+        case SCREEN_JUMP_SPO2 :{
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
             }
-        case SCREEN_JUMP_SECOND :
-        case SCREEN_JUMP_SET :
-        case SCREEN_JUMP_LIGHT :
-        case SCREEN_JUMP_WEAT :
+            break;
+        }
+
+        // 运动处理界面
+        case SCREEN_JUMP_SPORT :{
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
+            }
+            break;
+        }
+
+        // 闹钟
+        case SCREEN_JUMP_CLOCK : {
+            app_set_time_clock(key_type, key_event);
+            break;
+        }
+
+        // 秒表
+        case SCREEN_JUMP_SECOND :{
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
+            }
+            break;
+        }
+
+        // 设置界面
+        case SCREEN_JUMP_SET :{
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
+            }
+            break;
+        }
+
+        // 手电筒
+        case SCREEN_JUMP_LIGHT :{
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
+            }
+            break;
+        }
+
+        // 天气
+        case SCREEN_JUMP_WEAT :{
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
+            }
+            break;
+        }
+
+        // 消息
         case SCREEN_JUMP_MSG :{
-            if (key_type == KEY_EVENT_ENTER_ID) {
-                if (key_event == EVENT_DOUBLE_CLICK) {
-                    KEY_DATA key_data;
-                    key_data.key_valye = KEY_TYPE_CENTER;
-                    key_queue_set(&key_data); // 手动更新按键事件，方式界面没有反应
-                    GUA_LOGW("screen jump menu\r\n");
-                    setup_scr_sc_menu(&g_dis.guider_ui);
-                    app_menu_lvgl_setup(&g_dis.guider_ui, g_dis.guider_ui.sc_menu);
-                    lv_scr_load_anim(g_dis.guider_ui.sc_menu, LV_SCR_LOAD_ANIM_MOVE_RIGHT, APP_JUMP_DELAY, 0, true);
-                    g_dis.screen_jump_id = SCREEN_JUMP_MENU;
-                }
+            if (key_type == KEY_EVENT_ENTER_ID && key_event == EVENT_DOUBLE_CLICK) {
+                app_go_to_menu();
             }
             break;
         }

@@ -59,10 +59,10 @@ void setup_scr_sc_clock(lv_ui *ui){
 
 	//Write codes sc_clock_label_2
 	ui->sc_clock_label_2 = lv_label_create(ui->sc_clock);
-	lv_obj_set_pos(ui->sc_clock_label_2, 34, 152);
+	lv_obj_set_pos(ui->sc_clock_label_2, 34, 151);
 	lv_obj_set_size(ui->sc_clock_label_2, 105, 33);
 	lv_obj_set_scrollbar_mode(ui->sc_clock_label_2, LV_SCROLLBAR_MODE_OFF);
-	lv_label_set_text(ui->sc_clock_label_2, "12时");
+	lv_label_set_text(ui->sc_clock_label_2, "12时分");
 	lv_label_set_long_mode(ui->sc_clock_label_2, LV_LABEL_LONG_WRAP);
 
 	//Write style state: LV_STATE_DEFAULT for style_sc_clock_label_2_main_main_default

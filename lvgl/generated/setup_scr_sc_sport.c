@@ -243,7 +243,7 @@ void setup_scr_sc_sport(lv_ui *ui){
 
 	//Write codes sc_sport_label_4
 	ui->sc_sport_label_4 = lv_label_create(ui->sc_sport);
-	lv_obj_set_pos(ui->sc_sport_label_4, 48, 185);
+	lv_obj_set_pos(ui->sc_sport_label_4, 44, 189);
 	lv_obj_set_size(ui->sc_sport_label_4, 85, 19);
 	lv_obj_set_scrollbar_mode(ui->sc_sport_label_4, LV_SCROLLBAR_MODE_OFF);
 	lv_label_set_text(ui->sc_sport_label_4, "1222K");
