@@ -648,7 +648,11 @@ void app_watch_base_task(void)
     HAL_TIM_Base_Start_IT(&htim5); // 1ms LVGL界面滴答中断
 
     debug_init(SoftVersion, HardVersion, BuildDataStr, BuildTimeStr);
+
     init_key_gpio();
+
+    app_device_init();
+
     LCD_Init();
     GUA_LOGI("init sys\r\n");
     app_sys_init();
@@ -660,7 +664,7 @@ void app_watch_base_task(void)
 
     GUA_LOGI("watch base task begin\r\n");
 
-    app_device_init();
+    shake_short();
     // app_trans_start_service();
 
     // while (1) {

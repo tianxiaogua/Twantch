@@ -32,6 +32,9 @@ void init_PWM()
 	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 1000);
 
+	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);
+
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
 //	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
@@ -105,3 +108,17 @@ void beep(uint16_t status)
 	}
 }
 
+// 震动
+void shake_long()
+{
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 1000);
+	HAL_Delay(300);
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);
+}
+
+void shake_short()
+{
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 1000);
+	HAL_Delay(50);
+	__HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);
+}

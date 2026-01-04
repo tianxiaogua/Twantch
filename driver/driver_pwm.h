@@ -23,6 +23,8 @@ void set_pwm_channel_3_2(uint16_t duty);
 void set_pwm_channel_2_1(uint16_t duty);
 
 void beep(uint16_t status);
-
+// 震动
+void shake_long();
+void shake_short();
 #endif
 
