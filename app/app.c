@@ -40,6 +40,10 @@
 #include "app_menu.h"
 #include "file_operate.h"
 
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
+#include "mpu6050.h"
+
 #define SoftVersion     0x000011      //software version, please use table seperata "#define" and "SoftVersion" and "//software version"
 #define HardVersion     0x000021      //hardware version, please use table seperata "#define" and "HardVersion" and "//hardware version"
 #define APP_JUMP_DELAY  (80)         // 界面跳转动画
@@ -591,6 +595,16 @@ void app_watch_lv_tick_inc(void)
     lv_tick_inc(1); // 1毫秒调用周期
 }
 
+static void app_device_init(void)
+{
+    GUA_LOGI("mpu inti\r\n");
+    MPU_Init();
+    while(mpu_dmp_init()) {
+        GUA_LOGE("error\r\n");
+        HAL_Delay(10);
+    }
+    GUA_LOGI("mpu inti ok\r\n");
+}
 
 void app_watch_main_task(void)
 {
@@ -646,6 +660,7 @@ void app_watch_base_task(void)
 
     GUA_LOGI("watch base task begin\r\n");
 
+    app_device_init();
     // app_trans_start_service();
 
     // while (1) {
