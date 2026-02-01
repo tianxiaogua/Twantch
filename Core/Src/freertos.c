@@ -49,6 +49,7 @@
 /* USER CODE END Variables */
 osThreadId mainHandle;
 osThreadId baseHandle;
+osThreadId backgroundHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -57,6 +58,7 @@ osThreadId baseHandle;
 
 void StartDefaultTask(void const * argument);
 void StartTask02(void const * argument);
+void StartTask03(void const * argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -112,6 +114,10 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(base, StartTask02, osPriorityAboveNormal, 0, 2048);
   baseHandle = osThreadCreate(osThread(base), NULL);
 
+  /* definition and creation of background */
+  osThreadDef(background, StartTask03, osPriorityBelowNormal, 0, 128);
+  backgroundHandle = osThreadCreate(osThread(background), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -131,7 +137,7 @@ void StartDefaultTask(void const * argument)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
-	app_watch_main_task();
+	app_watch_screen_task();
   for(;;)
   {
     osDelay(1);
@@ -156,6 +162,25 @@ void StartTask02(void const * argument)
     osDelay(1);
   }
   /* USER CODE END StartTask02 */
+}
+
+/* USER CODE BEGIN Header_StartTask03 */
+/**
+* @brief Function implementing the background thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask03 */
+void StartTask03(void const * argument)
+{
+  /* USER CODE BEGIN StartTask03 */
+  /* Infinite loop */
+  app_watch_background_task();
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartTask03 */
 }
 
 /* Private application code --------------------------------------------------*/

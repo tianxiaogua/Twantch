@@ -89,13 +89,13 @@
 #define REG_REV_ID 0xFE
 #define REG_PART_ID 0xFF
 
-uint8_t maxim_max30102_init(void);
-uint8_t maxim_max30102_read_fifo(uint32_t *pun_red_led, uint32_t *pun_ir_led);
-uint8_t maxim_max30102_write_reg(uint8_t uch_addr, uint8_t uch_data);
-uint8_t maxim_max30102_read_reg(uint8_t uch_addr, uint8_t *puch_data);
-uint8_t maxim_max30102_reset(void);
+int32_t maxim_max30102_init(void);
+int32_t maxim_max30102_read_fifo(uint32_t *pun_red_led, uint32_t *pun_ir_led);
+int32_t maxim_max30102_write_reg(uint8_t uch_addr, uint8_t uch_data);
+int32_t maxim_max30102_read_reg(uint8_t uch_addr, uint8_t *puch_data);
+int32_t maxim_max30102_reset(void);
 /* MAX30102_H_ */
-#endif 
+#endif
 
 
 

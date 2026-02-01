@@ -568,6 +568,122 @@ static void app_updata_system_message()
 
 
 
+#define MAX_BRIGHTNESS 255
+uint32_t aun_ir_buffer[500]; //IR LED sensor data
+int32_t n_ir_buffer_length = 200;    //data length
+uint32_t aun_red_buffer[500];    //Red LED sensor data
+int32_t n_sp02 = 98; //SPO2 value
+int8_t ch_spo2_valid;   //indicator to show if the SP02 calculation is valid
+int32_t n_heart_rate = 90;   //heart rate value ÐÄÂÊÖµ
+int8_t  ch_hr_valid;    //indicator to show if the heart rate calculation is
+uint8_t uch_dummy;
+uint8_t hreat_buffer[10] = {90,90,90,90,90,90,90,90,90,90};
+uint8_t O2_buffer[10] = {98,98,98,98,98,98,98,98,98,98};
+
+int32_t get_herat(void)
+{
+
+	uint32_t un_min = 0x3FFFF, un_max = 0, un_prev_data;
+	int i;
+	int32_t n_brightness = 0;
+	float f_temp;
+    int32_t rev = 0;
+
+	rev = maxim_max30102_reset(); //resets the MAX30102
+    if (rev != REV_OK) {
+        GUA_LOGE("iic error!\r\n");
+        // return REV_ERR;
+    }
+
+	rev = maxim_max30102_read_reg(0,&uch_dummy); // read and clear status register
+    if (rev != REV_OK) {
+        GUA_LOGE("iic error!\r\n");
+        // return REV_ERR;
+    }
+
+	rev = maxim_max30102_init();  //initializes the MAX30102
+    if (rev != REV_OK) {
+        GUA_LOGE("iic error!\r\n");
+        // return REV_ERR;
+    }
+	GUA_LOGI("max30102 ok uch_dummy:%d\r\n", uch_dummy);
+
+	for(i = 0; i < 500; i ++) {
+		while(HAL_GPIO_ReadPin(MAX30103_INT_GPIO_Port,MAX30103_INT_Pin) == 1) {};
+
+		rev = maxim_max30102_read_fifo((aun_red_buffer+i), (aun_ir_buffer+i));  //
+        if (rev != REV_OK) {
+            GUA_LOGE("max30102 read fifo error!\r\n");
+            return REV_ERR;
+        }
+
+		if(un_min>aun_red_buffer[i]) // 最大值
+			un_min=aun_red_buffer[i];
+
+		if(un_max<aun_red_buffer[i]) // 最小值
+			un_max=aun_red_buffer[i];
+
+        if (i % 100 == 0) {
+            GUA_LOGN("D:%d,%d\r\n", aun_red_buffer[i], aun_ir_buffer[i]);
+        }
+	}
+    //根据样本计算饱和度
+	maxim_heart_rate_and_oxygen_saturation(aun_ir_buffer, n_ir_buffer_length, aun_red_buffer, &n_sp02, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid);
+	GUA_LOGI("n_sp02:%d ch_spo2_valid:%d n_heart_rate:%d ch_hr_valid:%d\r\n", n_sp02, ch_spo2_valid, n_heart_rate, ch_hr_valid);
+
+    for (;;) {
+        i=0;
+        un_min=0x3FFFF;
+        un_max=0;
+
+        // 将前100组样本转储到内存中，并将最后400组样本移到顶部
+        for(i=100;i<500;i++)
+        {
+            aun_red_buffer[i-100]=aun_red_buffer[i];
+            aun_ir_buffer[i-100]=aun_ir_buffer[i];
+
+            //update the signal min and max
+            if(un_min>aun_red_buffer[i])
+            un_min=aun_red_buffer[i];
+            if(un_max<aun_red_buffer[i])
+            un_max=aun_red_buffer[i];
+        }
+
+        // 在计算心率前取100组样本。
+        for(i=400;i<500;i++) {
+            un_prev_data=aun_red_buffer[i-1];
+            while(HAL_GPIO_ReadPin(MAX30103_INT_GPIO_Port,MAX30103_INT_Pin) == 1) {};
+            maxim_max30102_read_fifo((aun_red_buffer+i), (aun_ir_buffer+i));
+
+            if(aun_red_buffer[i]>un_prev_data)//just to determine the brightness of LED according to the deviation of adjacent two AD data
+            {
+                f_temp=aun_red_buffer[i]-un_prev_data;
+                f_temp/=(un_max-un_min);
+                f_temp*=MAX_BRIGHTNESS;
+                n_brightness-=(int)f_temp;
+                if(n_brightness<0)
+                    n_brightness=0;
+            } else {
+                f_temp=un_prev_data-aun_red_buffer[i];
+                f_temp/=(un_max-un_min);
+                f_temp*=MAX_BRIGHTNESS;
+                n_brightness+=(int)f_temp;
+                if(n_brightness>MAX_BRIGHTNESS)
+                    n_brightness=MAX_BRIGHTNESS;
+            }
+
+            if (i % 100 == 0) {
+                GUA_LOGN("D:%d,%d,%d\r\n", aun_red_buffer[i], aun_ir_buffer[i], n_brightness);
+            }
+        }
+
+        maxim_heart_rate_and_oxygen_saturation(aun_ir_buffer, n_ir_buffer_length, aun_red_buffer, &n_sp02, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid);
+
+        GUA_LOGI("n_sp02:%d ch_spo2_valid:%d n_heart_rate:%d ch_hr_valid:%d\r\n", n_sp02, ch_spo2_valid, n_heart_rate, ch_hr_valid);
+    }
+    return REV_OK;
+}
+
 static uint8 app_get_key_value(KEY_MANAGE *ctl, int32 key)
 {
     if (key) { // 硬件按键按下
@@ -595,6 +711,7 @@ void app_watch_lv_tick_inc(void)
     lv_tick_inc(1); // 1毫秒调用周期
 }
 
+// noemal优先级
 static void app_device_init(void)
 {
     GUA_LOGI("mpu inti\r\n");
@@ -606,7 +723,7 @@ static void app_device_init(void)
     GUA_LOGI("mpu inti ok\r\n");
 }
 
-void app_watch_main_task(void)
+void app_watch_screen_task(void)
 {
 	lv_init();  // LVGL初始化
 	lv_port_disp_init(); // 显示初始化
@@ -651,7 +768,7 @@ void app_watch_base_task(void)
 
     init_key_gpio();
 
-    app_device_init();
+
 
     LCD_Init();
     GUA_LOGI("init sys\r\n");
@@ -682,6 +799,7 @@ void app_watch_base_task(void)
         key_data.key_valye = app_get_key_value(&key_center, key);
         if (key_data.key_valye == EVENT_SHORT_CLICK){
             key_data.key_valye = KEY_TYPE_CENTER;
+            get_herat(); // 测试
             key_queue_set(&key_data);
         }
         app_screen_jump_id(KEY_EVENT_ENTER_ID, key_data.key_valye); // enter按键控制界面跳转
@@ -721,6 +839,19 @@ void app_watch_base_task(void)
 
 }
 
+
+// 优先级最低 用于获取传感器数据
+void app_watch_background_task(void)
+{
+    unsigned long STEPS;
+
+    // app_device_init();
+
+    for (;;) {
+        delay_ms(1000);
+        // dmp_get_pedometer_step_count(&STEPS); // 计步器获取到步数
+    }
+}
 
 
 

@@ -10,9 +10,9 @@
 * @time:			2025.4.26
 *******************************************/
 void app_watch_lv_tick_inc(void);
-void app_watch_main_task(void);
+void app_watch_screen_task(void);
 void app_watch_base_task(void);
-
+void app_watch_background_task(void);
 #endif
 
 
